@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import { withErrorApi } from '@hoc/withErrorApi'
-import { getIconResource } from '@utils/network'
-import { ICONS, WAY, EXTENSION, GENERAL_SIZE } from '@constants/icon'
+
 import IconList from '@components/IconPage/IconList'
+
+import { getIconResource } from '@utils/network'
+
+import { ICONS, WAY, EXTENSION, GENERAL_SIZE } from '@constants/icon'
 
 import styles from './IconPage.module.css'
 
@@ -41,6 +45,10 @@ const IconPage = ({ setErrorApi }) => {
 			{icons && <IconList icons = {icons} />}
 		</>
 	)
+}
+
+IconPage.prototype = {
+	setErrorApi: PropTypes.func
 }
 
 export default withErrorApi(IconPage)

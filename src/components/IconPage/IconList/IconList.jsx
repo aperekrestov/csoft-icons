@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import styles from './IconList.module.css'
 
 const IconList = ({ icons }) => {
@@ -12,6 +14,10 @@ const IconList = ({ icons }) => {
 			)}
 		</ul>
 	)
+}
+
+IconList.propTypes = {
+	icons: PropTypes.array
 }
 
 export default IconList

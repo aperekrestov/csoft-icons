@@ -9,9 +9,8 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -31,5 +30,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-app-rewire-alias": "^1.1.7",
+    "react-app-rewired": "^2.2.1"
   }
 }

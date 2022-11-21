@@ -1,4 +1,4 @@
-import IconPage from '../IconPage'
+import IconPage from '@containers/IconPage'
 
 import cn from 'classnames'
 import styles from './App.module.css'

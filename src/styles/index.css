@@ -14,12 +14,14 @@
 	--color-13: #D6F0BF;
 	--color-14: #F5FAFC;
 
+	--spacing-large: 4rem;
 
 	--transition-regular: 0.4;
 }
 
-body {
+html, body {
 	margin: 0;
 	padding: 0;
 	background-color: var(--color-4);
+	font-size: 16px;
 }

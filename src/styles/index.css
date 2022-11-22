@@ -13,6 +13,9 @@
 	--color-12: #C8DDEA;
 	--color-13: #D6F0BF;
 	--color-14: #F5FAFC;
+
+
+	--transition-regular: 0.4;
 }
 
 body {

@@ -1,10 +1,6 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 
-import IconPage from '@containers/IconPage'
-import LegalPage from '@containers/LegalPage'
-
-
-
+import routesConfig from '@routes/routesConfig'
 
 import styles from './App.module.css'
 
@@ -12,13 +8,19 @@ const App = () => {
 	return (
 		<>
 			<BrowserRouter>
-				<NavLink to="/">Home</NavLink>
-				<NavLink to="/legal">Legal</NavLink>
+				<NavLink to='/'>Home</NavLink>
+				<NavLink to='/legal'>Legal</NavLink>
 
 				<Routes>
-					<Route path="/" element={<IconPage/>} />
-					<Route path="/legal" element={<LegalPage/>} />
+					{routesConfig.map((route, index) => (
+						<Route
+							key={index}
+							path={route.path}
+							element={route.element}
+						/>
+					))}
 				</Routes>
+
 			</BrowserRouter>
 		</>
 	)

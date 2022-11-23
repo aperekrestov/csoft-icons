@@ -40,10 +40,10 @@ const IconPage = ({ setErrorApi }) => {
 	}, [])
 
 	return (
-		<>
+		<div className="container_content">
 			<h1>Навигация</h1>
 			{icons && <IconList icons = {icons} />}
-		</>
+		</div>
 	)
 }
 

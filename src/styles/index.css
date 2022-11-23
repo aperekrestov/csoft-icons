@@ -14,6 +14,8 @@
 	--color-13: #D6F0BF;
 	--color-14: #F5FAFC;
 
+	--width-max: 1400px;
+
 	--spacing-large: 4rem;
 
 	--transition-regular: 0.4;
@@ -24,4 +26,12 @@ html, body {
 	padding: 0;
 	background-color: var(--color-4);
 	font-size: 16px;
+}
+
+.container_content{
+	/* width: 100%; */
+	max-width: var(--width-max);
+	margin: 0 auto;
+	padding: var(--spacing-large) var(--spacing-large);
+	background-color: var(--color-13);
 }

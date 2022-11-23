@@ -20,7 +20,7 @@
 .logo{
 	width: 80px;
 	height: 33px;
-	background-image: url(../../../public/img/logo.svg);
+	background-image: url(@static/logo.svg);
 }
 
 
@@ -53,7 +53,7 @@
 	width: 30px;
 	height: 30px;
 	margin-right: 1px;
-	background-image: url(../../../public/img/icon-0127-s.svg);
+	background-image: url(@static/icon-0127-s.svg);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-color: var(--color-10);
@@ -71,12 +71,12 @@
 	display: block;
 	width: 16px;
 	height: 16px;
-	background-image: url(../../../public/img/icon-0172-s.svg);
+	background-image: url(@static/icon-0172-s.svg);
 	margin-right: 1rem;
 }
 .list__btn_home{
 	display: block;
 	width: 16px;
 	height: 16px;
-	background-image: url(../../../public/img/icon-0375-s.svg);
+	background-image: url(@static/icon-0375-s.svg);
 }

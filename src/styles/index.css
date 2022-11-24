@@ -1,5 +1,5 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu:wght@300;400;500;700&display=swap'); */
 
 :root {
 	--color-1: #FCFCFC;
@@ -22,7 +22,8 @@
 	--spacing-small: 1rem;
 	--spacing-large: 4rem;
 
-	--transition-regular: 0.4;
+	--transition-fast: .2s;
+	--transition-regular: .4s;
 }
 
 
@@ -31,11 +32,36 @@
 	margin: 0;
 	padding: 0;
 }
+::selection {
+	background: var(--color-3);
+	color: var(--color-4);
+}
+::-moz-selection {
+	background: var(--color-3);
+	color: var(--color-4);
+}
 html, body {
 	background-color: var(--color-4);
-	/* font-family: 'Ubuntu', sans-serif; */
-	font-family: 'Ubuntu Condensed', sans-serif;
+	font-family: 'Ubuntu', sans-serif;
+	/* font-family: 'Ubuntu Condensed', sans-serif; */
 	font-size: 16px;
+	line-height: auto;
+	font-weight: 400;
+}
+h1{
+	font-size: 3rem;
+}
+h2{
+	font-size: 2rem;
+}
+
+
+
+.font_bold{
+	font-weight: 600;
+}
+.font_light{
+	font-weight: 300;
 }
 
 .container_content{

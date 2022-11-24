@@ -47,7 +47,7 @@ const IconPage = ({ setErrorApi }) => {
 
 	return (
 		<div className="container_content">
-			<h1>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h1>
+			<h2 className="font_bold" className={styles.iconPage__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
 			{icons && <IconList icons = {icons} />}
 		</div>
 	)

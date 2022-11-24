@@ -32,7 +32,7 @@
 	margin: 0;
 	padding: 0;
 }
-::selection {
+::selection{
 	background: var(--color-3);
 	color: var(--color-4);
 }
@@ -40,6 +40,13 @@
 	background: var(--color-3);
 	color: var(--color-4);
 }
+img::selection{
+	background: none;
+}
+img::-moz-selection{
+	background: none;
+}
+
 html, body {
 	background-color: var(--color-4);
 	font-family: 'Ubuntu', sans-serif;
@@ -53,6 +60,7 @@ h1{
 }
 h2{
 	font-size: 2rem;
+	margin-bottom: var(--spacing-large);
 }
 
 

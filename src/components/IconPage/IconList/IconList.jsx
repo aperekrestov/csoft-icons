@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 
+import { Link } from 'react-router-dom'
+
 import styles from './IconList.module.css'
 
 const IconList = ({ icons }) => {
@@ -7,9 +9,9 @@ const IconList = ({ icons }) => {
 		<ul className={styles.list__container}>
 			{icons.map(({ id, title, img, status }) => 
 				<li className={styles.list__item} key={id}>
-					<a href="#">
+					<Link to={`icon-${id}`}>
 						<img className={styles.list__image} src={img} alt={title} />
-					</a>
+					</Link>
 				</li>
 			
 			)}

@@ -1,59 +1,58 @@
-import { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
+import { useParams } from 'react-router'
+import { useEffect, useState } from 'react'
 
 import { withErrorApi } from '@hoc/withErrorApi'
 
-import IconList from '@components/IconPage/IconList'
+import { URL, WAY, EXTENSION, GENERAL_SIZE } from '@constants/icon'
 
 import { getIconResource } from '@utils/network'
 
-import { ICONS, WAY, EXTENSION, GENERAL_SIZE } from '@constants/icon'
+import PropTypes from 'prop-types'
 
 import styles from './IconPage.module.css'
 
 const IconPage = ({ setErrorApi }) => {
-	const [icons, setIcons] = useState(null)
+	const clickedIdIcon = useParams().id
 
-	const getResource = async (url) => {
-		const res = await getIconResource(url)
-
-		const arrIconFiltered = res.filter(function(item){
-			return item.status === "true"
-		})
-
-		if (arrIconFiltered) {
-			const iconList = arrIconFiltered.map(({ id, title, status }) => {
-				let icon_id = id
-				let icon_title = title
-				const img = WAY + GENERAL_SIZE + id + EXTENSION				
-				return {
-					id,
-					title, 
-					img, 
-					status
-				}	
-			})
-			setIcons(iconList)
-			setErrorApi(false)
-		} else {
-			setErrorApi(true)
-		}
- 
-	}
+	const [iconTitle, setIconTitle] = useState(null)
+	const [iconTags, setIconTags] = useState(null)
+	const [iconCreatedDay, setIconCreatedDay] = useState(null)
 
 	useEffect(() => {
-		getResource(ICONS)
+		(async () => {
+			const res = await getIconResource(URL)
+
+			if (res) {
+				for (let index = 0; index < res.length; index++) {
+					if(res[index].id === clickedIdIcon){
+						setIconTitle(res[index].title)
+						setIconTags(res[index].tags)
+						setIconCreatedDay(res[index].changed)
+						return
+					}
+				}
+				
+				setErrorApi(false)
+			} else {
+				setErrorApi(true)
+			}
+
+			
+		})()
+
 	}, [])
 
 	return (
-		<div className="container_content">
-			<h2 className="font_bold" className={styles.iconPage__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
-			{icons && <IconList icons = {icons} />}
-		</div>
+		<>
+			<h1>{clickedIdIcon}</h1>
+			<h2>{iconTitle}</h2>
+			<p>{iconTags}</p>
+			<u>{iconCreatedDay}</u>
+		</>
 	)
 }
 
-IconPage.prototype = {
+IconPage.propTypes = {
 	setErrorApi: PropTypes.func
 }
 

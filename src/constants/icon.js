@@ -1,4 +1,4 @@
-export const ICONS = './csoft-icons.json'
+export const URL = './csoft-icons.json'
 
 export const WAY = 'icons/'
 export const EXTENSION = '.png'

@@ -17,15 +17,21 @@ const IconPage = ({ setErrorApi }) => {
 	const getResource = async (url) => {
 		const res = await getIconResource(url)
 
-		if (res) {
-			const iconList = res.map(({ id, title }) => {
-				const img = WAY + GENERAL_SIZE + id + EXTENSION
-	
+		const arrIconFiltered = res.filter(function(item){
+			return item.status === "true"
+		})
+
+		if (arrIconFiltered) {
+			const iconList = arrIconFiltered.map(({ id, title, status }) => {
+				let icon_id = id
+				let icon_title = title
+				const img = WAY + GENERAL_SIZE + id + EXTENSION				
 				return {
 					id,
 					title, 
-					img
-				}
+					img, 
+					status
+				}	
 			})
 			setIcons(iconList)
 			setErrorApi(false)
@@ -41,7 +47,7 @@ const IconPage = ({ setErrorApi }) => {
 
 	return (
 		<div className="container_content">
-			<h1>Навигация</h1>
+			<h1>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h1>
 			{icons && <IconList icons = {icons} />}
 		</div>
 	)

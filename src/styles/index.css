@@ -1,3 +1,6 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu:wght@300;400;500;700&display=swap');
+
 :root {
 	--color-1: #FCFCFC;
 	--color-2: #ED1C24;
@@ -16,15 +19,22 @@
 
 	--width-max: 1400px;
 
+	--spacing-small: 1rem;
 	--spacing-large: 4rem;
 
 	--transition-regular: 0.4;
 }
 
-html, body {
+
+
+* {
 	margin: 0;
 	padding: 0;
+}
+html, body {
 	background-color: var(--color-4);
+	/* font-family: 'Ubuntu', sans-serif; */
+	font-family: 'Ubuntu Condensed', sans-serif;
 	font-size: 16px;
 }
 
@@ -33,5 +43,5 @@ html, body {
 	max-width: var(--width-max);
 	margin: 0 auto;
 	padding: var(--spacing-large) var(--spacing-large);
-	background-color: var(--color-13);
+	/* background-color: var(--color-13); */
 }

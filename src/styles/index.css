@@ -62,9 +62,10 @@ h2{
 	font-size: 2rem;
 	margin-bottom: var(--spacing-large);
 }
-
-
-
+h3{
+	font-size: 1.125rem;
+	font-weight: 400;
+}
 .font_bold{
 	font-weight: 600;
 }
@@ -78,4 +79,20 @@ h2{
 	margin: 0 auto;
 	padding: var(--spacing-large) var(--spacing-large);
 	/* background-color: var(--color-13); */
+}
+
+
+.icon_container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 246px;
+	height: 246px;
+	cursor: pointer;
+	margin-bottom: var(--spacing-small);
+	background-color: var(--color-5);
+}
+.icon_container__image{
+	width: 128px;
+	height: 128px;
 }

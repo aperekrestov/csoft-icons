@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 
 import { withErrorApi } from '@hoc/withErrorApi'
 
-import IconList from '@components/IconPage/IconList'
+import IconsList from '@components/IconsPage/IconsList'
 
 import { getIconResource } from '@utils/network'
+import { getIconImage } from '@services/getIconData'
 
-import { URL, WAY, EXTENSION, GENERAL_SIZE } from '@constants/icon'
+import { JSON } from '@constants/icon'
 
 import styles from './IconsPage.module.css'
 
@@ -22,8 +23,8 @@ const IconsPage = ({ setErrorApi }) => {
 		})
 
 		if (arrIconFiltered) {
-			const iconList = arrIconFiltered.map(({ id, title, status }) => {
-				const img = WAY + GENERAL_SIZE + id + EXTENSION				
+			const iconsList = arrIconFiltered.map(({ id, title, status }) => {
+				const img = getIconImage(id)
 				return {
 					id,
 					title, 
@@ -31,7 +32,7 @@ const IconsPage = ({ setErrorApi }) => {
 					status
 				}	
 			})
-			setIcons(iconList)
+			setIcons(iconsList)
 			setErrorApi(false)
 		} else {
 			setErrorApi(true)
@@ -40,13 +41,13 @@ const IconsPage = ({ setErrorApi }) => {
 	}
 
 	useEffect(() => {
-		getResource(URL)
+		getResource(JSON)
 	}, [])
 
 	return (
 		<div className="container_content">
 			<h2 className="font_bold" className={styles.iconsPage__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
-			{icons && <IconList icons = {icons} />}
+			{icons && <IconsList icons = {icons} />}
 		</div>
 	)
 }

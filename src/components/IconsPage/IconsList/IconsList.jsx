@@ -2,15 +2,15 @@ import PropTypes from 'prop-types'
 
 import { Link } from 'react-router-dom'
 
-import styles from './IconList.module.css'
+import styles from './IconsList.module.css'
 
-const IconList = ({ icons }) => {
+const IconsList = ({ icons }) => {
 	return (
 		<ul className={styles.list__container}>
 			{icons.map(({ id, title, img, status }) => 
-				<li className={styles.list__item} key={id}>
+				<li className="icon_container" key={id}>
 					<Link to={`icon-${id}`}>
-						<img className={styles.list__image} src={img} alt={title} />
+						<img className="icon_container__image" src={img} alt={title} />
 					</Link>
 				</li>
 			
@@ -19,8 +19,8 @@ const IconList = ({ icons }) => {
 	)
 }
 
-IconList.propTypes = {
+IconsList.propTypes = {
 	icons: PropTypes.array
 }
 
-export default IconList
+export default IconsList

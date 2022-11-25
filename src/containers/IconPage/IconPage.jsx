@@ -6,6 +6,7 @@ import { useParams } from 'react-router'
 import { withErrorApi } from '@hoc/withErrorApi'
 
 import IconInfo from '@components/IconPage/IconInfo'
+import IconImage from '@components/IconPage/IconImage'
 
 import { getIconImage } from '@services/getIconData'
 
@@ -17,12 +18,10 @@ import styles from './IconPage.module.css'
 
 const IconPage = ({ setErrorApi }) => {
 	const clickedIdIcon = useParams().id
-
-	const [iconImage, setIconImage] = useState(null)
 	const [iconTitle, setIconTitle] = useState(null)
+	const [iconImage, setIconImage] = useState(null)
 	const [iconInfo, setIconInfo] = useState(null)
 	const [iconTags, setIconTags] = useState(null)
-	const [iconCreatedDay, setIconCreatedDay] = useState(null)
 
 	useEffect(() => {
 		(async () => {
@@ -33,7 +32,6 @@ const IconPage = ({ setErrorApi }) => {
 					if(res[index].id === clickedIdIcon){
 						setIconTitle(res[index].title)
 						setIconTags(res[index].tags)
-						setIconCreatedDay(res[index].modificated)
 						setIconImage(getIconImage(clickedIdIcon))
 						setIconInfo([
 							{ title: 'Id', data: res[index].id },
@@ -47,29 +45,22 @@ const IconPage = ({ setErrorApi }) => {
 			} else {
 				setErrorApi(true)
 			}
-
-			
 		})()
-
 	}, [])
 
 	return (
 		<>
-			{iconInfo && (
-				<IconInfo iconInfo={iconInfo}/>
-			)}
+			<div className="wrapper_grey_page">
 
-			<div className="icon_container">
-				<img className="icon_container__image" src={iconImage} alt={iconTitle} />
+			<div className="container_middle">
+				{iconInfo && <IconInfo iconInfo={iconInfo} />}
+
+				<IconImage 
+					iconImage={iconImage}
+					iconTitle={iconTitle}
+				/>
 			</div>
-
-			<p>{iconImage}</p>
-
-
-			{/* <h1>{clickedIdIcon}</h1>
-			<h2>{iconTitle}</h2>
-			<p>{iconTags}</p>
-			<u>{iconCreatedDay}</u> */}
+			</div>
 		</>
 	)
 }

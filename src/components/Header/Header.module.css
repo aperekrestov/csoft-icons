@@ -13,10 +13,10 @@
 	align-items: center;
 	width: 100%;
 	max-width: var(--width-max);
-	padding: 0 var(--spacing-large);
 }
 
 .logo{
+	/*! ширина должна быть равной ширине блоку иконок справа */
 	width: 80px;
 	height: 33px;
 	background-image: url(@static/logo.svg);
@@ -26,9 +26,10 @@
 .search{
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	/* justify-content: space-between; */
+	margin: 0 auto;
 	width: 100%;
-	max-width: 768px;
+	max-width: var(--width-middle);
 	height: 32px;
 	background-color: var(--color-4);
 	transition: all var(--transition-fast) ease;
@@ -39,7 +40,7 @@
 	border: none;
 	outline: none;
     width: 100%;
-	height: calc(100% - 6px);
+	/* height: calc(100% - 6px); */
 	margin: 0 1rem;
 	background-color: var(--color-4);
 }
@@ -63,16 +64,19 @@
 
 .list__btn{
 	display: flex;
+	justify-content: end;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+	width: 80px; 
+	/*! ширина должна быть равной ширине логотипа */
 }
 .list__btn_legal{
 	display: block;
 	width: 16px;
 	height: 16px;
 	background-image: url(@static/icon-0172-s.svg);
-	margin-right: 1rem;
+	margin-right: var(--spacing-small);
 }
 .list__btn_home{
 	display: block;

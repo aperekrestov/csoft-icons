@@ -1,20 +1,13 @@
 import PropTypes from 'prop-types'
-// import styles from './IconInfo.module.css'
+import cn from 'classnames'
+import styles from './IconInfo.module.css'
 
 const IconInfo = ({ iconInfo }) => {
 	return (
 		<>
-			<div>
-				<ul>
-					{iconInfo.map(({ title, data }) => (
-						data && (
-							<li key={title}>
-								<span>{title}: {data}</span>
-							</li>
-						)
-					))}
-				</ul>
-			</div>
+			<h3>Файл #{iconInfo[0].data}</h3>
+			<span className="font_ultra">обновлен</span>
+			<b className={cn(styles.icon_info__date, "font_ultra")} >{iconInfo[2].data}</b>
 		</>
 	)
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import { withErrorApi } from '@hoc/withErrorApi'
 
+import BannerBig from '@components/BannerBig'
 import IconsList from '@components/IconsPage/IconsList'
 
 import { getIconResource } from '@utils/network'
@@ -45,9 +46,13 @@ const IconsPage = ({ setErrorApi }) => {
 	}, [])
 
 	return (
-		<div className="container_large">
-			<h2 className={styles.iconsPage__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
-			{icons && <IconsList icons = {icons} />}
+		<div>
+			<BannerBig />
+			
+			<div className="container_content content_width_max">
+				<h2 className={styles.iconsPage__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
+				{icons && <IconsList icons = {icons} />}
+			</div>
 		</div>
 	)
 }

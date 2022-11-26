@@ -17,6 +17,18 @@
 	--color-13: #D6F0BF;
 	--color-14: #F5FAFC;
 
+	--size-0: 4px;
+	--size-1: 8px;
+	--size-2: 16px;
+	--size-3: 24px;
+	--size-4: 32px;
+	--size-5: 48px;
+	--size-6: 64px;
+	--size-7: 96px;
+	--size-8: 128px;
+	--size-9: 256px;
+	--size-10: 512px;
+
 	--width-max: 1400px;
 	--width-middle: 768px;
 
@@ -27,8 +39,6 @@
 	--transition-fast: .2s;
 	--transition-regular: .4s;
 }
-
-
 
 * {
 	margin: 0;
@@ -53,21 +63,26 @@ html, body {
 	background-color: var(--color-4);
 	font-family: 'Ubuntu', sans-serif;
 	/* font-family: 'Ubuntu Condensed', sans-serif; */
-	font-size: 16px;
+	font-size: var(--size-2);
 	line-height: auto;
 	font-weight: 400;
 }
 h1{
-	font-size: 3rem;
+	font-size: var(--size-5);
+	font-weight: 300;
 }
 h2{
-	font-size: 2rem;
+	font-size: var(--size-4);
 	padding-bottom: var(--spacing-large);
 }
 h3{
 	font-size: 18px;
 	font-weight: 400;
 	padding-bottom: var(--spacing-ultra-small);
+}
+input{
+	font-size: var(--size-2);
+
 }
 .font_bold{
 	font-weight: 600;
@@ -87,22 +102,16 @@ h3{
 	min-height: 100vh;
 	background-color: var(--color-5);
 }
-
-.container_large{
-	width: 100%;
+.content_width_max{
 	max-width: var(--width-max);
-	margin: 0 auto;
-	padding: var(--spacing-large) 0;
-	/* background-color: var(--color-13); */
 }
-.container_middle{
-	width: 100%;
+.content_width_middle{
 	max-width: var(--width-middle);
-	margin: 0 auto;
-	padding: var(--spacing-large) 0;
-	/* background-color: var(--color-5); */
 }
-
+.container_content{
+	width: 100%;
+	margin: 0 auto;
+}
 
 .icon_container {
 	display: flex;

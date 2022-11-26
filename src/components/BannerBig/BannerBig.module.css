@@ -1,0 +1,22 @@
+.bannerBig__wrapper{
+	width: 100%;
+	height: var(--size-10);
+	background-color: var(--color-10);
+}
+
+/* .container_large{
+	padding: var(--spacing-large) 0;
+} */
+
+.bannerBig__header{
+	max-width: var(--width-middle);
+	margin: 0 auto;
+	text-align: center;
+	color: var(--color-1);
+}
+
+.bannerBig__img{
+	width: 100%;
+	height: var(--size-8);
+	background-color: aquamarine;
+}

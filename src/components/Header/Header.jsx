@@ -1,15 +1,17 @@
 import { NavLink } from 'react-router-dom'
 
+import cn from 'classnames'
+
 import styles from './Header.module.css'
 
 const Header = () => {
 	return (
 		<section className={styles.wrapper}>
-			<nav className={styles.container}>
+			<nav className={cn(styles.container, "container_content", "content_width_max")}>
 				<NavLink to='/' className={styles.logo}></NavLink>
 
-				<div className={styles.search}>
-					<input className={styles.search__input} autoFocus type="text" autoComplete="off" placeholder="Поиск графических иконок" />
+				<div className={cn(styles.search, "container_content", "content_width_middle")}>
+					<input className={styles.search__input} type="text" autoComplete="off" placeholder="Поиск графических иконок" />
 					<div className={styles.search__btn}></div>
 				</div>
 

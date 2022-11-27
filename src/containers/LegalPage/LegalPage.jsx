@@ -2,7 +2,7 @@ import styles from './LegalPage.module.css'
 
 const LegalPage = () => {
 	return (
-		<div className="container_content content_width_middle">
+		<div className="content_width_middle padding-h-large">
 			<h2>Пользовательское соглашение</h2>
 		</div>
 	)

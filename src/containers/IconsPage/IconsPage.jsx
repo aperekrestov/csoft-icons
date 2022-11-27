@@ -49,7 +49,7 @@ const IconsPage = ({ setErrorApi }) => {
 		<div>
 			<BannerBig />
 			
-			<div className="container_content content_width_max">
+			<div className="content_width_large padding-h-large">
 				<h2 className={styles.iconsPage__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
 				{icons && <IconsList icons = {icons} />}
 			</div>

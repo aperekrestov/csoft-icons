@@ -29,7 +29,7 @@
 	--size-9: 256px;
 	--size-10: 512px;
 
-	--width-max: 1400px;
+	--width-large: 1400px;
 	--width-middle: 768px;
 
 	--spacing-ultra-small: .25rem;
@@ -102,16 +102,25 @@ input{
 	min-height: 100vh;
 	background-color: var(--color-5);
 }
-.content_width_max{
-	max-width: var(--width-max);
+.content_width_large{
+	margin: 0 auto;
+	max-width: var(--width-large);
+	padding-left: var(--size-6);
+	padding-right: var(--size-6);
 }
 .content_width_middle{
+	margin: 0 auto;
 	max-width: var(--width-middle);
 }
-.container_content{
-	width: 100%;
-	margin: 0 auto;
+.padding-w-large{
+	padding-left: var(--size-6);
+	padding-right: var(--size-6);
 }
+.padding-h-large{
+	padding-top: var(--size-6);
+	padding-bottom: var(--size-6);
+}
+
 
 .icon_container {
 	display: flex;
@@ -126,4 +135,12 @@ input{
 .icon_container__image{
 	width: 128px;
 	height: 128px;
+}
+
+@media (max-width: 1401px) {
+	/* когда монитор меньше 1401px */
+	/* .content_width_max{
+		padding-left: var(--size-6);
+		padding-right: var(--size-6);
+	} */
 }

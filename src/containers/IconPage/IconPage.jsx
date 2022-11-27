@@ -52,7 +52,7 @@ const IconPage = ({ setErrorApi }) => {
 		<>
 			<div className="wrapper_grey_page">
 
-			<div className="container_content content_width_middle">
+			<div className="content_width_middle padding-h-large">
 				{iconInfo && <IconInfo iconInfo={iconInfo} />}
 
 				<IconImage 

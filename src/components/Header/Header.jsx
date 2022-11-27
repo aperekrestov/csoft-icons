@@ -7,10 +7,10 @@ import styles from './Header.module.css'
 const Header = () => {
 	return (
 		<section className={styles.wrapper}>
-			<nav className={cn(styles.container, "container_content", "content_width_max")}>
+			<nav className={cn(styles.container, "content_width_large")}>
 				<NavLink to='/' className={styles.logo}></NavLink>
 
-				<div className={cn(styles.search, "container_content", "content_width_middle")}>
+				<div className={cn(styles.search, "content_width_middle")}>
 					<input className={styles.search__input} type="text" autoComplete="off" placeholder="Поиск графических иконок" />
 					<div className={styles.search__btn}></div>
 				</div>

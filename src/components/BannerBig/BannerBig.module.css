@@ -1,16 +1,14 @@
 .bannerBig__wrapper{
-	width: 100%;
+	/* width: 100%; */
 	height: var(--size-10);
 	background-color: var(--color-10);
 }
 
-/* .container_large{
-	padding: var(--spacing-large) 0;
-} */
-
 .bannerBig__header{
 	max-width: var(--width-middle);
 	margin: 0 auto;
+	padding-top: var(--size-6);
+	padding-bottom: var(--size-6);
 	text-align: center;
 	color: var(--color-1);
 }
@@ -18,5 +16,6 @@
 .bannerBig__img{
 	width: 100%;
 	height: var(--size-8);
-	background-color: aquamarine;
+	/* background-color: aquamarine; */
+	background-image: url(img/banner-big-img-1400x128.svg);
 }

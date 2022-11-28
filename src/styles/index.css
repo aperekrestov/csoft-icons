@@ -40,8 +40,8 @@
 	--spacing-small: 1rem;
 	--spacing-large: 4rem;
 
-	--transition-fast: .2s;
-	--transition-regular: .4s;
+	--transition-fast: all .2s ease;
+	--transition-regular: all .4s ease;
 }
 
 * {
@@ -61,6 +61,11 @@ img::selection{
 }
 img::-moz-selection{
 	background: none;
+}
+a{
+	display: block;
+	color: var(--color-10);
+	text-decoration: none;
 }
 
 html, body {

@@ -2,11 +2,13 @@ import PropTypes from 'prop-types'
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
+import { useLocation } from 'react-router-dom';
 
 import cn from "classnames"
 
 import { withErrorApi } from '@hoc/withErrorApi'
 
+import IconLinkBack from '@components/IconPage/IconLinkBack'
 import IconInfo from '@components/IconPage/IconInfo'
 import TheIcon from '@components/IconPage/TheIcon'
 import IconTags from '@components/IconPage/IconTags'
@@ -20,7 +22,10 @@ import { JSON } from '@constants/icon'
 
 import styles from './IconPage.module.css'
 
-const IconPage = ({ setErrorApi }) => {
+const IconPage = ({setErrorApi}) => {
+	const location = useLocation()
+	const { scrollPosition } = location.state
+
 	const clickedIdIcon = useParams().id
 	const [iconTitle, setIconTitle] = useState(null)
 	const [iconImage, setIconImage] = useState(null)
@@ -30,7 +35,7 @@ const IconPage = ({ setErrorApi }) => {
 	useEffect(() => {
 		(async () => {
 			const res = await getIconResource(JSON)
-
+			
 			if (res) {
 				for (let index = 0; index < res.length; index++) {
 					if(res[index].id === clickedIdIcon){
@@ -50,26 +55,36 @@ const IconPage = ({ setErrorApi }) => {
 				setErrorApi(true)
 			}
 		})()
+
+		window.scrollTo(0, 0)
 	}, [])
+
+	
 
 	return (
 		<>
+			{console.log(scrollPosition)}
+
 			<div className="wrapper_grey_page">
 
-			<div className={cn("content_width_middle padding_top_bottom_l", styles.icon_page_flex)}>
+			<div className={cn("content_width_middle padding_top_bottom_l")}>
 
-				<section className={styles.container_info}>
-					{iconInfo && <IconInfo iconInfo={iconInfo} />}
-					<TheIcon 
-						iconImage={iconImage}
-						iconTitle={iconTitle}
-					/>
-				</section>
-				
-				<section>
-					{/* {iconTags && console.log(iconTags)} */}
-					{iconTags && <IconTags iconTags={iconTags} />}
-				</section>
+				<IconLinkBack />
+
+				<div className={styles.icon_page_flex}>
+					
+					<section className={styles.container_info}>
+						{iconInfo && <IconInfo iconInfo={iconInfo} />}
+						<TheIcon 
+							iconImage={iconImage}
+							iconTitle={iconTitle}
+							/>
+					</section>
+					
+					<section>
+						{iconTags && <IconTags iconTags={iconTags} />}
+					</section>
+				</div>
 
 			</div>
 			</div>

@@ -1,0 +1,14 @@
+.btn_back{
+	display: inline-flex;
+	align-items: center;
+	margin-bottom: var(--size-6);
+	transition: var(--transition-fast);
+}
+
+.btn_back:hover{
+	color: var(--color-3);
+}
+
+.btn_back__icon{
+	margin-right: var(--size-1);
+}

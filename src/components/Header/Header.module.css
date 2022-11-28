@@ -30,7 +30,7 @@
 	align-items: center;
 	height: var(--size-5);
 	background-color: var(--color-4);
-	transition: all var(--transition-regular) ease;
+	transition: var(--transition-regular);
 	outline: 2px solid var(--color-7);
     outline-offset: -2px;
 }

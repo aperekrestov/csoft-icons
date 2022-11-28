@@ -1,6 +1,15 @@
-.iconPage__header{
+/* .iconPage__header{
 	width: 100%;
 	max-width: 650px;
 	text-align: center;
 	margin: 0 auto;
+} */
+
+.icon_page_flex{
+	display: flex;
+}
+
+.container_info{
+	width: var(--size-9);
+	/* background-color: var(--color-1); */
 }

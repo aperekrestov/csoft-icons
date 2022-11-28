@@ -3,12 +3,16 @@ import PropTypes from 'prop-types'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
+import cn from "classnames"
+
 import { withErrorApi } from '@hoc/withErrorApi'
 
 import IconInfo from '@components/IconPage/IconInfo'
-import IconImage from '@components/IconPage/IconImage'
+import TheIcon from '@components/IconPage/TheIcon'
+import IconTags from '@components/IconPage/IconTags'
 
 import { getIconImage } from '@services/getIconData'
+import { getIconTags } from '@services/getIconData'
 
 import { getIconResource } from '@utils/network'
 
@@ -31,7 +35,7 @@ const IconPage = ({ setErrorApi }) => {
 				for (let index = 0; index < res.length; index++) {
 					if(res[index].id === clickedIdIcon){
 						setIconTitle(res[index].title)
-						setIconTags(res[index].tags)
+						setIconTags(getIconTags(res[index].tags))
 						setIconImage(getIconImage(clickedIdIcon))
 						setIconInfo([
 							{ title: 'Id', data: res[index].id },
@@ -52,13 +56,21 @@ const IconPage = ({ setErrorApi }) => {
 		<>
 			<div className="wrapper_grey_page">
 
-			<div className="content_width_middle padding-h-large">
-				{iconInfo && <IconInfo iconInfo={iconInfo} />}
+			<div className={cn("content_width_middle padding_top_bottom_l", styles.icon_page_flex)}>
 
-				<IconImage 
-					iconImage={iconImage}
-					iconTitle={iconTitle}
-				/>
+				<section className={styles.container_info}>
+					{iconInfo && <IconInfo iconInfo={iconInfo} />}
+					<TheIcon 
+						iconImage={iconImage}
+						iconTitle={iconTitle}
+					/>
+				</section>
+				
+				<section>
+					{/* {iconTags && console.log(iconTags)} */}
+					{iconTags && <IconTags iconTags={iconTags} />}
+				</section>
+
 			</div>
 			</div>
 		</>

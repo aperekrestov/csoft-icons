@@ -1,0 +1,16 @@
+.tags_list{
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+}
+
+.tag{
+	display: flex;
+	align-items: center;
+	color: var(--color-7);
+	background-color: var(--color-14);
+	height: var(--size-3);
+	border-radius: calc(var(--size-3)/2);
+	padding: 0 var(--size-2);
+	margin: 0 var(--size-1) var(--size-1) 0;
+}

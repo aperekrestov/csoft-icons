@@ -12,7 +12,7 @@ import IconTags from '@components/IconPage/IconTags'
 import { getIconImage } from '@services/getIconData'
 import { getIconTags } from '@services/getIconData'
 import { getIconResource } from '@utils/network'
-import { JSON } from '@constants/icon'
+import { JSON } from '@constants/constants'
 
 import styles from './IconPage.module.css'
 

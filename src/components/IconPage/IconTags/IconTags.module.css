@@ -7,10 +7,18 @@
 .tag{
 	display: flex;
 	align-items: center;
+	user-select: none;
+	cursor: pointer;
 	color: var(--color-7);
 	background-color: var(--color-14);
 	height: var(--size-3);
 	border-radius: calc(var(--size-3)/2);
 	padding: 0 var(--size-2);
 	margin: 0 var(--size-1) var(--size-1) 0;
+	transition: var(--transition-regular);
+}
+
+.tag:hover{
+	/* color: var(--color-10); */
+	background-color: var(--color-hover-1);
 }

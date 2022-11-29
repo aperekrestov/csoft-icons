@@ -14,6 +14,26 @@ const IconsList = ({ icons }) => {
 		setScrollTop(scrollPosition)
 	}
 
+	const searcParam = "u"
+
+	const arrAfterSearch = icons.filter(function(item){
+		return item.tags.toLowerCase().includes(searcParam.toLowerCase())
+	})
+	console.log(arrAfterSearch)
+
+	// const arrIconSearch = icons.map(({id, tags}) => {
+	// 	if(tags.toLowerCase().includes(searcParam.toLowerCase())) {
+	// 		return {
+	// 			id
+	// 		}
+	// 	} else {
+	// 		return null
+	// 	}
+
+	// })
+	// console.log(arrIconSearch.length)
+
+
 	return (
 		<ul className={styles.list__container}>
 			{icons.map(({id, title, img}) =>

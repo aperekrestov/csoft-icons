@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types'
 import { useState, useEffect, useContext } from 'react'
 
+import cn from 'classnames'
+
 import { withErrorApi } from '@hoc/withErrorApi'
 import BannerBig from '@components/BannerBig'
 import IconsList from '@components/IconsPage/IconsList'
 import { getIconResource } from '@utils/network'
 import { getIconImage } from '@services/getIconData'
 import ScrollTop from '@services/context'
-import { JSON, TIMEOUT_SCROLL } from '@constants/icon'
+import { JSON, TIMEOUT_SCROLL } from '@constants/constants'
 
 import styles from './IconsPage.module.css'
 
@@ -25,13 +27,14 @@ const IconsPage = ({ setErrorApi }) => {
 		})
 
 		if (arrIconFiltered) {
-			const iconsList = arrIconFiltered.map(({ id, title, status }) => {
+			const iconsList = arrIconFiltered.map(({ id, title, status, tags }) => {
 				const img = getIconImage(id)
 				return {
 					id,
 					title, 
 					img, 
-					status
+					status, 
+					tags
 				}	
 			})
 			setIcons(iconsList)
@@ -55,10 +58,10 @@ const IconsPage = ({ setErrorApi }) => {
 		<div>
 			<BannerBig />
 			
-			<div className="content_width_large padding_top_bottom_l">
-				<h2 className={styles.iconsPage__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
+			<section className={"content_width_large padding_top_bottom_l"}>
+				<h2 className={styles.icons_page__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
 				{icons && <IconsList icons = {icons} />}
-			</div>
+			</section>
 
 			{setTimeout(targetScroll, TIMEOUT_SCROLL)}
 		</div>

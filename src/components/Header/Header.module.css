@@ -7,6 +7,7 @@
 	background-color: var(--color-10);
 	width: 100%;
 	height: var(--size-7);
+	z-index: 100;
 }
 
 .container{

@@ -17,6 +17,8 @@
 	--color-13: #D6F0BF;
 	--color-14: #F5FAFC;
 
+	--color-hover-1: rgba(12, 18, 28, 0.04);
+
 	--size-0: 4px;
 	--size-1: 8px;
 	--size-2: 16px;
@@ -40,8 +42,12 @@
 	--spacing-small: 1rem;
 	--spacing-large: 4rem;
 
-	--transition-fast: all .2s ease;
 	--transition-regular: all .4s ease;
+	--transition-fast: all .2s ease;
+
+	--time-slow: 1s;
+	--time-regular: .4s;
+	--time-fast: .2s;
 }
 
 * {

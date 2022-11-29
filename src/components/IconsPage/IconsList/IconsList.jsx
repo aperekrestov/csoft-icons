@@ -21,19 +21,6 @@ const IconsList = ({ icons }) => {
 	})
 	console.log(arrAfterSearch)
 
-	// const arrIconSearch = icons.map(({id, tags}) => {
-	// 	if(tags.toLowerCase().includes(searcParam.toLowerCase())) {
-	// 		return {
-	// 			id
-	// 		}
-	// 	} else {
-	// 		return null
-	// 	}
-
-	// })
-	// console.log(arrIconSearch.length)
-
-
 	return (
 		<ul className={styles.list__container}>
 			{icons.map(({id, title, img}) =>

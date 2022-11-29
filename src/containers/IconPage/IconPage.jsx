@@ -2,30 +2,21 @@ import PropTypes from 'prop-types'
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { useLocation } from 'react-router-dom';
-
 import cn from "classnames"
 
 import { withErrorApi } from '@hoc/withErrorApi'
-
+import TheIcon from '@components/IconPage/TheIcon'
 import IconLinkBack from '@components/IconPage/IconLinkBack'
 import IconInfo from '@components/IconPage/IconInfo'
-import TheIcon from '@components/IconPage/TheIcon'
 import IconTags from '@components/IconPage/IconTags'
-
 import { getIconImage } from '@services/getIconData'
 import { getIconTags } from '@services/getIconData'
-
 import { getIconResource } from '@utils/network'
-
 import { JSON } from '@constants/icon'
 
 import styles from './IconPage.module.css'
 
 const IconPage = ({setErrorApi}) => {
-	const location = useLocation()
-	const { scrollPosition } = location.state
-
 	const clickedIdIcon = useParams().id
 	const [iconTitle, setIconTitle] = useState(null)
 	const [iconImage, setIconImage] = useState(null)
@@ -63,12 +54,9 @@ const IconPage = ({setErrorApi}) => {
 
 	return (
 		<>
-			{console.log(scrollPosition)}
-
 			<div className="wrapper_grey_page">
 
 			<div className={cn("content_width_middle padding_top_bottom_l")}>
-
 				<IconLinkBack />
 
 				<div className={styles.icon_page_flex}>

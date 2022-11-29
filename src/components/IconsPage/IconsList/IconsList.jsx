@@ -1,24 +1,27 @@
-import PropTypes from 'prop-types'
-
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-
+import PropTypes from 'prop-types'
 import useScrollPosition from '@hoc/useScrollPosition'
-
+import IconImage from '@components/IconPage/IconImage'
+import ScrollTop from '@services/context'
 import styles from './IconsList.module.css'
 
 const IconsList = ({ icons }) => {
 	const scrollPosition = useScrollPosition()
-	// console.log(scrollPosition)
+	const {scrollTop, setScrollTop } = useContext(ScrollTop)
+
+	function click(e) {
+		setScrollTop(scrollPosition)
+	}
 
 	return (
 		<ul className={styles.list__container}>
-			{icons.map(({ id, title, img, status }) => 
+			{icons.map(({id, title, img}) =>
 				<li className="icon_container" key={id}>
-					<Link to={`icon-${id}`} state={{ scrollPosition: scrollPosition }}>
-						<img className="icon_container__image" src={img} alt={title} />
+					<Link to={`icon-${id}`} onClick={click}>
+						<IconImage iconImage={img} iconTitle={title}/>
 					</Link>
 				</li>
-			
 			)}
 		</ul>
 	)

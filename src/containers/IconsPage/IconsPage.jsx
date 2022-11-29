@@ -1,19 +1,20 @@
-import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import { useState, useEffect, useContext } from 'react'
 
 import { withErrorApi } from '@hoc/withErrorApi'
-
 import BannerBig from '@components/BannerBig'
 import IconsList from '@components/IconsPage/IconsList'
-
 import { getIconResource } from '@utils/network'
 import { getIconImage } from '@services/getIconData'
-
-import { JSON } from '@constants/icon'
+import ScrollTop from '@services/context'
+import { JSON, TIMEOUT_SCROLL } from '@constants/icon'
 
 import styles from './IconsPage.module.css'
 
+
+
 const IconsPage = ({ setErrorApi }) => {
+	const {scrollTop, setScrollTop } = useContext(ScrollTop)
 	const [icons, setIcons] = useState(null)
 
 	const getResource = async (url) => {
@@ -45,6 +46,11 @@ const IconsPage = ({ setErrorApi }) => {
 		getResource(JSON)
 	}, [])
 
+	function targetScroll() {
+		// console.log(scrollTop + " проверка")
+		window.scrollTo(0, scrollTop)
+	}
+
 	return (
 		<div>
 			<BannerBig />
@@ -53,6 +59,8 @@ const IconsPage = ({ setErrorApi }) => {
 				<h2 className={styles.iconsPage__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
 				{icons && <IconsList icons = {icons} />}
 			</div>
+
+			{setTimeout(targetScroll, TIMEOUT_SCROLL)}
 		</div>
 	)
 }

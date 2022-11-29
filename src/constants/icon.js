@@ -8,5 +8,6 @@ export const MEDIOM = '24x24/'
 
 export const EXTENSION = '.png'
 
-
 export const GENERAL_SIZE = MEDIOM
+
+export const TIMEOUT_SCROLL = 100

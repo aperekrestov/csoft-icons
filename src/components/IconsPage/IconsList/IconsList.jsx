@@ -9,6 +9,7 @@ import styles from './IconsList.module.css'
 const IconsList = ({ icons }) => {
 	const scrollPosition = useScrollPosition()
 	const {scrollTop, setScrollTop } = useContext(ScrollTop)
+	// console.log(scrollTop);
 
 	function click(e) {
 		setScrollTop(scrollPosition)

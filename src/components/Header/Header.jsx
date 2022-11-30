@@ -1,10 +1,48 @@
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, createContext, useContext, useEffect } from 'react'
+
+import { getIconResource } from '@utils/network'
+import { getIconImage } from '@services/getIconData'
+import { IconArray } from '@services/context'
+import { JSON } from '@constants/constants'
+
 import cn from 'classnames'
 import styles from './Header.module.css'
 
 const Header = ({searchText}) => {
+	const { iconArray, setIconArray } = useContext(IconArray)
+	// console.log(iconArray);
+
+	const getResource = async (url) => {
+		const res = await getIconResource(url)
+		const arrIconFiltered = res.filter(function(item){
+			return item.status === "true"
+		})
+		if (arrIconFiltered) {
+			const iconsList = arrIconFiltered.map(({ id, title, status, tags }) => {
+				const img = getIconImage(id)
+				return {
+					id,
+					title, 
+					img, 
+					status, 
+					tags
+				}	
+			})
+			setIconArray(iconsList)
+			// setIcons(iconsList)
+			// setErrorApi(false)
+		} else {
+			// setErrorApi(true)
+			console.error("Ошибка в загрузке массива иконок")
+		}
+ 
+	}
+	useEffect(() => {
+		getResource(JSON)
+	}, [])
+
 	const [inputSerchValue, setInputSerchValue] = useState(searchText)
 
 	const handleInputChange = (event) => {

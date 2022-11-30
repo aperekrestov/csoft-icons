@@ -1,10 +1,6 @@
-import PropTypes from 'prop-types'
-
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { useParams } from 'react-router'
-import cn from "classnames"
 
-import { withErrorApi } from '@hoc/withErrorApi'
 import Header from '@components/Header'
 import TheIcon from '@components/IconPage/TheIcon'
 import IconLinkBack from '@components/IconPage/IconLinkBack'
@@ -12,46 +8,35 @@ import IconInfo from '@components/IconPage/IconInfo'
 import IconTags from '@components/IconPage/IconTags'
 import { getIconImage } from '@services/getIconData'
 import { getIconTags } from '@services/getIconData'
-import { getIconResource } from '@utils/network'
-import { JSON } from '@constants/constants'
+import { IconArray } from '@services/context'
 
+import cn from "classnames"
 import styles from './IconPage.module.css'
 
-const IconPage = ({setErrorApi}) => {
+const IconPage = () => {
+	window.scrollTo(0, 0)
+
+	const { iconArray, setIconArray } = useContext(IconArray)
 	const clickedIdIcon = useParams().id
-	const [iconTitle, setIconTitle] = useState(null)
-	const [iconImage, setIconImage] = useState(null)
-	const [iconInfo, setIconInfo] = useState(null)
-	const [iconTags, setIconTags] = useState(null)
-
-	useEffect(() => {
-		(async () => {
-			const res = await getIconResource(JSON)
-			
-			if (res) {
-				for (let index = 0; index < res.length; index++) {
-					if(res[index].id === clickedIdIcon){
-						setIconTitle(res[index].title)
-						setIconTags(getIconTags(res[index].tags))
-						setIconImage(getIconImage(clickedIdIcon))
-						setIconInfo([
-							{ title: 'Id', data: res[index].id },
-							{ title: 'Title', data: res[index].title },
-							{ title: 'Modificated', data: res[index].modificated },
-						])
-						return
-					}
-				}
-				setErrorApi(false)
-			} else {
-				setErrorApi(true)
-			}
-		})()
-
-		window.scrollTo(0, 0)
-	}, [])
-
+	let iconTitle = null
+	let iconImage = null
+	let iconTags = null
+	let iconInfo = null
 	
+	if (iconArray) {
+		for (let index = 0; index < iconArray.length; index++) {
+			if(iconArray[index].id === clickedIdIcon){
+				iconTitle = iconArray[index].title
+				iconImage = getIconImage(clickedIdIcon)
+				iconTags = getIconTags(iconArray[index].tags)
+				iconInfo = ([
+					{ title: 'Id', data: iconArray[index].id },
+					{ title: 'Title', data: iconArray[index].title },
+					{ title: 'Modificated', data: iconArray[index].modificated },
+				])
+			}			
+		}
+	}	
 
 	return (
 		<>
@@ -82,8 +67,4 @@ const IconPage = ({setErrorApi}) => {
 	)
 }
 
-IconPage.propTypes = {
-	setErrorApi: PropTypes.func
-}
-
-export default withErrorApi(IconPage)
+export default IconPage

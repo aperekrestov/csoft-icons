@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from '@containers/App'
-import ScrollTop from './services/context'
+import {ScrollTop} from './services/context'
 
 import '@styles/index.css'
 

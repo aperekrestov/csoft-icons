@@ -8,7 +8,7 @@ const Header = ({searchText}) => {
 	const [inputSerchValue, setInputSerchValue] = useState(searchText)
 
 	const handleInputChange = (event) => {
-		console.log(event.target.value)
+		// console.log(event.target.value)
 		setInputSerchValue(event.target.value)
 	}
 

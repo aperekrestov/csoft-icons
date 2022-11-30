@@ -7,7 +7,7 @@ import BannerBig from '@components/BannerBig'
 import IconsList from '@components/IconsPage/IconsList'
 import { getIconResource } from '@utils/network'
 import { getIconImage } from '@services/getIconData'
-import ScrollTop from '@services/context'
+import {ScrollTop} from '@services/context'
 import { JSON, TIMEOUT_SCROLL } from '@constants/constants'
 
 import styles from './IconsPage.module.css'

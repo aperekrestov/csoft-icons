@@ -5,6 +5,7 @@ import { useParams } from 'react-router'
 import cn from "classnames"
 
 import { withErrorApi } from '@hoc/withErrorApi'
+import Header from '@components/Header'
 import TheIcon from '@components/IconPage/TheIcon'
 import IconLinkBack from '@components/IconPage/IconLinkBack'
 import IconInfo from '@components/IconPage/IconInfo'
@@ -55,6 +56,7 @@ const IconPage = ({setErrorApi}) => {
 	return (
 		<>
 			<div className="wrapper_grey_page">
+			<Header searchText={""}/>
 
 			<div className={cn("content_width_middle padding_top_bottom_l")}>
 				<IconLinkBack />

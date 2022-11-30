@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import useScrollPosition from '@hoc/useScrollPosition'
 import IconImage from '@components/IconPage/IconImage'
-import ScrollTop from '@services/context'
+import {ScrollTop} from '@services/context'
 import styles from './IconsList.module.css'
 
 const IconsList = ({ icons }) => {
@@ -15,7 +15,6 @@ const IconsList = ({ icons }) => {
 	}
 
 	const searcParam = "папка"
-
 	const arrAfterSearch = icons.filter(function(item){
 		return item.tags.toLowerCase().includes(searcParam.toLowerCase())
 	})

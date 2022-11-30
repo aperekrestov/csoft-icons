@@ -134,6 +134,10 @@ input{
 	padding-bottom: var(--size-4);
 }
 
+.margin_left_small{
+	margin-left: var(--spacing-small);
+}
+
 
 .icon_container {
 	display: flex;

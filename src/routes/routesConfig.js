@@ -2,7 +2,7 @@ import IconsPage from '@containers/IconsPage'
 import IconPage from '@containers/IconPage'
 import LegalPage from '@containers/LegalPage'
 import NotFoundPage from '@containers/NotFoundPage'
-import SearchPage from '../containers/SearchPage/SearchPage'
+import SearchPage from '@containers/SearchPage/SearchPage'
 
 
 const routesConfig = [

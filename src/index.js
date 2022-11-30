@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 
 function Main() {
 	const [scrollTop, setScrollTop] = useState(0)
-	const [iconArray, setIconArray] = useState(["hg"])
+	const [iconArray, setIconArray] = useState(null)
 
 	return (
 		<React.StrictMode>

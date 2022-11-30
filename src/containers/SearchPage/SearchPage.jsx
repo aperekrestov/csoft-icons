@@ -1,29 +1,37 @@
-import PropTypes from 'prop-types'
 import { useLocation } from 'react-router'
-import cn from "classnames"
+import { useContext } from 'react'
 
+import IconsList from '@components/IconsPage/IconsList'
 import Header from '@components/Header'
+import { IconArray } from '@services/context'
+
 import styles from './SearchPage.module.css'
 
-const SearchPage = ({searchText}) => {
+const SearchPage = () => {
+	const { iconArray, setIconArray } = useContext(IconArray)
+	let arrAfterSearch = null
+
 	const location = useLocation()
-	const serchText = decodeURI(location.pathname.split('/search=').join(''))
+	const searchText = decodeURI(location.pathname.split('/search=').join(''))
+
+	if(iconArray){
+		arrAfterSearch = iconArray.filter(function(item){
+			return item.tags.toLowerCase().includes(searchText.toLowerCase())
+		})
+	}
 
 	return (
 		<>
-			<Header searchText={serchText}/>
+			<Header searchText={searchText}/>
 
-			<div className={cn("content_width_middle padding_top_bottom_l")}>
-				<h3>Вы ищите «{serchText}»</h3>
+			<div className={"content_width_middle padding_top_bottom_l"}>
+				<h3>Вы ищите «{searchText}»</h3>
 				<span className="font_ultra">Найдено файлов:</span>
 				<b className={"font_ultra margin_left_small"} >43</b>
+				{arrAfterSearch && <IconsList iconArray={arrAfterSearch} />}
 			</div>
 		</>
 	)
-}
-
-SearchPage.propTypes = {
-	searchText: PropTypes.string
 }
 
 export default SearchPage

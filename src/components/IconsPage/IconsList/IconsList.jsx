@@ -14,12 +14,12 @@ const IconsList = ({ icons }) => {
 		setScrollTop(scrollPosition)
 	}
 
-	const searcParam = "u"
+	const searcParam = "папка"
 
 	const arrAfterSearch = icons.filter(function(item){
 		return item.tags.toLowerCase().includes(searcParam.toLowerCase())
 	})
-	console.log(arrAfterSearch)
+	// console.log(arrAfterSearch)
 
 	return (
 		<ul className={styles.list__container}>

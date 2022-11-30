@@ -6,6 +6,7 @@ module.exports = function override(config, env) {
 		'@containers': 'src/containers',
 		'@constants': 'src/constants',
 		'@hoc': 'src/hoc',
+		'@hooks': 'src/hooks',
 		'@services': 'src/services',
 		'@utils': 'src/utils',
 		'@styles': 'src/styles',

@@ -1,36 +1,15 @@
 import PropTypes from 'prop-types'
-
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
-
 import cn from 'classnames'
-
-import { withErrorApi } from '@hoc/withErrorApi'
-import { getIconResource } from '@utils/network'
-import { PARAM_SERCH } from '@constants/constants'
-
 import styles from './Header.module.css'
 
-const Header = ({setErrorApi}) => {
-	const [inputSerchValue, setInputSerchValue] = useState('')
-
-	// const getResponse = async param => {
-	// 	const res = await getIconResource(JSON)
-		
-	// 	if (res) {
-	// 		console.log(res);
-	// 		setErrorApi(false)
-	// 	} else {
-	// 		setErrorApi(true)
-	// 	}
-
-	// }
+const Header = ({searchText}) => {
+	const [inputSerchValue, setInputSerchValue] = useState(searchText)
 
 	const handleInputChange = (event) => {
-		// console.log(event.target.value)
-		const value = event.target.value
-		setInputSerchValue(value)
-		// getResponse(value)
+		console.log(event.target.value)
+		setInputSerchValue(event.target.value)
 	}
 
 	return (
@@ -47,7 +26,7 @@ const Header = ({setErrorApi}) => {
 						placeholder="Поиск графических иконок" 
 						onChange={handleInputChange}
 					/>
-					<div className={styles.search__btn}></div>
+					<NavLink to={`/search=${inputSerchValue}`} className={styles.search__btn}></NavLink>
 				</div>
 
 				<ul className={styles.list__btn}>
@@ -59,8 +38,9 @@ const Header = ({setErrorApi}) => {
 	)
 }
 
-Header.prototype = {
-	setErrorApi: PropTypes.function
+Header.propTypes = {
+	searchText: PropTypes.string
 }
 
-export default withErrorApi(Header)
+
+export default Header

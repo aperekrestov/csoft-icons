@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
 import { useState, useEffect, useContext } from 'react'
 
-import cn from 'classnames'
-
 import { withErrorApi } from '@hoc/withErrorApi'
+import Header from '@components/Header'
 import BannerBig from '@components/BannerBig'
 import IconsList from '@components/IconsPage/IconsList'
 import { getIconResource } from '@utils/network'
@@ -56,6 +55,7 @@ const IconsPage = ({ setErrorApi }) => {
 
 	return (
 		<div>
+			<Header searchText={""}/>
 			<BannerBig />
 			
 			<section className={"content_width_large padding_top_bottom_l"}>

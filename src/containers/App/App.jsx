@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { withErrorApi } from '@hoc/withErrorApi'
@@ -6,7 +6,7 @@ import routesConfig from '@routes/routesConfig'
 import { getIconResource } from '@utils/network'
 import { IconArray } from '@services/context'
 import { getIconImage } from '@services/getIconData'
-import { JSON, TIMEOUT_SCROLL } from '@constants/constants'
+import { JSON } from '@constants/constants'
 
 const App = ({ setErrorApi }) => {
 	const { iconArray, setIconArray } = useContext(IconArray)
@@ -19,17 +19,17 @@ const App = ({ setErrorApi }) => {
 		})
 
 		if (arrIconFiltered) {
-			const iconsList = arrIconFiltered.map(({ id, title, status, tags }) => {
+			const iconsList = arrIconFiltered.map(({ id, title, status, tags, modificated }) => {
 				const img = getIconImage(id)
 				return {
 					id,
 					title, 
 					img, 
 					status, 
-					tags
+					tags,
+					modificated
 				}	
 			})
-			// setIcons(iconsList)
 			setIconArray(iconsList)
 			setErrorApi(false)
 		} else {

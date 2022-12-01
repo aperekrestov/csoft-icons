@@ -5,7 +5,7 @@
 	justify-content: space-between;
 	/* align-content: flex-start; */
 	/* margin: var(--spacing-large) 0 var(--spacing-small) 0; */
-	padding: 0;
+	/* padding: 0; */
 	list-style-type: none; 
 	animation: ani var(--time-slow) forwards;
 	animation-timing-function: ease-in;

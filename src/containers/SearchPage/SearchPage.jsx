@@ -25,10 +25,14 @@ const SearchPage = () => {
 			<Header searchText={searchText}/>
 
 			<div className={"content_width_middle padding_top_bottom_l"}>
-				<h3>Вы ищите «{searchText}»</h3>
+				<h3>Вы ищите « {searchText} »</h3>
 				<span className="font_ultra">Найдено файлов:</span>
-				<b className={"font_ultra margin_left_small"} >43</b>
-				{arrAfterSearch && <IconsList iconArray={arrAfterSearch} />}
+
+				{arrAfterSearch && <b className={"font_ultra margin_left_ultra_small"} >{arrAfterSearch.length}</b>}
+
+				<div className={"padding_top_bottom_l"}>
+					{arrAfterSearch && <IconsList iconArray={arrAfterSearch} />}
+				</div>
 			</div>
 		</>
 	)

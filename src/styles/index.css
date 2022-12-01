@@ -107,7 +107,7 @@ input{
 }
 .font_ultra{
 	font-size: 9px;
-	letter-spacing: 1px;
+	letter-spacing: 1.4px;
 	text-transform: uppercase;
 }
 
@@ -136,6 +136,9 @@ input{
 
 .margin_left_small{
 	margin-left: var(--spacing-small);
+}
+.margin_left_ultra_small{
+	margin-left: var(--spacing-ultra-small);
 }
 
 

@@ -19,7 +19,7 @@ const IconsList = ({iconArray}) => {
 		<ul className={styles.list__container}>
 			{iconArray && (iconArray.map(({id, title, img}) =>
 				<li className="icon_container" key={id}>
-					<Link to={`icon-${id}`} onClick={click}>
+					<Link to={`/icon-${id}`} onClick={click}>
 						<IconImage iconImage={img} iconTitle={title}/>
 					</Link>
 				</li>

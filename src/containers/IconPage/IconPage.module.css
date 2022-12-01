@@ -3,5 +3,6 @@
 }
 
 .container_info{
-	width: var(--size-9);
+	min-width: var(--size-9);
+	display: block;
 }

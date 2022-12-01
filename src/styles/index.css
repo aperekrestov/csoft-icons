@@ -97,7 +97,7 @@ h3{
 }
 input{
 	font-size: var(--size-2);
-
+	background-color: unset;
 }
 .font_bold{
 	font-weight: 600;

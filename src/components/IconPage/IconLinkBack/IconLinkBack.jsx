@@ -16,6 +16,7 @@ const IconLinkBack = ({ scrollPosition }) => {
 	}
 
 	return (	
+		// todo заменить тэг а на Link или NavLink
 		<a 
 			href="#" 
 			onClick={handleGoBack} 

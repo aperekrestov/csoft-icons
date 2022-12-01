@@ -2,14 +2,12 @@ import { useContext } from 'react'
 import { useParams } from 'react-router'
 
 import Header from '@components/Header'
-import TheIcon from '@components/IconPage/TheIcon'
 import IconLinkBack from '@components/IconPage/IconLinkBack'
 import IconTags from '@components/IconPage/IconTags'
 import { getIconImage } from '@services/getIconData'
 import { getIconTags } from '@services/getIconData'
 import { IconArray } from '@services/context'
 
-import cn from "classnames"
 import styles from './IconPage.module.css'
 
 const IconPage = () => {
@@ -42,7 +40,7 @@ const IconPage = () => {
 			<div className="wrapper_grey_page">
 			<Header searchText={""}/>
 
-			<div className={cn("content_width_middle padding_top_bottom_l")}>
+			<div className={"content_width_middle padding_top_bottom_l"}>
 				<IconLinkBack />
 
 				<div className={styles.icon_page_flex}>
@@ -55,7 +53,12 @@ const IconPage = () => {
 								<b className={"font_ultra margin_left_ultra_small"} >{iconInfo[2].data}</b>
 							</>
 						}
-						<TheIcon iconImage={iconImage} iconTitle={iconTitle} />
+						{iconImage && 
+							<>
+								<br/>
+								<img className={"icon_container__image padding_top_bottom_m"} src={iconImage} alt={iconTitle} />
+							</>
+						}
 					</section>
 					
 					<section>

@@ -11,11 +11,16 @@ import { IconArray } from '@services/context'
 import styles from './IconPage.module.css'
 
 const IconPage = () => {
-	const inlineSVG = `<svg width="19" height="19" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 91C0 96 2 100 5 103L79 178C86 184 97 184 103 178L175 106C181 100 181 89 175 82L101 8C97 5 93 3 89 3H17C7 3 0 10 0 19V91ZM39 25C49 25 56 33 56 42 56 51 49 59 39 59 30 59 23 51 23 42 23 33 30 25 39 25Z" fill="firebrick"/></svg>`
-	
+	// const inlineSVG = `<svg width="19" height="19" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 91C0 96 2 100 5 103L79 178C86 184 97 184 103 178L175 106C181 100 181 89 175 82L101 8C97 5 93 3 89 3H17C7 3 0 10 0 19V91ZM39 25C49 25 56 33 56 42 56 51 49 59 39 59 30 59 23 51 23 42 23 33 30 25 39 25Z" fill="firebrick"/></svg>`
 	window.scrollTo(0, 0)
 	const [svgIcon, setSvgIcon] = useState(null)
+	const baseColor = "#0c121c"
+	const newColor = "#C10D3B"
 
+	const modificatedSvg = () => {
+		return svgIcon.replace(new RegExp(baseColor,"gi"), newColor)
+	}
+	
 	const svg64 = (svgData) =>  {
 		return window.btoa(svgData)
 	}
@@ -40,7 +45,7 @@ const IconPage = () => {
 	}
 
 	useEffect(() => {
-		getSvgData("test2.svg");
+		getSvgData("test.svg");
 	},[])
 
 
@@ -97,6 +102,15 @@ const IconPage = () => {
 							{/* <img className={styles.test} src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`} alt="" />
 							<img src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`}/> */}
 							{svgIcon && <div style={getIconStyle(svgIcon)}></div>}
+							{svgIcon && <div style={getIconStyle(modificatedSvg())}></div>}
+							
+							{svgIcon && 
+								<>
+									<p>{svgIcon}</p>
+									<br/>
+									<p>{modificatedSvg()}</p>
+								</>
+							}
 
 							{iconTags && <IconTags iconTags={iconTags} />}	
 						</section>

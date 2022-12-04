@@ -94,17 +94,14 @@ const IconPage = () => {
 
 						<section className={styles.container_info}>
 							{iconInfo && 
-								<>
+								<div>
 									<h3>Файл #{iconInfo[0].data}</h3>
 									<span className="font_ultra">обновлен</span>
 									<b className={"font_ultra margin_left_ultra_small"} >{iconInfo[2].data}</b>
-								</>
+								</div>
 							}
 							{iconImage && 
-								<>
-									<br/>
-									<img className={"icon_container__image padding_top_bottom_m"} src={iconImage} alt={iconTitle} />
-								</>
+								<img className={"icon_container__image padding_top_bottom_m"} src={iconImage} alt={iconTitle} />
 							}
 						</section>
 						
@@ -114,13 +111,43 @@ const IconPage = () => {
 							{svgIcon && <div style={getIconStyle(svgIcon)}></div>}
 							{svgIcon && <div style={getIconStyle(modificatedSvg())}></div>}
 							
-							<select className={styles.selectColor} defaultValue={'4'} >
+							{/* <select className={styles.selectColor} defaultValue={'4'} >
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
 								<option value="4">4</option>
 								<option value="5">5</option>
-							</select>
+							</select> */}
+
+
+							<form className="form_color">
+								<div>
+									<span className="font_ultra">цвет:</span>
+									<b className={"font_ultra margin_left_ultra_small"}>{currentColor}</b>
+								</div>
+
+								<label className={styles.form_control}>
+									<input type="radio" name="radio" />
+								</label>
+
+								<label className={styles.form_control}>
+									<input type="radio" name="radio" />
+								</label>							
+								
+								<label className={styles.form_control}>
+									<input type="radio" name="radio" />
+								</label>							
+								
+								{/* <input type="radio" id="contactChoice1" name="contact" value="email" />
+								<input type="radio" id="contactChoice2" name="contact" value="phone" />
+								<input type="radio" id="contactChoice3" name="contact" value="mail" /> */}
+								{/* <label for="contactChoice3">Mail</label>
+								<button type="submit">Submit</button> */}
+							</form>
+
+
+
+
 
 							{iconTags && <IconTags iconTags={iconTags} />}	
 						</section>

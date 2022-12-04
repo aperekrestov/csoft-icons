@@ -7,50 +7,27 @@ import IconTags from '@components/IconPage/IconTags'
 import { getIconImage } from '@services/getIconData'
 import { getIconTags } from '@services/getIconData'
 import { IconArray } from '@services/context'
+import { 
+	COLOR_1, COLOR_2, COLOR_3, COLOR_4, COLOR_5, COLOR_6, 
+	COLOR_7, COLOR_8, COLOR_9, COLOR_10, COLOR_11, COLOR_12, 
+	COLOR_13, COLOR_14, GENERAL_COLOR, 
+	GENERAL_SIZE, ULTRA_SMALL, SMALL, MEDIOM } from '@constants/constants'
 
 import styles from './IconPage.module.css'
 
 const IconPage = () => {
 	// const inlineSVG = `<svg width="19" height="19" viewBox="0 0 190 190" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 91C0 96 2 100 5 103L79 178C86 184 97 184 103 178L175 106C181 100 181 89 175 82L101 8C97 5 93 3 89 3H17C7 3 0 10 0 19V91ZM39 25C49 25 56 33 56 42 56 51 49 59 39 59 30 59 23 51 23 42 23 33 30 25 39 25Z" fill="firebrick"/></svg>`
 	window.scrollTo(0, 0)
+
 	const [svgIcon, setSvgIcon] = useState(null)
-	const baseColor = "#0c121c"
-	const newColor = "#C10D3B"
-
-	const modificatedSvg = () => {
-		return svgIcon.replace(new RegExp(baseColor,"gi"), newColor)
-	}
-	
-	const svg64 = (svgData) =>  {
-		return window.btoa(svgData)
-	}
-	
-	const getIconStyle = (data) => {
-		return {
-			width: '24px',
-			height: '24px',
-			backgroundImage: "url('data:image/svg+xml;base64," + svg64(data) + "')"
-		}
-	}
-
-	async function getSvgData(url) {
-		let response = await fetch(url)
-		if (response.ok) {
-			let data = await response.text()
-			setSvgIcon(data)
-			return data
-		} else {
-			alert('error', response.status);
-		}
-	}
-
-	useEffect(() => {
-		getSvgData("test.svg");
-	},[])
-
+	const [currentColor, setCurrentColor] = useState(GENERAL_COLOR)
+	const [newColor, setNewColor] = useState(COLOR_3)
+	// const [currentSize, setCurrentSize] = useState(GENERAL_SIZE)
+	const [newSize, setSize] = useState(GENERAL_SIZE)
 
 	const { iconArray, setIconArray } = useContext(IconArray)
 	const clickedIdIcon = useParams().id
+	
 	let iconTitle = null
 	let iconImage = null
 	let iconTags = null
@@ -69,8 +46,41 @@ const IconPage = () => {
 				])
 			}			
 		}
-	}	
+		getSvgData(iconImage)
+	}
 
+	async function getSvgData(url) {
+		let response = await fetch(url)
+		if (response.ok) {
+			let data = await response.text()
+			setSvgIcon(data)
+			return data
+		} else {
+			alert('error', response.status);
+		}
+	}
+
+	const modificatedSvg = () => {
+		return svgIcon.replace(new RegExp(currentColor,"gi"), newColor)
+	}
+	
+	const svg64 = (svgData) =>  {
+		return window.btoa(svgData)
+	}
+	
+	const getIconStyle = (data) => {
+		return {
+			width: '24px',
+			height: '24px',
+			backgroundImage: "url('data:image/svg+xml;base64," + svg64(data) + "')"
+		}
+	}
+
+	function handleSelectedChange(e) {
+		console.log(e.value);
+	}
+
+	
 	return (
 		<>		
 			<div className="wrapper_grey_page">
@@ -104,13 +114,13 @@ const IconPage = () => {
 							{svgIcon && <div style={getIconStyle(svgIcon)}></div>}
 							{svgIcon && <div style={getIconStyle(modificatedSvg())}></div>}
 							
-							{svgIcon && 
-								<>
-									<p>{svgIcon}</p>
-									<br/>
-									<p>{modificatedSvg()}</p>
-								</>
-							}
+							<select className={styles.selectColor} defaultValue={'4'} >
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
 
 							{iconTags && <IconTags iconTags={iconTags} />}	
 						</section>

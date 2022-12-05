@@ -2,9 +2,9 @@ export const JSON = './csoft-icons.json'
 export const FOLDER = 'icons/'
 export const EXTENSION = '.svg'
 
-export const ULTRA_SMALL = '8x8/'
-export const SMALL = '16x16/'
-export const MEDIOM = '24x24/'
+export const ULTRA_SMALL = '8'
+export const SMALL = '16'
+export const MEDIOM = '24'
 export const GENERAL_SIZE = MEDIOM
 
 export const TIMEOUT_SCROLL = 10

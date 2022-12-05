@@ -13,6 +13,13 @@ import {
 	COLOR_13, COLOR_14, GENERAL_COLOR, 
 	GENERAL_SIZE, ULTRA_SMALL, SMALL, MEDIOM } from '@constants/constants'
 
+import corner_top_left from '@static/corner-top-left.svg'
+import corner_top_right from '@static/corner-top-right.svg'
+import corner_bottom_left from '@static/corner-bottom-left.svg'
+import corner_bottom_right from '@static/corner-bottom-right.svg'
+import pattern_alpha_light from '@static/pattern-alpha-light.svg'
+import pattern_alpha_dark from '@static/pattern-alpha-dark.svg'
+
 import cn from 'classnames'
 import styles from './IconPage.module.css'
 
@@ -21,7 +28,8 @@ const IconPage = () => {
 	window.scrollTo(0, 0)
 
 	const [svgIcon, setSvgIcon] = useState(null)
-	const [newColor, setNewColor] = useState(GENERAL_COLOR)
+	const [newIconColor, setNewIconColor] = useState(GENERAL_COLOR)
+	const [newIconBg, setNewIconBg] = useState(pattern_alpha_light)
 	// const [currentSize, setCurrentSize] = useState(GENERAL_SIZE)
 	const [newSize, setSize] = useState(GENERAL_SIZE)
 
@@ -61,69 +69,95 @@ const IconPage = () => {
 	}
 
 	const modificatedSvg = () => {
-		return svgIcon.replace(new RegExp(GENERAL_COLOR,"gi"), newColor)
+		return svgIcon.replace(new RegExp(GENERAL_COLOR,"gi"), newIconColor)
 	}
 	
 	const svg64 = (svgData) =>  {
 		return window.btoa(svgData)
 	}
 	
-	const getIconStyle = (data) => {
+	const iconStyle = (data) => {
 		return {
-			width: '24px',
-			height: '24px',
+			width: newSize + 'px',
+			height: newSize + 'px',
 			backgroundImage: "url('data:image/svg+xml;base64," + svg64(data) + "')"
+		}
+	}
+	const iconContainerStyle = () => {
+		return {
+			width: 'calc(' + newSize + 'px + 12px)',
+			height: 'calc(' + newSize + 'px + 12px)',
+			backgroundImage: 'url(' + newIconBg + ')'
+		}
+	}
+	const resultStyle = () => {
+		return {
+			width: 'calc(' + newSize + 'px + 24px)',
+			height: 'calc(' + newSize + 'px + 24px)',
 		}
 	}
 
 	function handleFormChange(e) {
-		console.log(e.target.value);
 		switch (e.target.value) {
 			case '1':
-				setNewColor(COLOR_1)			
+				setNewIconColor(COLOR_1)
+				setNewIconBg(pattern_alpha_dark)			
 				break
 			case '2':
-				setNewColor(COLOR_2)			
+				setNewIconColor(COLOR_2)
+				setNewIconBg(pattern_alpha_light)
 				break
 			case '3':
-				setNewColor(COLOR_3)			
+				setNewIconColor(COLOR_3)
+				setNewIconBg(pattern_alpha_light)		
 				break
 			case '4':
-				setNewColor(COLOR_4)			
+				setNewIconColor(COLOR_4)
+				setNewIconBg(pattern_alpha_dark)		
 				break
 			case '5':
-				setNewColor(COLOR_5)			
+				setNewIconColor(COLOR_5)
+				setNewIconBg(pattern_alpha_dark)		
 				break
 			case '6':
-				setNewColor(COLOR_6)			
+				setNewIconColor(COLOR_6)
+				setNewIconBg(pattern_alpha_light)		
 				break
 			case '7':
-				setNewColor(COLOR_7)			
+				setNewIconColor(COLOR_7)
+				setNewIconBg(pattern_alpha_light)		
 				break
 			case '8':
-				setNewColor(COLOR_8)			
+				setNewIconColor(COLOR_8)
+				setNewIconBg(pattern_alpha_dark)			
 				break
 			case '9':
-				setNewColor(COLOR_9)			
+				setNewIconColor(COLOR_9)
+				setNewIconBg(pattern_alpha_light)	
 				break
 			case '10':
-				setNewColor(COLOR_10)			
+				setNewIconColor(COLOR_10)
+				setNewIconBg(pattern_alpha_light)		
 				break
 			case '11':
-				setNewColor(COLOR_11)			
+				setNewIconColor(COLOR_11)
+				setNewIconBg(pattern_alpha_light)			
 				break
 			case '12':
-				setNewColor(COLOR_12)			
+				setNewIconColor(COLOR_12)
+				setNewIconBg(pattern_alpha_light)		
 				break
 			case '13':
-				setNewColor(COLOR_13)			
+				setNewIconColor(COLOR_13)
+				setNewIconBg(pattern_alpha_dark)		
 				break
 			case '14':
-				setNewColor(COLOR_14)			
+				setNewIconColor(COLOR_14)
+				setNewIconBg(pattern_alpha_dark)			
 				break
 
 			default:
-				setNewColor(GENERAL_COLOR)
+				setNewIconColor(GENERAL_COLOR)
 				break;
 		}
 	}
@@ -156,27 +190,40 @@ const IconPage = () => {
 							<form className="margin_bottom_m">
 								<div className="margin_bottom_s">
 									<span className="font_ultra">цвет:</span>
-									<b className={"font_ultra margin_left_ultra_small"}>{newColor}</b>
+									<b className={"font_ultra margin_left_ultra_small"}>{newIconColor}</b>
 								</div>
-								<input className={styles.color1} type="radio" name="radio" value="1" onChange={handleFormChange} />	
-								<input className={styles.color14} type="radio" name="radio" value="14" onChange={handleFormChange} />
-								<input className={styles.color4} type="radio" name="radio" value="4" onChange={handleFormChange} />
-								<input className={styles.color5} type="radio" name="radio" value="5" onChange={handleFormChange} />
-								<input className={styles.color12} type="radio" name="radio" value="12" onChange={handleFormChange} />
-								<input className={styles.color9} type="radio" name="radio" value="9" onChange={handleFormChange} />
-								<input className={styles.color7} type="radio" name="radio" value="7" onChange={handleFormChange} />
-								<input className={styles.color10} type="radio" name="radio" value="10" onChange={handleFormChange} />
-								<input className={styles.color2} type="radio" name="radio" value="2" onChange={handleFormChange} />
-								<input className={styles.color3} type="radio" name="radio" value="3" onChange={handleFormChange} />
-								<input className={styles.color13} type="radio" name="radio" value="13" onChange={handleFormChange} />
-								<input className={styles.color11} type="radio" name="radio" value="11" onChange={handleFormChange} />		
+								<input className={cn(styles.color1, styles.input_dark)} type="radio" name="radio" value="1" onChange={handleFormChange} />	
+								{/* <input className={cn(styles.color14, styles.input_dark)} type="radio" name="radio" value="14" onChange={handleFormChange} /> */}
+								{/* <input className={cn(styles.color4, styles.input_dark)} type="radio" name="radio" value="4" onChange={handleFormChange} /> */}
+								{/* <input className={cn(styles.color5, styles.input_dark)} type="radio" name="radio" value="5" onChange={handleFormChange} /> */}
+								<input className={cn(styles.color12, styles.input_dark)} type="radio" name="radio" value="12" onChange={handleFormChange} />
+								<input className={cn(styles.color9, styles.input_dark)} type="radio" name="radio" value="9" onChange={handleFormChange} />
+								<input className={cn(styles.color7, styles.input_light)} type="radio" name="radio" value="7" onChange={handleFormChange} />
+								<input className={cn(styles.color10, styles.input_light)} type="radio" name="radio" value="10" onChange={handleFormChange} />
+								<input className={cn(styles.color2, styles.input_light)} type="radio" name="radio" value="2" onChange={handleFormChange} />
+								<input className={cn(styles.color3, styles.input_light)} type="radio" name="radio" value="3" onChange={handleFormChange} />
+								{/* <input className={cn(styles.color13, styles.input_dark)} type="radio" name="radio" value="13" onChange={handleFormChange} /> */}
+								<input className={cn(styles.color11, styles.input_dark)} type="radio" name="radio" value="11" onChange={handleFormChange} />		
 							</form>
 
 							<div className="margin_bottom_m">
 								<div className="font_ultra margin_bottom_s">результат:</div>
 								{/* <img className={styles.test} src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`} alt="" />
 								<img src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`}/> */}
-								{svgIcon && <div style={getIconStyle(modificatedSvg())}></div>}
+								
+								<div className={styles.result} style={resultStyle()}>
+									<div className={styles.result__corners_container}>
+										<img src={corner_top_left} alt="рамка" />
+										<img src={corner_top_right} alt="рамка" />
+									</div>
+									<div className={styles.result__icon_container} style={iconContainerStyle()}>
+										{svgIcon && <div style={iconStyle(modificatedSvg())}></div>}
+									</div>
+									<div className={styles.result__corners_container}>
+										<img src={corner_bottom_left} alt="рамка" />
+										<img src={corner_bottom_right} alt="рамка" />
+									</div>
+								</div>
 							</div>
 
 

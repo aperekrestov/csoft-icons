@@ -13,6 +13,7 @@ import {
 	COLOR_13, COLOR_14, GENERAL_COLOR, 
 	GENERAL_SIZE, ULTRA_SMALL, SMALL, MEDIOM } from '@constants/constants'
 
+import cn from 'classnames'
 import styles from './IconPage.module.css'
 
 const IconPage = () => {
@@ -20,8 +21,7 @@ const IconPage = () => {
 	window.scrollTo(0, 0)
 
 	const [svgIcon, setSvgIcon] = useState(null)
-	const [currentColor, setCurrentColor] = useState(GENERAL_COLOR)
-	const [newColor, setNewColor] = useState(COLOR_3)
+	const [newColor, setNewColor] = useState(GENERAL_COLOR)
 	// const [currentSize, setCurrentSize] = useState(GENERAL_SIZE)
 	const [newSize, setSize] = useState(GENERAL_SIZE)
 
@@ -61,7 +61,7 @@ const IconPage = () => {
 	}
 
 	const modificatedSvg = () => {
-		return svgIcon.replace(new RegExp(currentColor,"gi"), newColor)
+		return svgIcon.replace(new RegExp(GENERAL_COLOR,"gi"), newColor)
 	}
 	
 	const svg64 = (svgData) =>  {
@@ -76,11 +76,58 @@ const IconPage = () => {
 		}
 	}
 
-	function handleSelectedChange(e) {
-		console.log(e.value);
+	function handleFormChange(e) {
+		console.log(e.target.value);
+		switch (e.target.value) {
+			case '1':
+				setNewColor(COLOR_1)			
+				break
+			case '2':
+				setNewColor(COLOR_2)			
+				break
+			case '3':
+				setNewColor(COLOR_3)			
+				break
+			case '4':
+				setNewColor(COLOR_4)			
+				break
+			case '5':
+				setNewColor(COLOR_5)			
+				break
+			case '6':
+				setNewColor(COLOR_6)			
+				break
+			case '7':
+				setNewColor(COLOR_7)			
+				break
+			case '8':
+				setNewColor(COLOR_8)			
+				break
+			case '9':
+				setNewColor(COLOR_9)			
+				break
+			case '10':
+				setNewColor(COLOR_10)			
+				break
+			case '11':
+				setNewColor(COLOR_11)			
+				break
+			case '12':
+				setNewColor(COLOR_12)			
+				break
+			case '13':
+				setNewColor(COLOR_13)			
+				break
+			case '14':
+				setNewColor(COLOR_14)			
+				break
+
+			default:
+				setNewColor(GENERAL_COLOR)
+				break;
+		}
 	}
 
-	
 	return (
 		<>		
 			<div className="wrapper_grey_page">
@@ -106,49 +153,34 @@ const IconPage = () => {
 						</section>
 						
 						<section>
-							{/* <img className={styles.test} src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`} alt="" />
-							<img src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`}/> */}
-							{svgIcon && <div style={getIconStyle(svgIcon)}></div>}
-							{svgIcon && <div style={getIconStyle(modificatedSvg())}></div>}
-							
-							{/* <select className={styles.selectColor} defaultValue={'4'} >
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select> */}
-
-
-							<form className="form_color">
-								<div>
+							<form className="margin_bottom_m">
+								<div className="margin_bottom_s">
 									<span className="font_ultra">цвет:</span>
-									<b className={"font_ultra margin_left_ultra_small"}>{currentColor}</b>
+									<b className={"font_ultra margin_left_ultra_small"}>{newColor}</b>
 								</div>
-
-								<label className={styles.form_control}>
-									<input type="radio" name="radio" />
-								</label>
-
-								<label className={styles.form_control}>
-									<input type="radio" name="radio" />
-								</label>							
-								
-								<label className={styles.form_control}>
-									<input type="radio" name="radio" />
-								</label>							
-								
-								{/* <input type="radio" id="contactChoice1" name="contact" value="email" />
-								<input type="radio" id="contactChoice2" name="contact" value="phone" />
-								<input type="radio" id="contactChoice3" name="contact" value="mail" /> */}
-								{/* <label for="contactChoice3">Mail</label>
-								<button type="submit">Submit</button> */}
+								<input className={styles.color1} type="radio" name="radio" value="1" onChange={handleFormChange} />	
+								<input className={styles.color14} type="radio" name="radio" value="14" onChange={handleFormChange} />
+								<input className={styles.color4} type="radio" name="radio" value="4" onChange={handleFormChange} />
+								<input className={styles.color5} type="radio" name="radio" value="5" onChange={handleFormChange} />
+								<input className={styles.color12} type="radio" name="radio" value="12" onChange={handleFormChange} />
+								<input className={styles.color9} type="radio" name="radio" value="9" onChange={handleFormChange} />
+								<input className={styles.color7} type="radio" name="radio" value="7" onChange={handleFormChange} />
+								<input className={styles.color10} type="radio" name="radio" value="10" onChange={handleFormChange} />
+								<input className={styles.color2} type="radio" name="radio" value="2" onChange={handleFormChange} />
+								<input className={styles.color3} type="radio" name="radio" value="3" onChange={handleFormChange} />
+								<input className={styles.color13} type="radio" name="radio" value="13" onChange={handleFormChange} />
+								<input className={styles.color11} type="radio" name="radio" value="11" onChange={handleFormChange} />		
 							</form>
 
+							<div className="margin_bottom_m">
+								<div className="font_ultra margin_bottom_s">результат:</div>
+								{/* <img className={styles.test} src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`} alt="" />
+								<img src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`}/> */}
+								{svgIcon && <div style={getIconStyle(modificatedSvg())}></div>}
+							</div>
 
 
-
-
+							<div className="font_ultra margin_bottom_s">теги:</div>
 							{iconTags && <IconTags iconTags={iconTags} />}	
 						</section>
 					</div>

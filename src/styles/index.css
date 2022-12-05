@@ -141,6 +141,13 @@ input{
 	margin-left: var(--spacing-ultra-small);
 }
 
+.margin_bottom_s {
+	margin-bottom: var(--size-1);
+}
+.margin_bottom_m {
+	margin-bottom: var(--size-2);
+}
+
 
 .icon_container {
 	display: flex;

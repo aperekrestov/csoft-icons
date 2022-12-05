@@ -42,7 +42,7 @@
 .color13 {background-color: var(--color-13);}
 .color14 {background-color: var(--color-14);}
 
-input[type="radio"] {
+.input_color[type="radio"] {
 	-webkit-appearance: none;
 	appearance: none;
 	position: relative;
@@ -52,7 +52,7 @@ input[type="radio"] {
 	cursor: pointer;
 	margin-right: var(--size-1);
 }
-input[type="radio"]::after {
+.input_color[type="radio"]::after {
 	content: "";
 	position: absolute;
 	width: var(--size-1);
@@ -62,7 +62,7 @@ input[type="radio"]::after {
 	transform: scale(0);
 	transition: var(--transition-fast);
 }
-input[type="radio"]:checked::after {
+.input_color[type="radio"]:checked::after {
 	transform: scale(1);
 }
 .input_light[type="radio"]::after {

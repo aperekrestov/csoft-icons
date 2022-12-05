@@ -4,8 +4,7 @@ import { useParams } from 'react-router'
 import Header from '@components/Header'
 import IconLinkBack from '@components/IconPage/IconLinkBack'
 import IconTags from '@components/IconPage/IconTags'
-import { getIconImage } from '@services/getIconData'
-import { getIconTags } from '@services/getIconData'
+import { getIconImage, getIconSvg, getIconTags } from '@services/getIconData'
 import { IconArray } from '@services/context'
 import { 
 	COLOR_1, COLOR_2, COLOR_3, COLOR_4, COLOR_5, COLOR_6, 
@@ -54,7 +53,10 @@ const IconPage = () => {
 				])
 			}			
 		}
-		getSvgData(iconImage)
+		// getSvgData(iconImage)
+		// todo перенести вызов на кнопки по выбору размера
+		getSvgData(getIconSvg(clickedIdIcon, newSize))
+		// console.log(getIconSvg(clickedIdIcon, newSize))
 	}
 
 	async function getSvgData(url) {
@@ -97,6 +99,9 @@ const IconPage = () => {
 		}
 	}
 
+	function handleSizeChange(e) {
+		console.log(e.target.value);
+	}
 	function handleFormChange(e) {
 		switch (e.target.value) {
 			case '1':
@@ -189,21 +194,36 @@ const IconPage = () => {
 						<section>
 							<form className="margin_bottom_m">
 								<div className="margin_bottom_s">
+									<span className="font_ultra">размер:</span>
+									<b className={"font_ultra margin_left_ultra_small"}>{newSize+'x'+newSize}</b>
+								</div>
+
+								<div>
+									<label htmlFor="8">
+										8
+										<input className={cn()} type="radio" name="radio" value="8" onChange={handleSizeChange} />	
+									</label>
+								</div>
+
+							</form>
+
+							<form className="margin_bottom_m">
+								<div className="margin_bottom_s">
 									<span className="font_ultra">цвет:</span>
 									<b className={"font_ultra margin_left_ultra_small"}>{newIconColor}</b>
 								</div>
-								<input className={cn(styles.color1, styles.input_dark)} type="radio" name="radio" value="1" onChange={handleFormChange} />	
-								{/* <input className={cn(styles.color14, styles.input_dark)} type="radio" name="radio" value="14" onChange={handleFormChange} /> */}
-								{/* <input className={cn(styles.color4, styles.input_dark)} type="radio" name="radio" value="4" onChange={handleFormChange} /> */}
-								{/* <input className={cn(styles.color5, styles.input_dark)} type="radio" name="radio" value="5" onChange={handleFormChange} /> */}
-								<input className={cn(styles.color12, styles.input_dark)} type="radio" name="radio" value="12" onChange={handleFormChange} />
-								<input className={cn(styles.color9, styles.input_dark)} type="radio" name="radio" value="9" onChange={handleFormChange} />
-								<input className={cn(styles.color7, styles.input_light)} type="radio" name="radio" value="7" onChange={handleFormChange} />
-								<input className={cn(styles.color10, styles.input_light)} type="radio" name="radio" value="10" onChange={handleFormChange} />
-								<input className={cn(styles.color2, styles.input_light)} type="radio" name="radio" value="2" onChange={handleFormChange} />
-								<input className={cn(styles.color3, styles.input_light)} type="radio" name="radio" value="3" onChange={handleFormChange} />
-								{/* <input className={cn(styles.color13, styles.input_dark)} type="radio" name="radio" value="13" onChange={handleFormChange} /> */}
-								<input className={cn(styles.color11, styles.input_dark)} type="radio" name="radio" value="11" onChange={handleFormChange} />		
+								<input className={cn(styles.input_color, styles.color1, styles.input_dark)} type="radio" name="radio" value="1" onChange={handleFormChange} />	
+								{/* <input className={cn(styles.input_color, styles.color14, styles.input_dark)} type="radio" name="radio" value="14" onChange={handleFormChange} /> */}
+								{/* <input className={cn(styles.input_color, styles.color4, styles.input_dark)} type="radio" name="radio" value="4" onChange={handleFormChange} /> */}
+								{/* <input className={cn(styles.input_color, styles.color5, styles.input_dark)} type="radio" name="radio" value="5" onChange={handleFormChange} /> */}
+								<input className={cn(styles.input_color, styles.color12, styles.input_dark)} type="radio" name="radio" value="12" onChange={handleFormChange} />
+								<input className={cn(styles.input_color, styles.color9, styles.input_dark)} type="radio" name="radio" value="9" onChange={handleFormChange} />
+								<input className={cn(styles.input_color, styles.color7, styles.input_light)} type="radio" name="radio" value="7" onChange={handleFormChange} />
+								<input className={cn(styles.input_color, styles.color10, styles.input_light)} type="radio" name="radio" value="10" onChange={handleFormChange} />
+								<input className={cn(styles.input_color, styles.color2, styles.input_light)} type="radio" name="radio" value="2" onChange={handleFormChange} />
+								<input className={cn(styles.input_color, styles.color3, styles.input_light)} type="radio" name="radio" value="3" onChange={handleFormChange} />
+								{/* <input className={cn(styles.input_color, styles.color13, styles.input_dark)} type="radio" name="radio" value="13" onChange={handleFormChange} /> */}
+								<input className={cn(styles.input_color, styles.color11, styles.input_light)} type="radio" name="radio" value="11" onChange={handleFormChange} />		
 							</form>
 
 							<div className="margin_bottom_m">
@@ -225,7 +245,6 @@ const IconPage = () => {
 									</div>
 								</div>
 							</div>
-
 
 							<div className="font_ultra margin_bottom_s">теги:</div>
 							{iconTags && <IconTags iconTags={iconTags} />}	

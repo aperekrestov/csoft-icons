@@ -87,22 +87,28 @@ const IconPage = () => {
 	}
 	const iconContainerStyle = () => {
 		return {
-			width: 'calc(' + newSize + 'px + 12px)',
-			height: 'calc(' + newSize + 'px + 12px)',
 			backgroundImage: 'url(' + newIconBg + ')'
-		}
-	}
-	const resultStyle = () => {
-		return {
-			width: 'calc(' + newSize + 'px + 24px)',
-			height: 'calc(' + newSize + 'px + 24px)',
 		}
 	}
 
 	function handleSizeChange(e) {
-		console.log(e.target.value);
+		switch (e.target.value) {
+			case '8':
+				setSize(8)
+				break
+			case '16':
+				setSize(16)
+				break
+			case '24':
+				setSize(24)
+				break
+		
+			default:
+				setSize(24)
+				break
+		}
 	}
-	function handleFormChange(e) {
+	function handleColorChange(e) {
 		switch (e.target.value) {
 			case '1':
 				setNewIconColor(COLOR_1)
@@ -198,13 +204,20 @@ const IconPage = () => {
 									<b className={"font_ultra margin_left_ultra_small"}>{newSize+'x'+newSize}</b>
 								</div>
 
-								<div>
-									<label htmlFor="8">
-										8
-										<input className={cn()} type="radio" name="radio" value="8" onChange={handleSizeChange} />	
-									</label>
+								<div className={styles.size_radio_btn_container}>
+									<div className={styles.size_radio_btn}>
+										<input id="radio-1" type="radio" name="radio" value="8" onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-1">8x8</label>
+									</div>	
+									<div className={styles.size_radio_btn}>
+										<input id="radio-2" type="radio" name="radio" value="16" onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-2">16x16</label>
+									</div>	
+									<div className={styles.size_radio_btn}>
+										<input id="radio-3" type="radio" name="radio" value="24" defaultChecked onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-3">24x24</label>
+									</div>
 								</div>
-
 							</form>
 
 							<form className="margin_bottom_m">
@@ -212,18 +225,18 @@ const IconPage = () => {
 									<span className="font_ultra">цвет:</span>
 									<b className={"font_ultra margin_left_ultra_small"}>{newIconColor}</b>
 								</div>
-								<input className={cn(styles.input_color, styles.color1, styles.input_dark)} type="radio" name="radio" value="1" onChange={handleFormChange} />	
-								{/* <input className={cn(styles.input_color, styles.color14, styles.input_dark)} type="radio" name="radio" value="14" onChange={handleFormChange} /> */}
-								{/* <input className={cn(styles.input_color, styles.color4, styles.input_dark)} type="radio" name="radio" value="4" onChange={handleFormChange} /> */}
-								{/* <input className={cn(styles.input_color, styles.color5, styles.input_dark)} type="radio" name="radio" value="5" onChange={handleFormChange} /> */}
-								<input className={cn(styles.input_color, styles.color12, styles.input_dark)} type="radio" name="radio" value="12" onChange={handleFormChange} />
-								<input className={cn(styles.input_color, styles.color9, styles.input_dark)} type="radio" name="radio" value="9" onChange={handleFormChange} />
-								<input className={cn(styles.input_color, styles.color7, styles.input_light)} type="radio" name="radio" value="7" onChange={handleFormChange} />
-								<input className={cn(styles.input_color, styles.color10, styles.input_light)} type="radio" name="radio" value="10" onChange={handleFormChange} />
-								<input className={cn(styles.input_color, styles.color2, styles.input_light)} type="radio" name="radio" value="2" onChange={handleFormChange} />
-								<input className={cn(styles.input_color, styles.color3, styles.input_light)} type="radio" name="radio" value="3" onChange={handleFormChange} />
-								{/* <input className={cn(styles.input_color, styles.color13, styles.input_dark)} type="radio" name="radio" value="13" onChange={handleFormChange} /> */}
-								<input className={cn(styles.input_color, styles.color11, styles.input_light)} type="radio" name="radio" value="11" onChange={handleFormChange} />		
+								<input className={cn(styles.input_color, styles.color1, styles.input_dark)} type="radio" name="radio" value="1" onChange={handleColorChange} />	
+								{/* <input className={cn(styles.input_color, styles.color14, styles.input_dark)} type="radio" name="radio" value="14" onChange={handleColorChange} /> */}
+								{/* <input className={cn(styles.input_color, styles.color4, styles.input_dark)} type="radio" name="radio" value="4" onChange={handleColorChange} /> */}
+								{/* <input className={cn(styles.input_color, styles.color5, styles.input_dark)} type="radio" name="radio" value="5" onChange={handleColorChange} /> */}
+								<input className={cn(styles.input_color, styles.color12, styles.input_dark)} type="radio" name="radio" value="12" onChange={handleColorChange} />
+								<input className={cn(styles.input_color, styles.color9, styles.input_dark)} type="radio" name="radio" value="9" onChange={handleColorChange} />
+								<input className={cn(styles.input_color, styles.color7, styles.input_light)} type="radio" name="radio" value="7" onChange={handleColorChange} />
+								<input className={cn(styles.input_color, styles.color10, styles.input_light)} type="radio" name="radio" value="10" defaultChecked onChange={handleColorChange} />
+								<input className={cn(styles.input_color, styles.color2, styles.input_light)} type="radio" name="radio" value="2" onChange={handleColorChange} />
+								<input className={cn(styles.input_color, styles.color3, styles.input_light)} type="radio" name="radio" value="3" onChange={handleColorChange} />
+								{/* <input className={cn(styles.input_color, styles.color13, styles.input_dark)} type="radio" name="radio" value="13" onChange={handleColorChange} /> */}
+								<input className={cn(styles.input_color, styles.color11, styles.input_light)} type="radio" name="radio" value="11" onChange={handleColorChange} />		
 							</form>
 
 							<div className="margin_bottom_m">
@@ -231,7 +244,7 @@ const IconPage = () => {
 								{/* <img className={styles.test} src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`} alt="" />
 								<img src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`}/> */}
 								
-								<div className={styles.result} style={resultStyle()}>
+								<div className={styles.result}>
 									<div className={styles.result__corners_container}>
 										<img src={corner_top_left} alt="рамка" />
 										<img src={corner_top_right} alt="рамка" />

@@ -180,14 +180,16 @@ const IconPage = () => {
 
 				<div className={"content_width_middle padding_top_bottom_l"}>
 
-					<IconLinkBack />
+					<div className="margin_bottom_xl">
+						<IconLinkBack />
+					</div>
 
 					<div className={styles.icon_page_flex}>	
 
 						<section className={styles.container_info}>
 							{iconInfo && 
 								<div>
-									<h3>Файл #{iconInfo[0].data}</h3>
+									<h3 className={"margin_bottom_u"}>Файл #{iconInfo[0].data}</h3>
 									<span className="font_ultra">обновлен</span>
 									<b className={"font_ultra margin_left_ultra_small"} >{iconInfo[2].data}</b>
 								</div>
@@ -198,8 +200,8 @@ const IconPage = () => {
 						</section>
 						
 						<section>
-							<form className="margin_bottom_m">
-								<div className="margin_bottom_s">
+							<form className="margin_bottom_xl">
+								<div className="margin_bottom_m">
 									<span className="font_ultra">размер:</span>
 									<b className={"font_ultra margin_left_ultra_small"}>{newSize+'x'+newSize}</b>
 								</div>
@@ -220,8 +222,8 @@ const IconPage = () => {
 								</div>
 							</form>
 
-							<form className="margin_bottom_m">
-								<div className="margin_bottom_s">
+							<form className="margin_bottom_xl">
+								<div className="margin_bottom_m">
 									<span className="font_ultra">цвет:</span>
 									<b className={"font_ultra margin_left_ultra_small"}>{newIconColor}</b>
 								</div>
@@ -239,8 +241,8 @@ const IconPage = () => {
 								<input className={cn(styles.input_color, styles.color11, styles.input_light)} type="radio" name="radio" value="11" onChange={handleColorChange} />		
 							</form>
 
-							<div className="margin_bottom_m">
-								<div className="font_ultra margin_bottom_s">результат:</div>
+							<div className="margin_bottom_xxl">
+								<div className="font_ultra margin_bottom_m">результат:</div>
 								{/* <img className={styles.test} src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`} alt="" />
 								<img src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`}/> */}
 								
@@ -259,7 +261,9 @@ const IconPage = () => {
 								</div>
 							</div>
 
-							<div className="font_ultra margin_bottom_s">теги:</div>
+							<button className="font_small margin_bottom_l">Загрузить</button>
+
+							<div className="font_ultra margin_bottom_m">теги:</div>
 							{iconTags && <IconTags iconTags={iconTags} />}	
 						</section>
 					</div>

@@ -23,10 +23,8 @@ const IconLinkBack = ({ scrollPosition }) => {
 			className={cn("font_light", styles.btn_back)}
 			state={{ scrollPosition: scrollPosition }}
 		>
-			<img src={iconBack} alt="Назад" className={styles.btn_back__icon} />
-			<p>
-				Назад
-			</p>
+			<img src={iconBack} alt="Назад" className={cn(styles.btn_back__icon)} />
+			<span className="font_small">Назад</span>
 		</a>
 	)
 }

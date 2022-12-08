@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import { useParams } from 'react-router'
 
 import Header from '@components/Header'
 import IconLinkBack from '@components/IconPage/IconLinkBack'
 import IconTags from '@components/IconPage/IconTags'
-import { getIconImage, getIconSvg, getIconTags } from '@services/getIconData'
+import { getIconSvgUrl, getIconTags, getIconContent } from '@services/getIconData'
 import { IconArray } from '@services/context'
 import { 
 	COLOR_1, COLOR_2, COLOR_3, COLOR_4, COLOR_5, COLOR_6, 
@@ -24,66 +24,54 @@ import styles from './IconPage.module.css'
 
 const IconPage = () => {
 	window.scrollTo(0, 0)
-
-	const [svgIcon, setSvgIcon] = useState(null)
+	const { iconArray, setIconArray } = useContext(IconArray)
+	
+	const [iconSvgData, setIconSvgData] = useState(null)
 	const [newIconColor, setNewIconColor] = useState(GENERAL_COLOR)
 	const [newIconBg, setNewIconBg] = useState(pattern_alpha_light)
 	const [newSize, setSize] = useState(GENERAL_SIZE)
-
-	const { iconArray, setIconArray } = useContext(IconArray)
-	const clickedIdIcon = useParams().id
 	
-	let iconTitle = null
-	let iconImage = null
-	let iconTags = null
-	let iconInfo = null
-	
-	if (iconArray) {
-		for (let index = 0; index < iconArray.length; index++) {
-			if(iconArray[index].id === clickedIdIcon){
-				iconTitle = iconArray[index].title
-				iconImage = getIconImage(clickedIdIcon)
-				iconTags = getIconTags(iconArray[index].tags)
-				iconInfo = ([
-					{ title: 'Id', data: iconArray[index].id },
-					{ title: 'Title', data: iconArray[index].title },
-					{ title: 'Modificated', data: iconArray[index].modificated },
-				])
-			}			
-		}
-		// getSvgData(iconImage)
-		// todo перенести вызов на кнопки по выбору размера
-		getSvgData(getIconSvg(clickedIdIcon, newSize))
-		// console.log(getIconSvg(clickedIdIcon, newSize))
-	}
-
-	async function getSvgData(url) {
-		let response = await fetch(url)
+	const iconId = useParams().id
+	let mySvgData = setSvgData(getIconSvgUrl(iconId, newSize))
+	async function setSvgData(data) {
+		let response = await fetch(data)
 		if (response.ok) {
 			let data = await response.text()
-			setSvgIcon(data)
+			setIconSvgData(data)
 			return data
 		} else {
 			alert('error', response.status);
 		}
 	}
+	
+	let iconContent = null
+	let iconTitle = null
+	let iconImage = null
+	let iconDateModification = null
+	let iconTags = null
+	if (iconArray && iconContent === null) {
+		iconContent = getIconContent(iconArray, iconId)
+		iconTitle = iconContent.title
+		iconImage = iconContent.img
+		iconDateModification = iconContent.modificated
+		iconTags = getIconTags(iconContent.tags)
+	}
 
-	const blobSvgData = (svgData) => {
-		const blob = new Blob([svgData], { type: "text/plain" })
+	const svgModificator = () => {
+		return iconSvgData.replace(new RegExp(GENERAL_COLOR,"gi"), newIconColor)
+	}
+
+	const blobFinalSvg = (svg) => {
+		const blob = new Blob([svg], { type: "text/plain" })
 		return URL.createObjectURL(blob)
 	}
-	const modificatedSvg = () => {
-		return svgIcon.replace(new RegExp(GENERAL_COLOR,"gi"), newIconColor)
-	}
 	
-	const svg64 = (svgData) =>  {
-		return window.btoa(svgData)
-	}
-	const iconStyle = (data) => {
+	const iconStyle = (svg) => {
 		return {
 			width: newSize + 'px',
 			height: newSize + 'px',
-			backgroundImage: "url('data:image/svg+xml;base64," + svg64(data) + "')"
+			backgroundImage: "url('data:image/svg+xml;base64," + window.btoa(svg) + "')"
+			// ? window.btoa кодирует строку в base-64
 		}
 	}
 	const iconContainerStyle = () => {
@@ -94,18 +82,18 @@ const IconPage = () => {
 
 	function handleSizeChange(e) {
 		switch (e.target.value) {
-			case '8':
-				setSize(8)
+			case ULTRA_SMALL:
+				setSize(ULTRA_SMALL)
 				break
-			case '16':
-				setSize(16)
+			case SMALL:
+				setSize(SMALL)
 				break
-			case '24':
-				setSize(24)
+			case MEDIOM:
+				setSize(MEDIOM)
 				break
 		
 			default:
-				setSize(24)
+				setSize(GENERAL_SIZE)
 				break
 		}
 	}
@@ -190,13 +178,12 @@ const IconPage = () => {
 					<div className={styles.icon_page_flex}>	
 
 						<section className={styles.container_info}>
-							{iconInfo && 
-								<div>
-									<h3 className={"margin_bottom_u"}>Файл #{iconInfo[0].data}</h3>
-									<span className="font_ultra">обновлен</span>
-									<b className={"font_ultra margin_left_ultra_small"} >{iconInfo[2].data}</b>
-								</div>
-							}
+							<div>
+								<h3 className={"margin_bottom_u"}>Файл #{iconId}</h3>
+								<span className="font_ultra">обновлен</span>
+								<b className={"font_ultra margin_left_ultra_small"} >{iconDateModification}</b>
+							</div>
+
 							{iconImage && 
 								<img className={"icon_container__image padding_top_bottom_m"} src={iconImage} alt={iconTitle} />
 							}
@@ -211,15 +198,15 @@ const IconPage = () => {
 
 								<div className={styles.size_radio_btn_container}>
 									<div className={styles.size_radio_btn}>
-										<input id="radio-1" type="radio" name="radio" value="8" onChange={handleSizeChange} />
+										<input id="radio-1" type="radio" name="radio" value={ULTRA_SMALL} onChange={handleSizeChange} />
 										<label className="font_small" htmlFor="radio-1">8x8</label>
 									</div>	
 									<div className={styles.size_radio_btn}>
-										<input id="radio-2" type="radio" name="radio" value="16" onChange={handleSizeChange} />
+										<input id="radio-2" type="radio" name="radio" value={SMALL} onChange={handleSizeChange} />
 										<label className="font_small" htmlFor="radio-2">16x16</label>
 									</div>	
 									<div className={styles.size_radio_btn}>
-										<input id="radio-3" type="radio" name="radio" value="24" defaultChecked onChange={handleSizeChange} />
+										<input id="radio-3" type="radio" name="radio" value={MEDIOM} defaultChecked onChange={handleSizeChange} />
 										<label className="font_small" htmlFor="radio-3">24x24</label>
 									</div>
 								</div>
@@ -246,8 +233,6 @@ const IconPage = () => {
 
 							<div className="margin_bottom_xxl">
 								<div className="font_ultra margin_bottom_m">результат:</div>
-								{/* <img className={styles.test} src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`} alt="" />
-								<img src={`data:image/svg+xml;charset=utf-8,${inlineSVG}`}/> */}
 								
 								<div className={styles.result}>
 									<div className={styles.result__corners_container}>
@@ -255,7 +240,7 @@ const IconPage = () => {
 										<img src={corner_top_right} alt="рамка" />
 									</div>
 									<div className={styles.result__icon_container} style={iconContainerStyle()}>
-										{svgIcon && <div style={iconStyle(modificatedSvg())}></div>}
+										{iconSvgData && <div style={iconStyle(svgModificator())}></div>}
 									</div>
 									<div className={styles.result__corners_container}>
 										<img src={corner_bottom_left} alt="рамка" />
@@ -264,9 +249,8 @@ const IconPage = () => {
 								</div>
 							</div>
 
-							{svgIcon && <>
-								{/* {console.log(modificatedSvg())} */}
-								<a className="font_small margin_bottom_l button_link" href={blobSvgData(modificatedSvg())} download={iconInfo[0].data + ".svg"}>Загрузить</a>
+							{iconSvgData && <>
+								<a className="font_small margin_bottom_l button_link" href={blobFinalSvg(svgModificator())} download={iconId + ".svg"}>Загрузить</a>
 							</>}
 
 							<div className="font_ultra margin_bottom_m">теги:</div>

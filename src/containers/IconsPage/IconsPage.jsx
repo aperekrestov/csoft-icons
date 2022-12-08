@@ -14,9 +14,8 @@ import styles from './IconsPage.module.css'
 const IconsPage = () => {
 	const { scrollTop, setScrollTop } = useContext(ScrollTop)
 	const { iconArray, setIconArray } = useContext(IconArray)
-
+	
 	function targetScroll() {
-		// console.log(scrollTop + " проверка")
 		window.scrollTo(0, scrollTop)
 	}
 

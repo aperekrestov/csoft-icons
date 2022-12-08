@@ -10,7 +10,7 @@ import { JSON } from '@constants/constants'
 
 const App = ({ setErrorApi }) => {
 	const { iconArray, setIconArray } = useContext(IconArray)
-
+	
 	const getResource = async (url) => {
 		const res = await getIconResource(url)
 

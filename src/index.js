@@ -12,13 +12,13 @@ function Main() {
 	const [iconArray, setIconArray] = useState(null)
 
 	return (
-		<React.StrictMode>
+		// <React.StrictMode>
 			<ScrollTop.Provider value={{scrollTop, setScrollTop}}>
 				<IconArray.Provider value={{iconArray, setIconArray}}>
 					<App />
 				</IconArray.Provider>
 			</ScrollTop.Provider>
-		</React.StrictMode>
+		// </React.StrictMode>
 	)
 }
 

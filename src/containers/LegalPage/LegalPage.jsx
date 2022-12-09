@@ -2,6 +2,7 @@ import Header from '@components/Header'
 import styles from './LegalPage.module.css'
 
 const LegalPage = () => {
+	console.log('LegalPage')
 	return (
 		<>
 			<Header searchText={""}/>

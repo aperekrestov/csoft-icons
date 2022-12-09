@@ -20,6 +20,7 @@ const SearchPage = () => {
 		})
 	}
 
+	console.log('SearchPage')
 	return (
 		<>
 			<Header searchText={searchText}/>

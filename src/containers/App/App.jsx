@@ -3,22 +3,22 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import { withErrorApi } from '@hoc/withErrorApi'
 import routesConfig from '@routes/routesConfig'
-import { getIconResource } from '@utils/network'
 import { IconArray } from '@services/context'
-import { getIconImage } from '@services/getIconData'
-import { JSON } from '@constants/constants'
+import { getIconsJson, getIconImage } from '@services/getIconData'
+import { JSON_URL } from '@constants/constants'
 
 const App = ({ setErrorApi }) => {
+	// console.log('<React.StrictMode>')
 	const { iconArray, setIconArray } = useContext(IconArray)
 	
 	const getResource = async (url) => {
-		const res = await getIconResource(url)
+		const res = await getIconsJson(url)
 
-		const arrIconFiltered = res.filter(function(item){
-			return item.status === "true"
-		})
+		if (res) {
+			const arrIconFiltered = res.filter(function(item){
+				return item.status === "true"
+			})
 
-		if (arrIconFiltered) {
 			const iconsList = arrIconFiltered.map(({ id, title, status, tags, modificated }) => {
 				const img = getIconImage(id)
 				return {
@@ -35,10 +35,10 @@ const App = ({ setErrorApi }) => {
 		} else {
 			setErrorApi(true)
 		}
- 
 	}
 	useEffect(() => {
-		getResource(JSON)
+		// getResource('http://test.perekrestov.ru/csoft-icons.json')
+		getResource(JSON_URL)
 	}, [])
 
 	return (

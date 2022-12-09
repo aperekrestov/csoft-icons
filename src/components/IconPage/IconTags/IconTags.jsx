@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
 
 import cn from "classnames"
 
@@ -10,7 +11,7 @@ const IconTags = ({ iconTags }) => {
 			<ul className={styles.tags_list}>
 				{iconTags.map(tag => 
 					<li key={tag} className={cn("font_ultra", styles.tag)}>
-						{tag}
+						<NavLink to={`/search=${tag}`}>{tag}</NavLink>
 					</li>
 				)}
 			</ul>

@@ -18,7 +18,8 @@ const IconsPage = () => {
 	function targetScroll() {
 		window.scrollTo(0, scrollTop)
 	}
-
+	
+	console.log('IconsPage')
 	return (
 		<div>
 			<Header searchText={""}/>

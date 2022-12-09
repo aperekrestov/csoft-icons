@@ -7,23 +7,22 @@ export const getIconSvgUrl = (id, size) => FOLDER + size + "x" + size + "/" + id
 export const getIconTags = string => { return string.split(", ") }
 
 export const getIconContent = (iconArray, id) => {
-	for (let index = 0; index < iconArray.length; index++) {
-		if(iconArray[index].id === id){
-			return iconArray[index]
-		}			
+	return iconArray.find(item => item.id === id)
+}
+
+export const getIconsJson = async (url) => {
+	try {
+		const res = await fetch(url)
+
+		if (!res.ok) {
+			console.error('Could not fetch. ', res.status)
+			return false
+		}
+
+		return await res.json()
+
+	} catch (error) {
+		console.error('Could not fetch. ', error.message)
+		return false
 	}
 }
-// export const getIconInformation = () => {
-// 	for (let index = 0; index < iconArray.length; index++) {
-// 		if(iconArray[index].id === clickedIdIcon){
-// 			iconTitle = iconArray[index].title
-// 			iconImage = getIconImage(clickedIdIcon)
-// 			iconTags = getIconTags(iconArray[index].tags)
-// 			iconInfo = ([
-// 				{ title: 'Id', data: iconArray[index].id },
-// 				{ title: 'Title', data: iconArray[index].title },
-// 				{ title: 'Modificated', data: iconArray[index].modificated },
-// 			])
-// 		}			
-// 	}
-// }

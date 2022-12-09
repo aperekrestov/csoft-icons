@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
 import Header from '@components/Header'
@@ -32,16 +32,31 @@ const IconPage = () => {
 	const [newSize, setSize] = useState(GENERAL_SIZE)
 	
 	const iconId = useParams().id
-	let mySvgData = setSvgData(getIconSvgUrl(iconId, newSize))
-	async function setSvgData(data) {
-		let response = await fetch(data)
-		if (response.ok) {
-			let data = await response.text()
-			setIconSvgData(data)
-			return data
-		} else {
-			alert('error', response.status);
+
+	const errorMassege = 'Файл #' + iconId + ' размером ' + newSize + 'x' + newSize + ' не найден'
+
+	async function fetchSvgData() {
+		console.log(getIconSvgUrl(iconId, newSize));
+		let res = await fetch(getIconSvgUrl(iconId, newSize))
+		const resText = await res.text()
+
+		if (resText.slice(0, 4) === '<svg') {
+			setIconSvgData(resText)
+			return resText
 		}
+		console.error('ОШИБКА:', errorMassege)
+		setIconSvgData(null)
+		
+		// todo response дает статус OK на несуществующий файл, нужно понять в чем причина и обработать корректно ошибку
+		// const response = await fetch(url)
+		// if (response.ok) {
+		// 	let responseText= await response.text()
+		// 	console.log(responseText)
+		// 	setIconSvgData(responseText)
+		// 	return responseText
+		// } else {
+		// 	console.error('ОШИБКА', response.status)
+		// }
 	}
 	
 	let iconContent = null
@@ -59,13 +74,8 @@ const IconPage = () => {
 
 	const svgModificator = () => {
 		return iconSvgData.replace(new RegExp(GENERAL_COLOR,"gi"), newIconColor)
-	}
+	}	
 
-	const blobFinalSvg = (svg) => {
-		const blob = new Blob([svg], { type: "text/plain" })
-		return URL.createObjectURL(blob)
-	}
-	
 	const iconStyle = (svg) => {
 		return {
 			width: newSize + 'px',
@@ -74,10 +84,16 @@ const IconPage = () => {
 			// ? window.btoa кодирует строку в base-64
 		}
 	}
+
 	const iconContainerStyle = () => {
 		return {
 			backgroundImage: 'url(' + newIconBg + ')'
 		}
+	}
+
+	const blobFinalSvg = (svg) => {
+		const blob = new Blob([svg], { type: "text/plain" })
+		return URL.createObjectURL(blob)
 	}
 
 	function handleSizeChange(e) {
@@ -162,8 +178,12 @@ const IconPage = () => {
 		}
 	}
 
-	
+	useEffect(()=>{
+		fetchSvgData()
+	}, [newSize])
 
+	
+	console.log('IconPage')
 	return (
 		<>		
 			<div className="wrapper_grey_page">
@@ -234,19 +254,24 @@ const IconPage = () => {
 							<div className="margin_bottom_xxl">
 								<div className="font_ultra margin_bottom_m">результат:</div>
 								
-								<div className={styles.result}>
-									<div className={styles.result__corners_container}>
-										<img src={corner_top_left} alt="рамка" />
-										<img src={corner_top_right} alt="рамка" />
+								{iconSvgData
+									? 
+									<div className={styles.result}>
+										<div className={styles.result__corners_container}>
+											<img src={corner_top_left} alt="рамка" />
+											<img src={corner_top_right} alt="рамка" />
+										</div>
+										<div className={styles.result__icon_container} style={iconContainerStyle()}>
+											{iconSvgData && <div style={iconStyle(svgModificator())}></div>}
+										</div>
+										<div className={styles.result__corners_container}>
+											<img src={corner_bottom_left} alt="рамка" />
+											<img src={corner_bottom_right} alt="рамка" />
+										</div>
 									</div>
-									<div className={styles.result__icon_container} style={iconContainerStyle()}>
-										{iconSvgData && <div style={iconStyle(svgModificator())}></div>}
-									</div>
-									<div className={styles.result__corners_container}>
-										<img src={corner_bottom_left} alt="рамка" />
-										<img src={corner_bottom_right} alt="рамка" />
-									</div>
-								</div>
+									:
+									<p>{errorMassege}</p>
+								}
 							</div>
 
 							{iconSvgData && <>
@@ -254,7 +279,7 @@ const IconPage = () => {
 							</>}
 
 							<div className="font_ultra margin_bottom_m">теги:</div>
-							{iconTags && <IconTags iconTags={iconTags} />}	
+							{iconTags && <IconTags iconTags={iconTags} />}
 						</section>
 					</div>
 				</div>

@@ -2,31 +2,34 @@
 	position: sticky;
 	top: 0;
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	/* align-items: center; */
+	/* justify-content: center; */
 	background-color: var(--color-10);
-	width: 100%;
 	height: var(--size-7);
 	z-index: 100;
 }
 
 .container{
 	display: flex;
-	/* justify-content:space-between; */
-	align-items: center;
+	flex-wrap: wrap;
 	width: 100%;
+	justify-content:space-between;
+	align-items: center;
 }
 
 .logo{
 	/*! ширина должна быть равной ширине блоку иконок справа */
-	width: 80px;
-	height: 33px;
-	background-image: url(@static/logo.svg);
+	width: var(--size-7); 
+	/* width: 120px;  */
+	height: 14px;
+	/* background-color: chartreuse; */
+	background-image: url(@static/logo-light.svg);
 }
 
 
 .search{
 	width: 100%;
+	max-width: var(--breakpoint-u);
 	height: var(--size-5);
 	display: flex;
 	align-items: center;
@@ -40,7 +43,7 @@
 	outline: none;
     width: 100%;
 	height: 100%;
-	padding: 0 var(--spacing-small);
+	padding-left: var(--spacing-m);
 }
 .search:hover{
 	outline: 2px solid var(--color-4);
@@ -65,23 +68,53 @@
 
 .list__btn{
 	display: flex;
-	justify-content: end;
-	margin: 0;
-	padding: 0;
+	justify-content: space-between;
 	list-style-type: none;
-	width: 80px; 
+	width: var(--size-7); 
 	/*! ширина должна быть равной ширине логотипа */
+}
+.list__btn_table{
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-image: url(@static/icon-0020-s.svg);
+	margin-right: var(--spacing-m);
 }
 .list__btn_legal{
 	display: block;
 	width: 16px;
 	height: 16px;
 	background-image: url(@static/icon-0172-s.svg);
-	margin-right: var(--spacing-small);
+	margin-right: var(--spacing-m);
 }
 .list__btn_home{
 	display: block;
 	width: 16px;
 	height: 16px;
 	background-image: url(@static/icon-0375-s.svg);
+}
+
+@media (min-width: 576px) {
+	/* ?больше 576px */
+	.wrapper{
+		/* flex-wrap: wrap; */
+		/* opacity: 0; */
+	}
+	/* .content_width_middle{
+		max-width: unset;
+		padding-left: var(--spacing-xl);
+		padding-right: var(--spacing-xl);
+	} */
+}
+@media (min-width: 992px) {
+	/* ?больше 992px */
+	.search{
+		max-width: var(--breakpoint-s);
+	}
+}
+@media (min-width: 1200px) {
+	/* ?больше 1200px */
+	.search{
+		max-width: var(--breakpoint-m);
+	}
 }

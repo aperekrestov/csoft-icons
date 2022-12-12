@@ -20,6 +20,7 @@
 }
 
 .bannerBig__img{
+	margin: 0 auto;
 	height: var(--size-8);
 	background-repeat: no-repeat;
 }
@@ -28,11 +29,13 @@
 	/* !больше 1200px */
 	.bannerBig__img{
 		background-image: url(img/banner-big-img-xl.svg);
+		width: 1104px;
 	}
 }
 @media (min-width: 1400px) {
 	/* !больше 1400px */
 	.bannerBig__img{
 		background-image: url(img/banner-big-img-xxl.svg);
+		width: 1304px;
 	}
 }

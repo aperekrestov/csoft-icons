@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 import PropTypes from 'prop-types'
 import useScrollPosition from '@hoc/useScrollPosition'
-import IconImage from '@components/IconPage/IconImage'
 import { ScrollTop } from '@services/context'
 import styles from './IconsList.module.css'
 
@@ -16,14 +15,17 @@ const IconsList = ({iconArray}) => {
 	}
 
 	return (
-		<ul className={styles.list__container}>
-			{iconArray && (iconArray.map(({id, title, img}) =>
+		<ul className="list__container">
+
+			{iconArray.map(({id, title, img}) =>
+
 				<li className="icon_container" key={id}>
 					<Link to={`/icon-${id}`} onClick={click}>
-						<IconImage iconImage={img} iconTitle={title}/>
+						<img className="icon_container__image" src={img} alt={title} />
 					</Link>
 				</li>
-			))}
+				
+			)}
 		</ul>
 	)
 }

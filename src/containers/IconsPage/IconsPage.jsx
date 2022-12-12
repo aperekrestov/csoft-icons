@@ -25,13 +25,13 @@ const IconsPage = () => {
 			<Header searchText={""}/>
 			<BannerBig />
 			
-			<section className={"content_width_large padding_top_bottom_l"}>
+			<section className={"padding_top_bottom_l"}>
 				<h2 className={styles.icons_page__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
 				{iconArray && <IconsList iconArray={iconArray} />}
 				
 			</section>
 
-			{setTimeout(targetScroll, TIMEOUT_SCROLL)}
+			{/* {setTimeout(targetScroll, TIMEOUT_SCROLL)} */}
 		</div>
 	)
 }

@@ -32,15 +32,25 @@
 	--size-10: 512px;
 
 	/* ? экран больше или равен следующим значениям --breakpoint */
+	--breakpoint-u:   320px;
 	--breakpoint-s:   576px;
 	--breakpoint-m:   768px;
 	--breakpoint-l:   992px;
 	--breakpoint-xl:  1200px;
 	--breakpoint-xxl: 1400px;
 
-	--spacing-ultra-small: .25rem;
-	--spacing-small: 1rem;
-	--spacing-large: 4rem;
+	--content-width-u: calc(var(--breakpoint-u) - var(--size-3)*2);
+	--content-width-s: calc(var(--breakpoint-s) - var(--size-3)*2);
+	--content-width-m: calc(var(--breakpoint-m) - var(--size-3)*2);
+	--content-width-l: calc(var(--breakpoint-l) - var(--size-5)*2);
+	--content-width-xl: calc(var(--breakpoint-xl) - var(--size-5)*2);
+	--content-width-xxl: calc(var(--breakpoint-xxl) - var(--size-5)*2);
+
+	--spacing-u: var(--size-0);
+	--spacing-s: var(--size-1);
+	--spacing-m: var(--size-2);
+	--spacing-l: var(--size-3);
+	--spacing-xl: var(--size-4);
 
 	--transition-regular: all .4s ease;
 	--transition-fast: all .2s ease;
@@ -88,7 +98,7 @@ h1{
 }
 h2{
 	font-size: var(--size-4);
-	padding-bottom: var(--spacing-large);
+	padding-bottom: var(--spacing-l);
 }
 h3{
 	font-size: 18px;
@@ -137,13 +147,18 @@ input{
 	min-height: 100vh;
 	background-color: var(--color-5);
 }
-.content_width_large{
-	margin: 0 auto;
+.content_indent{
+	padding: 0 var(--spacing-xl);
 }
 .content_width_middle{
 	margin: 0 auto;
+	overflow: hidden;
 }
-
+.content_width_middle .icon_container__image{
+	width: var(--size-8);
+	height: var(--size-8);
+	/* todo размер иконки на странице иконки исправлять или нет? */
+}
 
 .padding_top_bottom_l{
 	padding-top: var(--size-6);
@@ -155,10 +170,10 @@ input{
 }
 
 .margin_left_small{
-	margin-left: var(--spacing-small);
+	margin-left: var(--spacing-s);
 }
 .margin_left_ultra_small{
-	margin-left: var(--spacing-ultra-small);
+	margin-left: var(--spacing-u);
 }
 
 .margin_bottom_u {
@@ -181,33 +196,80 @@ input{
 }
 
 
+.list__container{
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+	padding: 0 calc(var(--spacing-xl)/2);
+	animation: ani var(--time-slow) forwards;
+	animation-timing-function: ease-in;
+}
+.icon_container{
+	width: calc((100%/2) - var(--spacing-xl));
+	margin: calc(var(--spacing-xl)/2);
+}
+.icon_container:before{
+	content: "";
+	display: block;
+	padding-top: 100%;
+	/*? initial ratio of 1:1*/
+}
+@keyframes ani{
+	0% {opacity: 0;}
+	100% {opacity: 1;}
+}
 .icon_container {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 246px;
-	height: 246px;
 	cursor: pointer;
-	margin-bottom: var(--spacing-small);
 	background-color: var(--color-5);
 }
 .icon_container__image{
-	width: 128px;
-	height: 128px;
+	width: var(--size-6);
+	height: var(--size-6);	
 }
 
-@media (min-width: 1200px) {
-	/* !больше 1200px */
-	.content_width_large{
-		max-width: calc(var(--breakpoint-xl) - var(--size-5) * 2);
+@media (min-width: 320px) {
+	/* ?больше 320px */
+	.content_width_middle{
+		max-width: unset;
+		padding-left: var(--spacing-xl);
+		padding-right: var(--spacing-xl);
+	}
+}
+@media (min-width: 576px) {
+	/* ?больше 576px */
+	.icon_container{
+		width: calc((100%/3) - var(--spacing-xl));
+	}
+}
+@media (min-width: 768px) {
+	/* ?больше 768px */
+	.icon_container{
+		width: calc((100%/5) - var(--spacing-xl));
 	}
 	.content_width_middle{
-		max-width: calc(var(--breakpoint-m));
+		max-width: var(--breakpoint-m);
+	}
+}
+@media (min-width: 992px) {
+	/* ?больше 992px */
+	/* .content_width_middle{
+		max-width: var(--breakpoint-m);
+	} */
+}
+@media (min-width: 1200px) {
+	/* ?больше 1200px */
+	.icon_container__image{
+		width: var(--size-7);
+		height: var(--size-7);	
 	}
 }
 @media (min-width: 1400px) {
-	/* !больше 1400px */
-	.content_width_large{
-		max-width: calc(var(--breakpoint-xxl) - var(--size-5) * 2);
+	/* ?больше 1400px */
+	.icon_container__image{
+		width: var(--size-8);
+		height: var(--size-8);	
 	}
 }

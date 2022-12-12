@@ -33,11 +33,11 @@ const Header = ({searchText}) => {
 
 
 	return (
-		<section className={styles.wrapper}>
-			<nav className={cn(styles.container, "content_width_large")}>
+		<section className={cn(styles.wrapper, "content_indent")}>
+			<nav className={cn(styles.container)}>
 				<NavLink to='/' className={styles.logo}></NavLink>
 
-				<div onKeyUp={handleOnKeyUp} className={cn(styles.search, "content_width_middle")}>
+				<div onKeyUp={handleOnKeyUp} className={cn(styles.search)}>
 					<input 
 						className={styles.search__input} 
 						type="text" 
@@ -53,6 +53,7 @@ const Header = ({searchText}) => {
 				</div>
 
 				<ul className={styles.list__btn}>
+					<li><NavLink to='/' className={styles.list__btn_table}></NavLink></li>
 					<li><NavLink to='/legal' className={styles.list__btn_legal}></NavLink></li>
 					<li><NavLink to='/' className={styles.list__btn_home}></NavLink></li>
 				</ul>

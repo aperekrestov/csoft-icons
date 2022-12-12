@@ -42,11 +42,13 @@ const IconPage = () => {
 
 		if (resText.slice(0, 4) === '<svg') {
 			setIconSvgData(resText)
-			return resText
+			// todo response дает статус OK на несуществующий файл, нужно понять в чем причина и обработать корректно ошибку
+			// console.log(iconSvgData)
+			return
 		}
 		console.error('ОШИБКА:', errorMassege)
 		setIconSvgData(null)
-		
+
 		// todo response дает статус OK на несуществующий файл, нужно понять в чем причина и обработать корректно ошибку
 		// const response = await fetch(url)
 		// if (response.ok) {
@@ -262,7 +264,7 @@ const IconPage = () => {
 											<img src={corner_top_right} alt="рамка" />
 										</div>
 										<div className={styles.result__icon_container} style={iconContainerStyle()}>
-											{iconSvgData && <div style={iconStyle(svgModificator())}></div>}
+										<div style={iconStyle(svgModificator())}></div>
 										</div>
 										<div className={styles.result__corners_container}>
 											<img src={corner_bottom_left} alt="рамка" />

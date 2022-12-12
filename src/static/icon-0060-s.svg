@@ -1,0 +1,29 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_683_19493)">
+<mask id="mask0_683_19493" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 0H0V7H2V16H16V0Z" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_683_19493)">
+<rect y="1" width="16" height="2" fill="#FCFCFC"/>
+<rect y="14" width="16" height="1" fill="#FCFCFC"/>
+<rect y="3" width="1" height="12" fill="#FCFCFC"/>
+<rect x="15" y="3" width="1" height="12" fill="#FCFCFC"/>
+<rect x="3" y="5" width="2" height="1" fill="#FCFCFC"/>
+<rect x="7" y="5" width="2" height="1" fill="#FCFCFC"/>
+<rect x="11" y="5" width="2" height="1" fill="#FCFCFC"/>
+<rect x="3" y="8" width="2" height="1" fill="#FCFCFC"/>
+<rect x="7" y="8" width="2" height="1" fill="#FCFCFC"/>
+<rect x="11" y="8" width="2" height="1" fill="#FCFCFC"/>
+<rect x="3" y="11" width="2" height="1" fill="#FCFCFC"/>
+<rect x="7" y="11" width="2" height="1" fill="#FCFCFC"/>
+<rect x="11" y="11" width="2" height="1" fill="#FCFCFC"/>
+</g>
+<rect y="11" width="1" height="5" fill="#FCFCFC"/>
+<rect y="9" width="1" height="1" fill="#FCFCFC"/>
+</g>
+<defs>
+<clipPath id="clip0_683_19493">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

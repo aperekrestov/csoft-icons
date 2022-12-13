@@ -1,35 +1,25 @@
-.wrapper{
+.container{
 	position: sticky;
 	top: 0;
 	display: flex;
-	/* align-items: center; */
-	/* justify-content: center; */
-	background-color: var(--color-10);
-	height: var(--size-7);
-	z-index: 100;
-}
-
-.container{
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
 	justify-content:space-between;
 	align-items: center;
+	padding: 0 var(--spacing-xl);
+	height: var(--size-7);
+	z-index: 100;
+	background-color: var(--color-10);
 }
 
 .logo{
 	/*! ширина должна быть равной ширине блоку иконок справа */
 	width: var(--size-7); 
-	/* width: 120px;  */
 	height: 14px;
-	/* background-color: chartreuse; */
 	background-image: url(@static/logo-light.svg);
 }
 
-
 .search{
 	width: 100%;
-	max-width: var(--breakpoint-u);
+	max-width: var(--breakpoint-m);
 	height: var(--size-5);
 	display: flex;
 	align-items: center;
@@ -51,8 +41,6 @@
 .search:focus-within{
 	outline: 2px solid var(--color-3);
 }
-
-
 .search__btn{
 	display: flex;
 	width: calc(var(--size-5) - 4px);
@@ -94,27 +82,48 @@
 	background-image: url(@static/icon-0375-s.svg);
 }
 
-@media (min-width: 576px) {
-	/* ?больше 576px */
-	.wrapper{
-		/* flex-wrap: wrap; */
-		/* opacity: 0; */
-	}
-	/* .content_width_middle{
-		max-width: unset;
-		padding-left: var(--spacing-xl);
-		padding-right: var(--spacing-xl);
-	} */
-}
-@media (min-width: 992px) {
-	/* ?больше 992px */
+
+
+@media (max-width: 1200px) {
+	/* ?меньше 1200px */
 	.search{
 		max-width: var(--breakpoint-s);
 	}
 }
-@media (min-width: 1200px) {
-	/* ?больше 1200px */
+@media (max-width: 992px) {
+	/* ?меньше 992px */
+	.container{
+		height: var(--size-6);
+	}
 	.search{
-		max-width: var(--breakpoint-m);
+		max-width: calc(var(--breakpoint-u) - var(--spacing-xl));
+		height: var(--size-4);
+		outline: 1px solid var(--color-7);
+		outline-offset: -1px;
+	}
+	.search:hover{
+		outline: 1px solid var(--color-4);
+	}
+	.search:focus-within{
+		outline: 1px solid var(--color-3);
+	}
+	.search__btn{
+		display: flex;
+		width: calc(var(--size-4) - 2px);
+		height: calc(var(--size-4) - 2px);
+		margin-right: 1px;
+	}
+}
+@media (max-width: 576px) {
+	/* ?меньше 576px */
+	.container{
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: space-between;
+		padding: var(--spacing-l) var(--spacing-xl);
+		height: var(--size-8);
+	}
+	.search{
+		max-width: unset;
 	}
 }

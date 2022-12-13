@@ -6,6 +6,12 @@
 	display: block;
 	
 }
+
+.icon{
+	width: var(--size-8);
+	height: var(--size-8);
+}
+
 .result{
 	position: relative;
 	display: flex;
@@ -109,4 +115,49 @@
 }
 .size_radio_btn label:hover {
 	background: var(--color-4);
+}
+
+.button_link{
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/* width: 350px; */
+	width: calc(var(--size-8)*3);
+	/* ? привязываем к радиокнопкам размера size_radio_btn label*/
+	height: var(--size-5);
+	border: solid 1px var(--color-10);
+	transition: var(--transition-regular);
+}
+.button_link:hover{
+	background-color: rgba(12, 18, 28, 0.04);
+}
+
+@media (max-width: 992px) {
+	/* ?меньше 992px */
+	.icon{
+		width: var(--size-7);
+		height: var(--size-7);
+	}
+}
+@media (max-width: 768px) {
+	/* ?меньше 768px */
+	.size_radio_btn label {
+		width: var(--size-6);
+	}
+	.button_link{
+		width: calc(var(--size-6)*3);
+	}
+}
+@media (max-width: 576px) {
+	/* ?меньше 576px */
+	.icon_page_flex{
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.result_section{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }

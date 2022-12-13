@@ -33,7 +33,7 @@ const Header = ({searchText}) => {
 
 
 	return (
-		<section className={cn(styles.wrapper, "content_indent")}>
+		// <section className={styles.wrapper}>
 			<nav className={cn(styles.container)}>
 				<NavLink to='/' className={styles.logo}></NavLink>
 
@@ -58,7 +58,7 @@ const Header = ({searchText}) => {
 					<li><NavLink to='/' className={styles.list__btn_home}></NavLink></li>
 				</ul>
 			</nav>
-		</section>
+		// </section>
 	)
 }
 

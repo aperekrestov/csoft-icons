@@ -207,7 +207,7 @@ const IconPage = () => {
 							</div>
 
 							{iconImage && 
-								<img className={"icon_container__image padding_top_bottom_m"} src={iconImage} alt={iconTitle} />
+								<img className={cn(styles.icon, "padding_top_bottom_m")} src={iconImage} alt={iconTitle} />
 							}
 						</section>
 						
@@ -253,12 +253,12 @@ const IconPage = () => {
 								<input className={cn(styles.input_color, styles.color11, styles.input_light)} type="radio" name="radio" value="11" onChange={handleColorChange} />		
 							</form>
 
-							<div className="margin_bottom_xxl">
+							<div className={cn(styles.result_section)}>
 								<div className="font_ultra margin_bottom_m">результат:</div>
 								
 								{iconSvgData
 									? 
-									<div className={styles.result}>
+									<div className={cn(styles.result, "margin_bottom_xxl")}>
 										<div className={styles.result__corners_container}>
 											<img src={corner_top_left} alt="рамка" />
 											<img src={corner_top_right} alt="рамка" />
@@ -272,16 +272,17 @@ const IconPage = () => {
 										</div>
 									</div>
 									:
-									<p>{errorMassege}</p>
+									<p className="margin_bottom_xxl">{errorMassege}</p>
 								}
+								
+								{iconSvgData && <>
+									<a className={cn(styles.button_link, "font_small margin_bottom_l")} href={blobFinalSvg(svgModificator())} download={iconId + ".svg"}>Загрузить</a>
+								</>}
+
+								<div className="font_ultra margin_bottom_m">теги:</div>
+								{iconTags && <IconTags iconTags={iconTags} />}
 							</div>
 
-							{iconSvgData && <>
-								<a className="font_small margin_bottom_l button_link" href={blobFinalSvg(svgModificator())} download={iconId + ".svg"}>Загрузить</a>
-							</>}
-
-							<div className="font_ultra margin_bottom_m">теги:</div>
-							{iconTags && <IconTags iconTags={iconTags} />}
 						</section>
 					</div>
 				</div>

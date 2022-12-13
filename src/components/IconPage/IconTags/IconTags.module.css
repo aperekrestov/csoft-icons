@@ -19,6 +19,13 @@
 }
 
 .tag:hover{
-	/* color: var(--color-10); */
 	background-color: var(--color-hover-1);
+}
+
+
+@media (max-width: 576px) {
+	/* ?меньше 576px */
+	.tags_list{
+		justify-content: center;
+	}
 }

@@ -109,22 +109,6 @@ input{
 	background-color: unset;
 }
 
-.button_link{
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 350px;
-	height: var(--size-5);
-	border: solid 1px var(--color-10);
-	transition: var(--transition-regular);
-}
-.button_link:hover{
-	background-color: rgba(12, 18, 28, 0.04);
-	/* border: solid 1px rgba(12, 18, 28, 0); */
-}
-
-
 .font_bold{
 	font-weight: 600;
 }
@@ -147,17 +131,15 @@ input{
 	min-height: 100vh;
 	background-color: var(--color-5);
 }
+
 .content_indent{
 	padding: 0 var(--spacing-xl);
 }
+
 .content_width_middle{
 	margin: 0 auto;
 	overflow: hidden;
-}
-.content_width_middle .icon_container__image{
-	width: var(--size-8);
-	height: var(--size-8);
-	/* todo размер иконки на странице иконки исправлять или нет? */
+	max-width: var(--breakpoint-m);
 }
 
 .padding_top_bottom_l{
@@ -205,7 +187,12 @@ input{
 	animation-timing-function: ease-in;
 }
 .icon_container{
-	width: calc((100%/2) - var(--spacing-xl));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	background-color: var(--color-5);
+	width: calc(100% / 5 - var(--spacing-xl));
 	margin: calc(var(--spacing-xl)/2);
 }
 .icon_container:before{
@@ -218,58 +205,55 @@ input{
 	0% {opacity: 0;}
 	100% {opacity: 1;}
 }
-.icon_container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	background-color: var(--color-5);
-}
+
 .icon_container__image{
-	width: var(--size-6);
-	height: var(--size-6);	
+	width: var(--size-8);
+	height: var(--size-8);	
 }
 
-@media (min-width: 320px) {
-	/* ?больше 320px */
+
+
+
+@media (max-width: 1400px) {
+	/* ?меньше 1400px */
+	.icon_container__image{
+		width: var(--size-7);
+		height: var(--size-7);
+	}
+}
+@media (max-width: 1200px) {
+	/* ?меньше 1200px */
+	.icon_container__image{
+		width: var(--size-6);
+		height: var(--size-6);
+	}
+}
+@media (max-width: 992px) {
+	/* ?меньше 992px */
+	.icon_container{
+		width: calc((100%/4) - var(--spacing-xl));
+	}
 	.content_width_middle{
 		max-width: unset;
 		padding-left: var(--spacing-xl);
 		padding-right: var(--spacing-xl);
 	}
 }
-@media (min-width: 576px) {
-	/* ?больше 576px */
+@media (max-width: 768px) {
+	/* ?меньше 768px */
 	.icon_container{
 		width: calc((100%/3) - var(--spacing-xl));
 	}
 }
-@media (min-width: 768px) {
-	/* ?больше 768px */
+@media (max-width: 576px) {
+	/* ?меньше 576px */
 	.icon_container{
-		width: calc((100%/5) - var(--spacing-xl));
+		width: calc((100%/2) - var(--spacing-xl));
 	}
 	.content_width_middle{
-		max-width: var(--breakpoint-m);
+		text-align: center;
 	}
 }
-@media (min-width: 992px) {
-	/* ?больше 992px */
-	/* .content_width_middle{
-		max-width: var(--breakpoint-m);
-	} */
-}
-@media (min-width: 1200px) {
-	/* ?больше 1200px */
-	.icon_container__image{
-		width: var(--size-7);
-		height: var(--size-7);	
-	}
-}
-@media (min-width: 1400px) {
-	/* ?больше 1400px */
-	.icon_container__image{
-		width: var(--size-8);
-		height: var(--size-8);	
-	}
+@media (max-width: 320px) {
+	/* ?меньше 320px */
 }

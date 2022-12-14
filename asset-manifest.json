@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/csoft-icons/static/css/main.c0536ed4.css",
-    "main.js": "/csoft-icons/static/js/main.a10a4de1.js",
+    "main.js": "/csoft-icons/static/js/main.1b77d188.js",
     "static/media/banner-big-img-xxl.svg": "/csoft-icons/static/media/banner-big-img-xxl.4a43f5acbf6f9f0f9dc1.svg",
     "static/media/banner-big-img-xl.svg": "/csoft-icons/static/media/banner-big-img-xl.a5cf6e3bb111c29230ca.svg",
     "static/media/logo-light.svg": "/csoft-icons/static/media/logo-light.7cc8c57559109b8ffe35.svg",
@@ -20,10 +20,10 @@
     "static/media/corner-bottom-left.svg": "/csoft-icons/static/media/corner-bottom-left.83ad7add6ac76066306c1482f0ed09c7.svg",
     "static/media/corner-top-left.svg": "/csoft-icons/static/media/corner-top-left.15e935adc834ed9972dd210fb66d8962.svg",
     "main.c0536ed4.css.map": "/csoft-icons/static/css/main.c0536ed4.css.map",
-    "main.a10a4de1.js.map": "/csoft-icons/static/js/main.a10a4de1.js.map"
+    "main.1b77d188.js.map": "/csoft-icons/static/js/main.1b77d188.js.map"
   },
   "entrypoints": [
     "static/css/main.c0536ed4.css",
-    "static/js/main.a10a4de1.js"
+    "static/js/main.1b77d188.js"
   ]
 }

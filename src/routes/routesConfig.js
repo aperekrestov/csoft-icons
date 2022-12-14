@@ -12,7 +12,7 @@ const routesConfig = [
 		element: <IconsPage/>
 	},
 	{
-		path: REPOSITORY_NAME,
+		path: 'csoft-icons/',
 		element: <IconsPage/>
 	},
 	{

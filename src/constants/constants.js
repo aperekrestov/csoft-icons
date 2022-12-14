@@ -1,6 +1,6 @@
 export const REPOSITORY_NAME = 'csoft-icons/'
 
-export const JSON_URL = 'csoft-icons.json'
+export const JSON_URL = '/csoft-icons.json'
 export const FOLDER = 'icons/'
 export const EXTENSION = '.svg'
 

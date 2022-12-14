@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ef1b5b88.css",
+    "main.js": "/static/js/main.2e358767.js",
+    "static/media/banner-big-img-xxl.svg": "/static/media/banner-big-img-xxl.4a43f5acbf6f9f0f9dc1.svg",
+    "static/media/banner-big-img-xl.svg": "/static/media/banner-big-img-xl.a5cf6e3bb111c29230ca.svg",
+    "static/media/logo-light.svg": "/static/media/logo-light.7cc8c57559109b8ffe35.svg",
+    "static/media/icon-0020-s.svg": "/static/media/icon-0020-s.864e726256b8f6c8e6bd.svg",
+    "static/media/icon-0127-s.svg": "/static/media/icon-0127-s.c199053aad55e78e4524.svg",
+    "static/media/icon-0172-s.svg": "/static/media/icon-0172-s.a0d71086264c75200f5f.svg",
+    "index.html": "/index.html",
+    "static/media/icon-0021-u-dark.svg": "/static/media/icon-0021-u-dark.3e1f3eef89b0b7523190.svg",
+    "static/media/icon-0021-u-light.svg": "/static/media/icon-0021-u-light.4a760f5ef499f4ffdb83.svg",
+    "static/media/pattern-alpha-dark.svg": "/static/media/pattern-alpha-dark.9a181e55b222534d4288b79b58107b87.svg",
+    "static/media/pattern-alpha-light.svg": "/static/media/pattern-alpha-light.c88b1f5a9458c6bcab14e61a7717f99a.svg",
+    "static/media/icon-0375-s.svg": "/static/media/icon-0375-s.b9ed013007c75542dda8.svg",
+    "static/media/icon-0181-s.svg": "/static/media/icon-0181-s.3b427cff4fb1ccf2d17b6d97bd6c0d08.svg",
+    "static/media/corner-top-right.svg": "/static/media/corner-top-right.2a64cc976cc13dfe14d64bd34540220e.svg",
+    "static/media/corner-bottom-right.svg": "/static/media/corner-bottom-right.d2760b4b5c0f241f45bed90e94c48947.svg",
+    "static/media/corner-bottom-left.svg": "/static/media/corner-bottom-left.83ad7add6ac76066306c1482f0ed09c7.svg",
+    "static/media/corner-top-left.svg": "/static/media/corner-top-left.15e935adc834ed9972dd210fb66d8962.svg",
+    "main.ef1b5b88.css.map": "/static/css/main.ef1b5b88.css.map",
+    "main.2e358767.js.map": "/static/js/main.2e358767.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef1b5b88.css",
+    "static/js/main.2e358767.js"
+  ]
+}

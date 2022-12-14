@@ -1,6 +1,7 @@
-export const JSON_URL = './csoft-icons.json'
-export const FOLDER = 'icons/'
-// export const FOLDER = 'http://test.perekrestov.ru/'
+export const REPOSITORY_NAME = 'csoft-icons/'
+
+export const JSON_URL = REPOSITORY_NAME + 'csoft-icons.json'
+export const FOLDER = REPOSITORY_NAME + 'icons/'
 export const EXTENSION = '.svg'
 
 export const ULTRA_SMALL = '8'

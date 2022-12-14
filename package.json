@@ -1,6 +1,7 @@
 {
   "name": "csoft-icons",
   "version": "0.1.0",
+  "homepage": "https://perchick.github.io/csoft-icons/",
   "private": true,
   "dependencies": {
     "classnames": "^2.3.2",

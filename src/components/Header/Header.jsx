@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types'
+import { useState, useCallback, useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import { useState, useCallback } from 'react'
+
+import { IconArray } from '@services/context'
 
 import cn from 'classnames'
 import styles from './Header.module.css'
 
-const Header = ({searchText}) => {
+const Header = ({searchText=''}) => {
+	const { iconArray, setIconArray } = useContext(IconArray)
+
 	const [inputSerchValue, setInputSerchValue] = useState(searchText)
 	const [searchLink, setSearchLink] = useState("")
 	const navigate = useNavigate()
@@ -33,10 +37,11 @@ const Header = ({searchText}) => {
 
 
 	return (
-		// <section className={styles.wrapper}>
-			<nav className={cn(styles.container)}>
-				<NavLink to='/' className={styles.logo}></NavLink>
+		<nav className={cn(styles.container)}>
+			<NavLink to='/' className={styles.logo}></NavLink>
 
+			{iconArray
+				?
 				<div onKeyUp={handleOnKeyUp} className={cn(styles.search)}>
 					<input 
 						className={styles.search__input} 
@@ -45,24 +50,27 @@ const Header = ({searchText}) => {
 						value={inputSerchValue}
 						placeholder="Поиск графических иконок" 
 						onChange={handleInputChange}
-					/>
+						/>
 					<div 
 						onClick={handleOnClick} 
 						className={styles.search__btn}>
 					</div>
 				</div>
+				:
+				<span className={cn(styles.warning_text, "font_ultra")}>ограниченный режим</span>
+			}
 
-				<ul className={styles.list__btn}>
-					<li><NavLink to='/' className={styles.list__btn_table}></NavLink></li>
-					<li><NavLink to='/legal' className={styles.list__btn_legal}></NavLink></li>
-					<li><NavLink to='/' className={styles.list__btn_home}></NavLink></li>
-				</ul>
-			</nav>
-		// </section>
+			<ul className={styles.list__btn}>
+				<li><NavLink to='/' className={styles.list__btn_table}></NavLink></li>
+				<li><NavLink to='/legal' className={styles.list__btn_legal}></NavLink></li>
+				<li><NavLink to='/' className={styles.list__btn_home}></NavLink></li>
+			</ul>
+		</nav>
 	)
 }
 
 Header.propTypes = {
+	isSearchHidden: PropTypes.bool,
 	searchText: PropTypes.string
 }
 

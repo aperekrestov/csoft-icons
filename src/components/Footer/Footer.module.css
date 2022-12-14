@@ -1,0 +1,11 @@
+.footer_container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color-10);
+	width: 100%;
+	height: var(--size-5);
+}
+.copyright{
+	color: var(--color-1);
+}

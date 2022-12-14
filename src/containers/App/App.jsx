@@ -1,16 +1,14 @@
 import { useEffect, useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-import { withErrorApi } from '@hoc/withErrorApi'
 import routesConfig from '@routes/routesConfig'
 import { IconArray } from '@services/context'
 import { getIconsJson, getIconImage } from '@services/getIconData'
 import { JSON_URL } from '@constants/constants'
 
-const App = ({ setErrorApi }) => {
-	// console.log('<React.StrictMode>')
+const App = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
-	
+
 	const getResource = async (url) => {
 		const res = await getIconsJson(url)
 
@@ -31,18 +29,16 @@ const App = ({ setErrorApi }) => {
 				}	
 			})
 			setIconArray(iconsList)
-			setErrorApi(false)
 		} else {
-			setErrorApi(true)
+			// todo определить HOC с выводом данных об ошибке
 		}
 	}
 	useEffect(() => {
-		// getResource('http://test.perekrestov.ru/csoft-icons.json')
 		getResource(JSON_URL)
 	}, [])
 
 	return (
-		<>
+		<>			
 			<BrowserRouter>
 				<Routes>
 					{routesConfig.map((route, index) => (
@@ -59,4 +55,4 @@ const App = ({ setErrorApi }) => {
 	)
 }
 
-export default withErrorApi(App)
+export default App

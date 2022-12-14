@@ -3,6 +3,7 @@ import { useContext } from 'react'
 
 import IconsList from '@components/IconsPage/IconsList'
 import Header from '@components/Header'
+import Footer from '@components/Footer'
 import { IconArray } from '@services/context'
 
 import styles from './SearchPage.module.css'
@@ -20,12 +21,13 @@ const SearchPage = () => {
 		})
 	}
 
+	window.scrollTo(0, 0)
 	console.log('SearchPage')
 	return (
-		<>
+		<div className="wrapper">
 			<Header searchText={searchText}/>
 
-			<div className={"padding_top_bottom_l"}>
+			<div className={"padding_top_bottom_l content_height_auto"}>
 				<div className={"content_indent"}>
 					<h3>Вы ищите « {searchText} »</h3>
 					<span className="font_ultra">Найдено файлов:</span>
@@ -33,8 +35,9 @@ const SearchPage = () => {
 				</div>
 				{arrAfterSearch && <IconsList iconArray={arrAfterSearch} />}
 			</div>
-			
-		</>
+
+			<Footer />			
+		</div>
 	)
 }
 

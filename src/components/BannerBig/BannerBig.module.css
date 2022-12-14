@@ -2,8 +2,8 @@
 	/* width: 100%; */
 	height: var(--size-10);
 	background-color: var(--color-10);
-	animation: ani var(--time-regular) forwards;
-	animation-timing-function: ease-out;
+	/* animation: ani var(--time-regular) forwards;
+	animation-timing-function: ease-out; */
 }
 /* @keyframes ani{
 	0% {opacity: 0;}

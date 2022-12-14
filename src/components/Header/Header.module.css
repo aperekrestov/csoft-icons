@@ -9,6 +9,12 @@
 	z-index: 100;
 	background-color: var(--color-10);
 }
+.warning_text{
+	color: var(--color-2);
+	width: 100%;
+	text-align: center;
+	max-width: var(--breakpoint-m);
+}
 
 .logo{
 	/*! ширина должна быть равной ширине блоку иконок справа */
@@ -86,7 +92,7 @@
 
 @media (max-width: 1200px) {
 	/* ?меньше 1200px */
-	.search{
+	.search, .warning_text{
 		max-width: var(--breakpoint-s);
 	}
 }
@@ -94,6 +100,9 @@
 	/* ?меньше 992px */
 	.container{
 		height: var(--size-6);
+	}
+	.warning_text{
+		max-width: calc(var(--breakpoint-u) - var(--spacing-xl));
 	}
 	.search{
 		max-width: calc(var(--breakpoint-u) - var(--spacing-xl));
@@ -123,7 +132,7 @@
 		padding: var(--spacing-l) var(--spacing-xl);
 		height: var(--size-8);
 	}
-	.search{
+	.search, .warning_text{
 		max-width: unset;
 	}
 }

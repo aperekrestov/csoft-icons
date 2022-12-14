@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
 import Header from '@components/Header'
+import Footer from '@components/Footer'
 import IconLinkBack from '@components/IconPage/IconLinkBack'
 import IconTags from '@components/IconPage/IconTags'
 import { getIconSvgUrl, getIconTags, getIconContent } from '@services/getIconData'
@@ -23,7 +24,6 @@ import cn from 'classnames'
 import styles from './IconPage.module.css'
 
 const IconPage = () => {
-	window.scrollTo(0, 0)
 	const { iconArray, setIconArray } = useContext(IconArray)
 	
 	const [iconSvgData, setIconSvgData] = useState(null)
@@ -36,7 +36,7 @@ const IconPage = () => {
 	const errorMassege = 'Файл #' + iconId + ' размером ' + newSize + 'x' + newSize + ' не найден'
 
 	async function fetchSvgData() {
-		console.log(getIconSvgUrl(iconId, newSize));
+		console.log(getIconSvgUrl(iconId, newSize))
 		let res = await fetch(getIconSvgUrl(iconId, newSize))
 		const resText = await res.text()
 
@@ -184,14 +184,18 @@ const IconPage = () => {
 		fetchSvgData()
 	}, [newSize])
 
+	useEffect(()=>{
+		window.scrollTo(0, 0)
+	}, [])
+
 	
 	console.log('IconPage')
 	return (
 		<>		
-			<div className="wrapper_grey_page">
-				<Header searchText={""}/>
+			<div className="wrapper grey_page">
+				<Header />
 
-				<div className={"content_width_middle padding_top_bottom_l"}>
+				<div className={"content_width_middle padding_top_bottom_l content_height_auto"}>
 
 					<div className="margin_bottom_xl">
 						<IconLinkBack />
@@ -286,6 +290,8 @@ const IconPage = () => {
 						</section>
 					</div>
 				</div>
+				
+				<Footer />
 			</div>
 		</>
 	)

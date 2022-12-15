@@ -1,15 +1,14 @@
-export const REPOSITORY_NAME = 'csoft-icons/'
+// export const REPOSITORY_NAME = 'csoft-icons/'
+export const JSON_URL = './csoft-icons.json'
 
-export const JSON_URL = REPOSITORY_NAME + 'csoft-icons.json'
-export const FOLDER = REPOSITORY_NAME + 'icons/'
-export const EXTENSION = '.svg'
+export const FOLDER = './'
 
 export const ULTRA_SMALL = '8'
 export const SMALL = '16'
 export const MEDIOM = '24'
 export const GENERAL_SIZE = MEDIOM
 
-export const TIMEOUT_SCROLL = 10
+export const EXTENSION = '.svg'
 
 export const COLOR_1 = '#FCFCFC'
 export const COLOR_2 = '#ED1C24'

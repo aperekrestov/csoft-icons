@@ -67,25 +67,25 @@
 	width: var(--size-7); 
 	/*! ширина должна быть равной ширине логотипа */
 }
-.list__btn_table{
+.list__btn_1{
 	display: block;
 	width: 16px;
 	height: 16px;
 	background-image: url(@static/icon-0020-s.svg);
 	margin-right: var(--spacing-m);
 }
-.list__btn_legal{
+.list__btn_2{
 	display: block;
 	width: 16px;
 	height: 16px;
 	background-image: url(@static/icon-0172-s.svg);
 	margin-right: var(--spacing-m);
 }
-.list__btn_home{
+.list__btn_3{
 	display: block;
 	width: 16px;
 	height: 16px;
-	background-image: url(@static/icon-0375-s.svg);
+	background-image: url(@static/icon-0378-s.svg);
 }
 
 

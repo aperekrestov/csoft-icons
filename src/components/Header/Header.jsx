@@ -61,9 +61,10 @@ const Header = ({searchText=''}) => {
 			}
 
 			<ul className={styles.list__btn}>
-				<li><NavLink to='/' className={styles.list__btn_table}></NavLink></li>
-				<li><NavLink to='/legal' className={styles.list__btn_legal}></NavLink></li>
-				<li><NavLink to='/' className={styles.list__btn_home}></NavLink></li>
+				<li><NavLink to='/' className={styles.list__btn_1}></NavLink></li>
+				<li><NavLink to='/legal' className={styles.list__btn_2}></NavLink></li>
+				{/* <li><NavLink to='/pdf' className={styles.list__btn_3}></NavLink></li> */}
+				<li><a href="icons.pdf" target="_blank" className={styles.list__btn_3}></a></li>
 			</ul>
 		</nav>
 	)

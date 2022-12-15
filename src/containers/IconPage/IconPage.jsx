@@ -205,7 +205,7 @@ const IconPage = () => {
 
 						<section className={styles.container_info}>
 							<div>
-								<h3 className={"margin_bottom_u"}>Файл #{iconId}</h3>
+								<h3>Файл #{iconId}</h3>
 								<span className="font_ultra">обновлен</span>
 								<b className={"font_ultra margin_left_ultra_small"} >{iconDateModification}</b>
 							</div>

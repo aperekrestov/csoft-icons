@@ -1,7 +1,6 @@
 {
   "name": "csoft-icons",
   "version": "0.1.0",
-  "homepage": "https://perchick.github.io/csoft-icons/",
   "private": true,
   "dependencies": {
     "classnames": "^2.3.2",
@@ -13,11 +12,11 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-	"start": "react-app-rewired start",
-	"deploy": "npm run build && npm run build-gh-pages",
+    "start": "react-app-rewired start",
+    "deploy": "npm run build && npm run build-gh-pages",
     "build": "react-app-rewired build",
     "eject": "react-scripts eject",
-	"build-gh-pages": "gh-pages -d build"
+    "build-gh-pages": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -38,7 +37,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0",
     "react-app-rewire-alias": "^1.1.7",
     "react-app-rewired": "^2.2.1"
   }

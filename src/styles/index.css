@@ -122,9 +122,26 @@ h2{
 h3{
 	font-size: 18px;
 	font-weight: 400;
+	padding-bottom: var(--spacing-m);
+	text-transform: uppercase;
 }
-p{
+/* h4{
+	font-size: 11px;
+	letter-spacing: 1.4px;
+	text-transform: uppercase;
+} */
+p, dl{
 	line-height: 175%;
+	margin-bottom: var(--spacing-xl);
+}
+/* dl{
+	line-height: 175%;
+	margin-bottom: var(--spacing-xl);
+} */
+dd{
+	margin-left: var(--spacing-xl);
+	display: list-item;
+    list-style-type: disc;
 }
 input{
 	font-size: var(--size-2);

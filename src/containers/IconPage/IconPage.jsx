@@ -25,6 +25,7 @@ import styles from './IconPage.module.css'
 
 const IconPage = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
+	console.log(iconArray);
 	
 	const [iconSvgData, setIconSvgData] = useState(null)
 	const [newIconColor, setNewIconColor] = useState(GENERAL_COLOR)
@@ -36,7 +37,7 @@ const IconPage = () => {
 	const errorMassege = 'Файл #' + iconId + ' размером ' + newSize + 'x' + newSize + ' не найден'
 
 	async function fetchSvgData() {
-		console.log(getIconSvgUrl(iconId, newSize))
+		// console.log(getIconSvgUrl(iconId, newSize))
 		let res = await fetch(getIconSvgUrl(iconId, newSize))
 		const resText = await res.text()
 
@@ -66,7 +67,8 @@ const IconPage = () => {
 	let iconImage = null
 	let iconDateModification = null
 	let iconTags = null
-	if (iconArray && iconContent === null) {
+	if (iconArray != null) {
+		console.log(iconArray);
 		iconContent = getIconContent(iconArray, iconId)
 		iconTitle = iconContent.title
 		iconImage = iconContent.img

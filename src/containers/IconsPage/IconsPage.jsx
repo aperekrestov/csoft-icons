@@ -21,7 +21,7 @@ const IconsPage = () => {
 				<div className="wrapper">
 					<Header />
 					<BannerBig />					
-					<section className={"wrapper padding_top_bottom_l content_height_auto"}>
+					<section className={"padding_top_bottom_l content_height_auto"}>
 						<h2 className={styles.icons_page__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
 						<IconsList />	
 					</section>

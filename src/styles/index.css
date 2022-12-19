@@ -115,10 +115,15 @@ html, body {
 h1{
 	font-size: var(--size-5);
 	font-weight: 300;
+	box-sizing: border-box;
 }
 h2{
 	font-size: var(--size-4);
 	padding-bottom: var(--spacing-l);
+	box-sizing: border-box;
+	/*! -webkit-transform: translate3d(0,0,0); */
+	/* word-wrap: break-word; */
+	/* todo преренос по буквам не срабатывает */
 }
 h3{
 	font-size: 18px;
@@ -126,19 +131,10 @@ h3{
 	padding-bottom: var(--spacing-m);
 	text-transform: uppercase;
 }
-/* h4{
-	font-size: 11px;
-	letter-spacing: 1.4px;
-	text-transform: uppercase;
-} */
 p, dl{
 	line-height: 175%;
 	margin-bottom: var(--spacing-xl);
 }
-/* dl{
-	line-height: 175%;
-	margin-bottom: var(--spacing-xl);
-} */
 dd{
 	margin-left: var(--spacing-xl);
 	display: list-item;
@@ -148,7 +144,9 @@ input{
 	font-size: var(--size-2);
 	background-color: unset;
 }
-
+.headline_padding{
+	padding: 0 var(--size-4);
+}
 .font_bold{
 	font-weight: 600;
 }
@@ -181,14 +179,17 @@ input{
 .grey_page{
 	background-color: var(--color-5);
 }
-
 .content_indent{
 	padding: 0 var(--spacing-xl);
 }
-
+.width_limiter{
+	max-width: var(--breakpoint-xxl);
+	margin: 0 auto;
+}
 .content_width_middle{
 	margin: 0 auto;
 	width: var(--breakpoint-m);
+	/* min-width: 500px; */
 	/* max-width: var(--breakpoint-m); */
 }
 
@@ -296,6 +297,12 @@ input{
 }
 @media (max-width: 576px) {
 	/* ?меньше 576px */
+	h1{
+		font-size: var(--size-4);
+	}
+	h2{
+		font-size: var(--size-3);
+	}
 	.icon_container{
 		width: calc((100%/2) - var(--spacing-xl));
 	}

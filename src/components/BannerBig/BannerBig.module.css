@@ -4,6 +4,12 @@
 	background-color: var(--color-10);
 	/* animation: ani var(--time-regular) forwards;
 	animation-timing-function: ease-out; */
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-between;
+	padding-top: var(--size-7);
+	padding-bottom: var(--size-6);
+	box-sizing: border-box;
 }
 /* @keyframes ani{
 	0% {opacity: 0;}
@@ -11,10 +17,7 @@
 } */
 
 .bannerBig__header{
-	max-width: var(--breakpoint-m);
 	margin: 0 auto;
-	padding-top: var(--size-6);
-	padding-bottom: var(--size-6);
 	text-align: center;
 	color: var(--color-1);
 }

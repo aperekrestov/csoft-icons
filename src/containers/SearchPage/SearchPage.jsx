@@ -28,7 +28,7 @@ const SearchPage = () => {
 		<div className="wrapper">
 			<Header searchText={searchText}/>
 
-			<div className={"padding_top_bottom_l content_height_auto"}>
+			<div className={"width_limiter padding_top_bottom_l content_height_auto"}>
 				<div className={"content_indent"}>
 					<h3>Вы ищите « {searchText} »</h3>
 					<span className="font_ultra">Найдено файлов:</span>

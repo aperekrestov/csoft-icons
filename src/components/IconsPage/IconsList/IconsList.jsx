@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState, useContext, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { IconArray } from '@services/context'
 
@@ -8,8 +8,8 @@ const ICONS_PER_PAGE = 6
 const IconsList = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
 	const [iconArrayLazy, setIconArrayLazy] = useState([])
-
- 	const scrollHandler = (e) => {
+	
+	const scrollHandler = (e) => {
 		let scrollGalleryValue = document.querySelector('.list__container').getBoundingClientRect().y + document.querySelector('.list__container').clientHeight - window.innerHeight
 		if (scrollGalleryValue <= 0) {
 			loadMore()
@@ -19,8 +19,8 @@ const IconsList = () => {
 		// console.log("Текущее положение скролла scrollTop", e.target.documentElement.scrollTop);
 		// console.log("Высота браузера window.innerHeight", window.innerHeight);
 	}
-
-
+	
+	
 	function loadMore() {
 		console.log('loadMore');
 		if(document.querySelector('.list__container').childNodes.length < iconArray.length) {
@@ -31,14 +31,16 @@ const IconsList = () => {
 			document.removeEventListener('scroll', scrollHandler)
 		}
 	}
-
+	
 	useEffect(() => {
 		// ? добавляем первую порцию данных от 0 до ICONS_PER_PAGE
 		setIconArrayLazy([...iconArrayLazy, ...iconArray.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
-		document.addEventListener('scroll', scrollHandler)
-		return function () {
-			document.removeEventListener('scroll', scrollHandler)
-		}
+		
+		// todo реализовать постепенную загрузку иконок
+		// document.addEventListener('scroll', scrollHandler)
+		// return function () {
+		// 	document.removeEventListener('scroll', scrollHandler)
+		// }
 	}, [])
 
 	return (
@@ -46,7 +48,7 @@ const IconsList = () => {
 
 			<ul className="list__container">
 
-				{iconArrayLazy.map(({id, title, img}) =>
+				{iconArray.map(({id, title, img}) =>
 
 					<li className="icon_container" key={id}>
 						<Link to={`/icon-${id}`}>

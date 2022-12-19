@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState , useRef} from 'react'
 import { useParams } from 'react-router'
 
 import Header from '@components/Header'
@@ -25,7 +25,6 @@ import styles from './IconPage.module.css'
 
 const IconPage = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
-	console.log(iconArray);
 	
 	const [iconSvgData, setIconSvgData] = useState(null)
 	const [newIconColor, setNewIconColor] = useState(GENERAL_COLOR)
@@ -68,7 +67,6 @@ const IconPage = () => {
 	let iconDateModification = null
 	let iconTags = null
 	if (iconArray != null) {
-		console.log(iconArray);
 		iconContent = getIconContent(iconArray, iconId)
 		iconTitle = iconContent.title
 		iconImage = iconContent.img

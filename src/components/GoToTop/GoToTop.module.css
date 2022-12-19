@@ -1,0 +1,10 @@
+.go_to_top{
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	position: fixed;
+	right: var(--size-4);
+	bottom: var(--size-6);
+	display: none;
+	mix-blend-mode: exclusion;
+}

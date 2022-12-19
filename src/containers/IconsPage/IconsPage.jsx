@@ -6,6 +6,7 @@ import IconsList from '@components/IconsPage/IconsList'
 import Footer from '@components/Footer'
 import { IconArray } from '@services/context'
 
+import GoToTop from '@components/GoToTop'
 import styles from './IconsPage.module.css'
 
 
@@ -25,6 +26,7 @@ const IconsPage = () => {
 						<h2 className={styles.icons_page__header}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
 						<IconsList />	
 					</section>
+					<GoToTop />
 					<Footer />
 				</div>
 				:
@@ -34,6 +36,7 @@ const IconsPage = () => {
 							<h2>Сервис временно недоступен</h2>
 							<p>Не удалось загрузить данные с сервера</p>
 					</section>
+					<GoToTop />
 					<Footer />
 				</div>
 			}

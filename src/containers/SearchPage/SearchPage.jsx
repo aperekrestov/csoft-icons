@@ -11,9 +11,9 @@ import styles from './SearchPage.module.css'
 
 const SearchPage = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
-	let arrAfterSearch = null
-
+	
 	const location = useLocation()
+	let arrAfterSearch = null
 	const searchText = decodeURI(location.pathname.split('/search=').join(''))
 
 	if(iconArray){
@@ -21,6 +21,8 @@ const SearchPage = () => {
 			return item.tags.toLowerCase().includes(searchText.toLowerCase())
 		})
 	}
+	console.log(arrAfterSearch);
+	console.log(searchText);
 
 	window.scrollTo(0, 0)
 	console.log('SearchPage')
@@ -28,14 +30,13 @@ const SearchPage = () => {
 		<div className="wrapper">
 			<Header searchText={searchText}/>
 
-			<div className={"width_limiter padding_top_bottom_l content_height_auto"}>
-				<div className={"content_indent"}>
-					<h3>Вы ищите « {searchText} »</h3>
-					<span className="font_ultra">Найдено файлов:</span>
-					{arrAfterSearch && <b className={"font_ultra margin_left_ultra_small"} >{arrAfterSearch.length}</b>}
-				</div>
-				{arrAfterSearch && <IconsList iconArray={arrAfterSearch} />}
-			</div>
+			<section className={"width_limiter padding_top_bottom_l content_height_auto"}>
+				<h3 className={"headline_padding"}>Вы ищите « {searchText} »</h3>
+				{arrAfterSearch && (
+					<span className="font_ultra headline_padding">Найдено файлов: <b className={"font_ultra"} >{arrAfterSearch.length}</b></span>
+				)}
+				{arrAfterSearch && <IconsList iconArrayList={arrAfterSearch} />}
+			</section>
 
 			<GoToTop />
 

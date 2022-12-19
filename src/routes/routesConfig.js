@@ -15,9 +15,9 @@ const routesConfig = [
 		element: <IconPage/>
 	},
 	{
+		// todo создать переадресацию по /search=Ð¿Ð¿Ð¿
 		path: '/search=:id',
 		element: <SearchPage/>
-		// создать переадресацию по /search=
 	},
 	{
 		path: '/legal',

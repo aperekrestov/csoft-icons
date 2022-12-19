@@ -25,7 +25,7 @@ const IconsPage = () => {
 					<BannerBig />					
 					<section className={"width_limiter padding_top_bottom_l content_height_auto"}>
 						<h2 className={cn(styles.icons_page__header, "headline_padding")}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
-						<IconsList />	
+						<IconsList iconArrayList={iconArray}/>	
 					</section>
 					<GoToTop />
 					<Footer />

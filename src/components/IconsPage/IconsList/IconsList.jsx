@@ -1,12 +1,12 @@
 import { useEffect, useState, useContext, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { IconArray } from '@services/context'
+// import { IconArray } from '@services/context'
 
 // todo вынести в константы
 const ICONS_PER_PAGE = 6
 
-const IconsList = () => {
-	const { iconArray, setIconArray } = useContext(IconArray)
+const IconsList = ({iconArrayList}) => {
+	// const { iconArray, setIconArray } = useContext(IconArray)
 	const [iconArrayLazy, setIconArrayLazy] = useState([])
 	
 	const scrollHandler = (e) => {
@@ -23,9 +23,9 @@ const IconsList = () => {
 	
 	function loadMore() {
 		console.log('loadMore');
-		if(document.querySelector('.list__container').childNodes.length < iconArray.length) {
+		if(document.querySelector('.list__container').childNodes.length < iconArrayList.length) {
 			setIconArrayLazy((iconArrayLazy) => {
-				return [...iconArrayLazy, ...iconArray.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)]
+				return [...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)]
 			})
 		} else {
 			document.removeEventListener('scroll', scrollHandler)
@@ -34,7 +34,7 @@ const IconsList = () => {
 	
 	useEffect(() => {
 		// ? добавляем первую порцию данных от 0 до ICONS_PER_PAGE
-		setIconArrayLazy([...iconArrayLazy, ...iconArray.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
+		setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
 		
 		// todo реализовать постепенную загрузку иконок
 		// document.addEventListener('scroll', scrollHandler)
@@ -48,7 +48,7 @@ const IconsList = () => {
 
 			<ul className="list__container">
 
-				{iconArray.map(({id, title, img}) =>
+				{iconArrayList.map(({id, title, img}) =>
 
 					<li className="icon_container" key={id}>
 						<Link to={`/icon-${id}`}>

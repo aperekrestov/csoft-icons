@@ -180,9 +180,11 @@ input{
 	background-color: var(--color-5);
 }
 .content_indent{
-	padding: 0 var(--spacing-xl);
+	padding-left: var(--spacing-xl);
+	padding-right: var(--spacing-xl);
 }
 .width_limiter{
+	width: 100%;
 	max-width: var(--breakpoint-xxl);
 	margin: 0 auto;
 }
@@ -303,11 +305,18 @@ input{
 	h2{
 		font-size: var(--size-3);
 	}
-	.icon_container{
-		width: calc((100%/2) - var(--spacing-xl));
-	}
 	.content_width_middle{
 		text-align: center;
+	}
+	.content_indent{
+		padding-left: var(--spacing-m);
+		padding-right: var(--spacing-m);
+	}
+	.list__container{
+		padding: 0 0;
+	}
+	.icon_container{
+		width: calc((100%/2) - var(--spacing-xl));
 	}
 }
 @media (max-width: 320px) {

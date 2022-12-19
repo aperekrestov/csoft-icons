@@ -37,7 +37,7 @@ const Header = ({searchText=''}) => {
 
 
 	return (
-		<nav className={cn(styles.container)}>
+		<nav className={cn(styles.container, "content_indent")}>
 			<NavLink to='/' className={styles.logo}></NavLink>
 
 			{iconArray

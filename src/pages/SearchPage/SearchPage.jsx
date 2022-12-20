@@ -5,7 +5,7 @@ import IconsList from '@components/IconsPage/IconsList'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import GoToTop from '@components/GoToTop'
-import { IconArray } from '@services/context'
+import { IconArray } from '@context/context'
 
 import styles from './SearchPage.module.css'
 

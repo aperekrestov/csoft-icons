@@ -1,6 +1,6 @@
 import { FOLDER, EXTENSION, GENERAL_SIZE } from '@constants/constants'
 
-export const getIconImage = id => FOLDER + GENERAL_SIZE + "x" + GENERAL_SIZE + "/" + id + EXTENSION
+export const getIconImageUrl = id => FOLDER + GENERAL_SIZE + "x" + GENERAL_SIZE + "/" + id + EXTENSION
 
 export const getIconSvgUrl = (id, size) => FOLDER + size + "x" + size + "/" + id + EXTENSION
 

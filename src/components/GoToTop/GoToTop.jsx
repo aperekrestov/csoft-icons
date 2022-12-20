@@ -1,4 +1,4 @@
-import topArrow from '@static/icon-0379-s.svg'
+import topArrow from '@assets/vector-graphics/icon-0379-s.svg'
 import { useEffect, useRef, useState } from 'react'
 import styles from './GoToTop.module.css'
 

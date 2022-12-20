@@ -5,7 +5,7 @@ import BannerBig from '@components/BannerBig'
 import IconsList from '@components/IconsPage/IconsList'
 import GoToTop from '@components/GoToTop'
 import Footer from '@components/Footer'
-import { IconArray } from '@services/context'
+import { IconArray } from '@context/context'
 
 import cn from 'classnames'
 import styles from './IconsPage.module.css'

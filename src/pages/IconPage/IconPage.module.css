@@ -75,10 +75,10 @@
 	transform: scale(1);
 }
 .input_light[type="radio"]::after {
-	background-image: url(@static/icon-0021-u-light.svg);
+	background-image: url(@assets/vector-graphics/icon-0021-u-light.svg);
 }
 .input_dark[type="radio"]::after {
-	background-image: url(@static/icon-0021-u-dark.svg);
+	background-image: url(@assets/vector-graphics/icon-0021-u-dark.svg);
 }
 
 

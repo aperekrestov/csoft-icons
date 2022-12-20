@@ -20,7 +20,7 @@
 	/*! ширина должна быть равной ширине блоку иконок справа */
 	width: var(--size-7); 
 	height: 14px;
-	background-image: url(@static/logo-light.svg);
+	background-image: url(@assets/vector-graphics/logo-light.svg);
 	/* order: 1; */
 }
 
@@ -54,7 +54,7 @@
 	width: calc(var(--size-5) - 4px);
 	height: calc(var(--size-5) - 4px);
 	margin-right: 2px;
-	background-image: url(@static/icon-0127-s.svg);
+	background-image: url(@assets/vector-graphics/icon-0127-s.svg);
 	background-repeat:no-repeat;
 	background-position: center center;
 	background-color: var(--color-10);
@@ -74,21 +74,21 @@
 	display: block;
 	width: 16px;
 	height: 16px;
-	background-image: url(@static/icon-0020-s.svg);
+	background-image: url(@assets/vector-graphics/icon-0020-s.svg);
 	margin-right: var(--spacing-m);
 }
 .list__btn_2{
 	display: block;
 	width: 16px;
 	height: 16px;
-	background-image: url(@static/icon-0172-s.svg);
+	background-image: url(@assets/vector-graphics/icon-0172-s.svg);
 	margin-right: var(--spacing-m);
 }
 .list__btn_3{
 	display: block;
 	width: 16px;
 	height: 16px;
-	background-image: url(@static/icon-0378-s.svg);
+	background-image: url(@assets/vector-graphics/icon-0378-s.svg);
 }
 
 

@@ -1,7 +1,6 @@
 // export const REPOSITORY_NAME = 'csoft-icons/'
-export const JSON_URL = './csoft-icons.json'
 
-export const FOLDER = './'
+export const FOLDER = './csoft-icons-collection/'
 
 export const ULTRA_SMALL = '8'
 export const SMALL = '16'

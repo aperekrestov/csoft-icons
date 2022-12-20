@@ -1,8 +1,8 @@
-import IconsPage from '@containers/IconsPage'
-import IconPage from '@containers/IconPage'
-import LegalPage from '@containers/LegalPage'
-import NotFoundPage from '@containers/NotFoundPage'
-import SearchPage from '@containers/SearchPage/SearchPage'
+import IconsPage from '@pages/IconsPage'
+import IconPage from '@pages/IconPage'
+import LegalPage from '@pages/LegalPage'
+import NotFoundPage from '@pages/NotFoundPage'
+import SearchPage from '@pages/SearchPage/SearchPage'
 
 
 const routesConfig = [

@@ -5,20 +5,20 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 import IconLinkBack from '@components/IconPage/IconLinkBack'
 import IconTags from '@components/IconPage/IconTags'
-import { getIconSvgUrl, getIconTags, getIconContent } from '@services/getIconData'
-import { IconArray } from '@services/context'
+import { getIconSvgUrl, getIconTags, getIconContent } from '@utils/getIconData'
+import { IconArray } from '@context/context'
 import { 
 	COLOR_1, COLOR_2, COLOR_3, COLOR_4, COLOR_5, COLOR_6, 
 	COLOR_7, COLOR_8, COLOR_9, COLOR_10, COLOR_11, COLOR_12, 
 	COLOR_13, COLOR_14, GENERAL_COLOR, 
 	GENERAL_SIZE, ULTRA_SMALL, SMALL, MEDIOM } from '@constants/constants'
 
-import corner_top_left from '@static/corner-top-left.svg'
-import corner_top_right from '@static/corner-top-right.svg'
-import corner_bottom_left from '@static/corner-bottom-left.svg'
-import corner_bottom_right from '@static/corner-bottom-right.svg'
-import pattern_alpha_light from '@static/pattern-alpha-light.svg'
-import pattern_alpha_dark from '@static/pattern-alpha-dark.svg'
+import corner_top_left from '@assets/vector-graphics/corner-top-left.svg'
+import corner_top_right from '@assets/vector-graphics/corner-top-right.svg'
+import corner_bottom_left from '@assets/vector-graphics/corner-bottom-left.svg'
+import corner_bottom_right from '@assets/vector-graphics/corner-bottom-right.svg'
+import pattern_alpha_light from '@assets/vector-graphics/pattern-alpha-light.svg'
+import pattern_alpha_dark from '@assets/vector-graphics/pattern-alpha-dark.svg'
 
 import cn from 'classnames'
 import styles from './IconPage.module.css'
@@ -69,7 +69,7 @@ const IconPage = () => {
 	if (iconArray != null) {
 		iconContent = getIconContent(iconArray, iconId)
 		iconTitle = iconContent.title
-		iconImage = iconContent.img
+		iconImage = iconContent.imgUrl
 		iconDateModification = iconContent.modificated
 		iconTags = getIconTags(iconContent.tags)
 	}

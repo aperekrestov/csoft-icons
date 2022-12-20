@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import ReactDOM from 'react-dom/client'
-import App from '@containers/App'
-import { IconArray } from './services/context'
+import App from './App'
+import { IconArray } from './context/context'
 
 import '@styles/index.css'
 

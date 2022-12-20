@@ -48,11 +48,11 @@ const IconsList = ({iconArrayList}) => {
 
 			<ul className="list__container">
 
-				{iconArrayList.map(({id, title, img}) =>
+				{iconArrayList.map(({id, title, imgUrl}) =>
 
 					<li className="icon_container" key={id}>
 						<Link to={`/icon-${id}`}>
-							<img className="icon_container__image" src={img} alt={title} />
+							<img className="icon_container__image" src={imgUrl} alt={title} />
 						</Link>
 					</li>
 				)}

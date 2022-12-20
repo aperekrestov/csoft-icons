@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { useState, useCallback, useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
-import { IconArray } from '@services/context'
+import { IconArray } from '@context/context'
 
 import cn from 'classnames'
 import styles from './Header.module.css'
@@ -64,7 +64,7 @@ const Header = ({searchText=''}) => {
 				<li><NavLink to='/' className={styles.list__btn_1}></NavLink></li>
 				<li><NavLink to='/legal' className={styles.list__btn_2}></NavLink></li>
 				{/* <li><NavLink to='/pdf' className={styles.list__btn_3}></NavLink></li> */}
-				<li><a href="icons.pdf" target="_blank" className={styles.list__btn_3}></a></li>
+				<li><a href="csoft-icons-collection.pdf" target="_blank" className={styles.list__btn_3}></a></li>
 			</ul>
 		</nav>
 	)

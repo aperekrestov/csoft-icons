@@ -4,6 +4,7 @@ import App from './App'
 import { IconArray } from './context/context'
 
 import '@styles/index.css'
+import { BrowserRouter } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -13,7 +14,9 @@ function Main() {
 	return (
 		// <React.StrictMode>
 			<IconArray.Provider value={{iconArray, setIconArray}}>
-				<App />
+				<BrowserRouter>
+					<App />
+				</BrowserRouter>
 			</IconArray.Provider>
 		// </React.StrictMode>
 	)

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link, NavLink } from "react-router-dom"
 import iconBack from "./img/icon-0181-s.svg"
 
 import cn from "classnames"
@@ -17,15 +17,17 @@ const IconLinkBack = ({ scrollPosition }) => {
 
 	return (	
 		// todo заменить тэг а на Link или NavLink
-		<a 
-			href="#" 
-			onClick={handleGoBack} 
+		<NavLink 
+			// href="#" 
+			// onClick={handleGoBack} 
 			className={cn("font_light", styles.btn_back)}
-			state={{ scrollPosition: scrollPosition }}
+			// navigate = {-1}
+			// state={{ scrollPosition: scrollPosition }}
+			// todo реализовать или убрать scrollPosition
 		>
 			<img src={iconBack} alt="Назад" className={cn(styles.btn_back__icon)} />
 			<span className="font_small">Назад</span>
-		</a>
+		</NavLink>
 	)
 }
 

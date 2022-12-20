@@ -14,7 +14,7 @@ const NotFoundPage = () => {
 			<Header searchText={""}/>
 
 			<section className={"content_width_middle padding_top_bottom_l"}>
-				<h2>Страница не найдена</h2>
+				<h2>404</h2>
 				{/* todo дописать стилизацию и полный адрес ссылки */}
 				<p>По адресу: <u>{addrass}</u></p>
 			</section>

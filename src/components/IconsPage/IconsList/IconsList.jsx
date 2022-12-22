@@ -1,13 +1,10 @@
 import { useEffect, useState, useContext, useRef } from 'react'
 import { Link } from 'react-router-dom'
-// import { IconArray } from '@services/context'
-import { useSearchParams } from 'react-router-dom'
 
 // todo вынести в константы
 const ICONS_PER_PAGE = 6
 
 const IconsList = ({iconArrayList}) => {
-	// const { iconArray, setIconArray } = useContext(IconArray)
 	const [iconArrayLazy, setIconArrayLazy] = useState([])
 	
 	const scrollHandler = (e) => {
@@ -45,18 +42,12 @@ const IconsList = ({iconArrayList}) => {
 	}, [])
 
 
-	const [searchParams, setSearchParams] = useSearchParams()
-	const userQuery = searchParams.get('icon') || ''
-	console.log(userQuery)
-	
-	console.log(iconArrayList.filter(iconItem => iconItem.tags.includes(userQuery)));
-
 	return (
 		<>
 
 			<ul className="list__container">
 				{
-					iconArrayList.filter(iconItem => iconItem.tags.includes(userQuery)).map(({id, title, imgUrl}) =>
+					iconArrayList.map(({id, title, imgUrl}) =>
 						<li className="icon_container" key={id}>
 							<Link to={`/icon-${id}`}>
 								<img className="icon_container__image" src={imgUrl} alt={title} />

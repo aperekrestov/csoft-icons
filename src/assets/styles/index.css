@@ -38,6 +38,7 @@
 	--breakpoint-l:   992px;
 	--breakpoint-xl:  1200px;
 	--breakpoint-xxl: 1400px;
+	--breakpoint-xxxl: 1920px;
 
 	--content-width-u: calc(var(--breakpoint-u) - var(--size-3)*2);
 	--content-width-s: calc(var(--breakpoint-s) - var(--size-3)*2);
@@ -128,7 +129,7 @@ h2{
 h3{
 	font-size: 18px;
 	font-weight: 400;
-	padding-bottom: var(--spacing-m);
+	padding-bottom: var(--spacing-s);
 	text-transform: uppercase;
 }
 p, dl{
@@ -144,9 +145,6 @@ input{
 	font-size: var(--size-2);
 	background-color: unset;
 }
-.headline_padding{
-	padding: 0 var(--size-4);
-}
 .font_bold{
 	font-weight: 600;
 }
@@ -159,12 +157,28 @@ input{
 }
 .font_ultra{
 	font-size: 11px;
+	line-height: 11px;
 	letter-spacing: 1.4px;
 	text-transform: uppercase;
+}
+.text_center{
+	text-align: center;
+}
+.warning_text{
+	color: var(--color-2);
+	width: 100%;
+	/* text-align: center; */
+	max-width: var(--breakpoint-m);
+}
+span{
+	margin: 0;
+	padding: 0;
 }
 
 
 .wrapper{
+	/* todo проверить нужна ли ширина */
+	/* width: 100%; */
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -193,6 +207,11 @@ input{
 	width: var(--breakpoint-m);
 	/* min-width: 500px; */
 	/* max-width: var(--breakpoint-m); */
+}
+.content_width_large{
+	margin: 0 auto;
+	/* width: 100%; */
+	max-width: var(--breakpoint-xxxl);
 }
 
 .padding_top_bottom_l{

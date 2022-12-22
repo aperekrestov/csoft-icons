@@ -1,7 +1,5 @@
 import { useEffect, useContext } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
-import routesConfig from '@routes/routesConfig'
+import { Routes, Route } from 'react-router-dom'
 import IconsPage from '@pages/IconsPage'
 import IconPage from '@pages/IconPage'
 import LegalPage from '@pages/LegalPage'
@@ -48,22 +46,9 @@ const App = () => {
 				<Route path='/' element={<IconsPage />} />
 				<Route path='/legal' element={<LegalPage />} />
 				<Route path='/icon-:id' element={<IconPage />} />
-				<Route path='/icons?icon=:id' element={<SearchPage />} />
+				<Route path='/search=:id' element={<SearchPage />} />
 				<Route path='*' element={<NotFoundPage />} />
 			</Routes>
-
-			{/* <BrowserRouter>
-				<Routes>
-					{routesConfig.map((route, index) => (
-						<Route
-							key={index}
-							path={route.path}
-							element={route.element}
-						/>
-					))}
-				</Routes>
-
-			</BrowserRouter> */}
 		</>
 	)
 }

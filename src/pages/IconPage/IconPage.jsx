@@ -3,7 +3,7 @@ import { useParams } from 'react-router'
 
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import IconLinkBack from '@components/IconPage/IconLinkBack'
+import IconLinkBack from '@components/IconLinkBack'
 import IconTags from '@components/IconPage/IconTags'
 import { getIconSvgUrl, getIconTags, getIconContent } from '@utils/getIconData'
 import { IconArray } from '@context/context'
@@ -36,14 +36,12 @@ const IconPage = () => {
 	const errorMassege = 'Файл #' + iconId + ' размером ' + newSize + 'x' + newSize + ' не найден'
 
 	async function fetchSvgData() {
-		// console.log(getIconSvgUrl(iconId, newSize))
 		let res = await fetch(getIconSvgUrl(iconId, newSize))
 		const resText = await res.text()
 
 		if (resText.slice(0, 4) === '<svg') {
 			setIconSvgData(resText)
 			// todo response дает статус OK на несуществующий файл, нужно понять в чем причина и обработать корректно ошибку
-			// console.log(iconSvgData)
 			return
 		}
 		console.error('ОШИБКА:', errorMassege)
@@ -276,7 +274,7 @@ const IconPage = () => {
 										</div>
 									</div>
 									:
-									<p className="margin_bottom_xxl">{errorMassege}</p>
+									<p className="margin_bottom_xxl warning_text font_ultra">{errorMassege}</p>
 								}
 								
 								{iconSvgData && <>

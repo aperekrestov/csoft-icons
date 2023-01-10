@@ -97,6 +97,13 @@ img::selection{
 img::-moz-selection{
 	background: none;
 }
+img{
+	text-align: center;
+	font-size: 11px;
+	line-height: 11px;
+	letter-spacing: 1.4px;
+	text-transform: uppercase;
+}
 a{
 	display: block;
 	color: var(--color-10);

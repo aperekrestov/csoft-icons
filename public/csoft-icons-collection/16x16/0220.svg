@@ -1,4 +1,52 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M16 4L13 1H0V9H1V2H12V5H15V14H8V14.25V15H16V4Z" fill="#0C121C"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M3 9H4V10.05C4.31921 10.1148 4.61633 10.2404 4.87874 10.4142L5.62124 9.67172L6.32835 10.3788L5.58583 11.1214C5.75961 11.3837 5.8852 11.6808 5.94999 12H7V13H5.94999C5.8852 13.3192 5.75958 13.6163 5.58577 13.8787L6.32828 14.6212L5.62117 15.3284L4.87865 14.5858C4.61626 14.7596 4.31917 14.8852 4 14.95V16H3V14.95C2.68083 14.8852 2.38374 14.7596 2.12135 14.5858L1.37898 15.3282L0.671875 14.6211L1.41423 13.8787C1.24042 13.6163 1.1148 13.3192 1.05001 13H0V12H1.05001C1.11482 11.6807 1.24048 11.3835 1.41436 11.1211L0.671799 10.3785L1.37891 9.67139L2.12155 10.414C2.3839 10.2403 2.68091 10.1148 3 10.05V9ZM4.545 11.4239L4.57609 11.455C4.83846 11.7251 5 12.0937 5 12.5C5 12.9063 4.83846 13.2749 4.57609 13.545L4.545 13.5761C4.27488 13.8385 3.90631 14 3.5 14C3.09787 14 2.7327 13.8418 2.46335 13.5841L2.41585 13.5366C2.15824 13.2673 2 12.9021 2 12.5C2 12.0891 2.16521 11.7168 2.43282 11.4459L2.4459 11.4328C2.71682 11.1652 3.08911 11 3.5 11C3.90631 11 4.27488 11.1615 4.545 11.4239Z" fill="#0C121C"/>
+<g clip-path="url(#clip0_1912_13925)">
+<path d="M11 0H2V16H14V3H13V2H12V1H11V0Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M3 1H10V2H11V3H12V4H13V15H3V1Z" fill="url(#paint0_linear_1912_13925)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 1H10V2H11V3H10V4H11V3H12V4H13V15H3V2V1ZM12 5H10H9V4V2H4V14H12V5Z" fill="#3A3A3A"/>
+</g>
+<rect x="4" y="6" width="3" height="1" fill="#D8D8D8"/>
+<rect x="4" y="7" width="3" height="1" fill="#FCFCFC"/>
+<rect x="6" y="6" width="4" height="1" fill="#D8D8D8"/>
+<rect x="6" y="7" width="4" height="1" fill="#FCFCFC"/>
+<rect x="9" y="6" width="3" height="1" fill="#D8D8D8"/>
+<rect x="9" y="7" width="3" height="1" fill="#FCFCFC"/>
+<rect x="6" y="2" width="1" height="4" fill="#D8D8D8"/>
+<rect x="4" y="11" width="3" height="1" fill="#FCFCFC"/>
+<rect x="6" y="6" width="1" height="5" fill="#D8D8D8"/>
+<rect x="6" y="10" width="4" height="1" fill="#D8D8D8"/>
+<rect x="6" y="11" width="4" height="1" fill="#FCFCFC"/>
+<rect x="6" y="10" width="1" height="4" fill="#D8D8D8"/>
+<rect x="9" y="11" width="3" height="1" fill="#FCFCFC"/>
+<rect x="9" y="5" width="1" height="1" fill="#D8D8D8"/>
+<rect x="9" y="6" width="1" height="5" fill="#D8D8D8"/>
+<rect x="9" y="10" width="1" height="4" fill="#D8D8D8"/>
+<rect x="4" y="10" width="3" height="1" fill="#D8D8D8"/>
+<rect x="9" y="10" width="3" height="1" fill="#D8D8D8"/>
+<g clip-path="url(#clip1_1912_13925)">
+<path d="M1 8H3V7H6V8H8V10H9V13H8V15H6V16H3V15H1V13H0V10H1V8Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect x="4" y="8" width="1" height="2" fill="#3A3A3A"/>
+<rect x="8" y="11" width="1" height="2" transform="rotate(90 8 11)" fill="#3A3A3A"/>
+<rect x="4" y="13" width="1" height="2" fill="#3A3A3A"/>
+<rect x="3" y="11" width="1" height="2" transform="rotate(90 3 11)" fill="#3A3A3A"/>
+<rect x="5" y="12" width="1" height="1" fill="#3A3A3A"/>
+<rect x="3" y="10" width="1" height="1" fill="#3A3A3A"/>
+<rect x="5" y="10" width="1" height="1" fill="#3A3A3A"/>
+<rect x="6" y="10" width="1" height="4" fill="#3A3A3A"/>
+<rect x="2" y="10" width="1" height="4" fill="#3A3A3A"/>
+<rect x="2" y="9" width="5" height="1" fill="#3A3A3A"/>
+<rect x="2" y="13" width="5" height="1" fill="#3A3A3A"/>
+<rect x="3" y="12" width="1" height="1" fill="#3A3A3A"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1912_13925" x1="8" y1="1" x2="8" y2="15" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FCFCFC"/>
+<stop offset="1" stop-color="#E6EAEA"/>
+</linearGradient>
+<clipPath id="clip0_1912_13925">
+<rect width="12" height="16" fill="white" transform="translate(2)"/>
+</clipPath>
+<clipPath id="clip1_1912_13925">
+<rect width="9" height="9" fill="white" transform="translate(0 7)"/>
+</clipPath>
+</defs>
 </svg>

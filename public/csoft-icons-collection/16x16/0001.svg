@@ -1,9 +1,39 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 1H13L16 4V15H13V14H15V5H12V2H1V4H0V2V1Z" fill="#0C121C"/>
-<path d="M0 16L1 13L3 15L0 16Z" fill="#0C121C"/>
-<path d="M4.82617 9.17578L5.53328 9.88289L2.70485 12.7113L1.99775 12.0042L4.82617 9.17578Z" fill="#0C121C"/>
-<path d="M5.61719 10.9673L6.32429 11.6744L4.01247 13.9862L3.30536 13.2791L5.61719 10.9673Z" fill="#0C121C"/>
-<path d="M7 11.002L6.29289 11.7091L4.29081 9.70697L4.99791 8.99987L7 11.002Z" fill="#0C121C"/>
-<path d="M0 3H1V12H0V3Z" fill="#0C121C"/>
-<path d="M14 14L14 15L6 15L6 14L14 14Z" fill="#0C121C"/>
+<g clip-path="url(#clip0_1805_34476)">
+<path d="M11 0H2V16H14V3H13V2H12V1H11V0Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M3 1H10V2H11V3H12V4H13V15H3V1Z" fill="url(#paint0_linear_1805_34476)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 1H10V2H11V3H10V4H11V3H12V4H13V15H3V2V1ZM12 5H10H9V4V2H4V14H12V5Z" fill="#3A3A3A"/>
+</g>
+<g clip-path="url(#clip1_1805_34476)">
+<path d="M0 16V11H1V10H2V9H3V8H4V7H8V8H9V12H8V13H7V14H6V15H5V16H0Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect x="2" y="11" width="1" height="1" fill="#3A3A3A"/>
+<rect x="4" y="13" width="1" height="1" fill="#3A3A3A"/>
+<rect x="3" y="10" width="1" height="1" fill="#3A3A3A"/>
+<rect x="5" y="12" width="1" height="1" fill="#3A3A3A"/>
+<rect x="4" y="9" width="1" height="1" fill="#3A3A3A"/>
+<rect x="6" y="9" width="1" height="1" fill="#FCFCFC"/>
+<rect x="2" y="14" width="1" height="1" fill="#00A1DB"/>
+<rect x="5" y="11" width="1" height="1" fill="#00A1DB"/>
+<rect x="4" y="10" width="1" height="1" fill="#00A1DB"/>
+<rect x="1" y="13" width="1" height="2" fill="#00A1DB"/>
+<rect x="3" y="11" width="2" height="2" fill="#00A1DB"/>
+<path d="M5 9H6V10H7V11H5V9Z" fill="#00A1DB"/>
+<rect x="1" y="12" width="1" height="1" fill="#919191"/>
+<rect x="3" y="14" width="1" height="1" fill="#919191"/>
+<rect x="6" y="11" width="1" height="1" fill="#3A3A3A"/>
+<rect x="7" y="9" width="1" height="2" fill="#3A3A3A"/>
+<rect x="5" y="8" width="2" height="1" fill="#3A3A3A"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1805_34476" x1="8" y1="1" x2="8" y2="15" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FCFCFC"/>
+<stop offset="1" stop-color="#E6EAEA"/>
+</linearGradient>
+<clipPath id="clip0_1805_34476">
+<rect width="12" height="16" fill="white" transform="translate(2)"/>
+</clipPath>
+<clipPath id="clip1_1805_34476">
+<rect width="9" height="9" fill="white" transform="translate(0 7)"/>
+</clipPath>
+</defs>
 </svg>

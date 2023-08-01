@@ -5,7 +5,7 @@ export const FOLDER = './csoft-icons-collection/'
 export const ULTRA_SMALL = '8'
 export const SMALL = '16'
 export const MEDIOM = '24'
-export const GENERAL_SIZE = MEDIOM
+export const GENERAL_SIZE = '32'
 
 export const EXTENSION = '.svg'
 

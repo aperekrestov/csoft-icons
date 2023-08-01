@@ -1,3 +1,25 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M10.2929 3.70919L11 3.00209L8.99791 1L8.29081 1.70711L8.29283 1.70913L5.99775 4.00421L6.70485 4.71131L8.99993 2.41623L9.58409 3.00039L7.30536 5.27911L8.01247 5.98622L10.2912 3.70749L10.2929 3.70919ZM4 8L5 5L7 7L4 8ZM16 10V12V13V14L0 14V13V12V10H3V12H4V10H6V12H7V10H9V12H10V10H11H12V12H13V10H16Z" fill="#0C121C"/>
+<g clip-path="url(#clip0_1939_12194)">
+<rect y="1" width="16" height="14" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect x="1.5" y="2.5" width="13" height="11" fill="#FCFCFC" stroke="#00A1DB"/>
+<rect x="2" y="3" width="5" height="2" fill="#D8D8D8"/>
+<rect x="2" y="4" width="5" height="1" fill="#919191"/>
+<rect x="6" y="3" width="1" height="2" fill="#919191"/>
+<rect x="6" y="9" width="3" height="4" fill="#D8D8D8"/>
+<rect x="6" y="9" width="1" height="4" fill="#919191"/>
+<rect x="8" y="9" width="1" height="4" fill="#919191"/>
+<rect x="11" y="9" width="1" height="4" fill="#919191"/>
+<rect x="6" y="11" width="8" height="1" fill="#919191"/>
+<rect x="6" y="9" width="8" height="1" fill="#919191"/>
+<rect x="7" y="6" width="6" height="1" fill="#D8D8D8"/>
+<rect x="3" y="7" width="5" height="1" fill="#D8D8D8"/>
+<rect x="4" y="6" width="1" height="4" fill="#D8D8D8"/>
+<rect x="9" y="4" width="1" height="4" fill="#D8D8D8"/>
+<rect x="12" y="4" width="1" height="3" fill="#D8D8D8"/>
+</g>
+<defs>
+<clipPath id="clip0_1939_12194">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
 </svg>

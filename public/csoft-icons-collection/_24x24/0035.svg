@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 2C2 2 2 2 3 2C4 2 4 3 4 3C4 3 7 3 8 3C9 3 9 4 9 4C9 4 9 4 10 4C11 4 11 5 11 5H10.5H10H2L1 10H9L10 5H10.5H11L10 10C10 10 9.5 11 9 11C8.5 11 2 11 1 11C0 11 0 10 0 10V3C0 3 0 2 1 2Z" fill="#0C121C"/>
+<path d="M14 13C15 13 15 13 16 13C17 13 17 14 17 14C17 14 20 14 21 14C22 14 22 15 22 15C22 15 22 15 23 15C24 15 24 16 24 16H23.5H23H15L14 21H22L23 16H23.5H24L23 21C23 21 22.5 22 22 22C21.5 22 15 22 14 22C13 22 13 21 13 21V14C13 14 13 13 14 13Z" fill="#0C121C"/>
+<rect x="10" y="7" width="8" height="1" fill="#0C121C"/>
+<rect x="17" y="7" width="1" height="8" fill="#0C121C"/>
+<rect x="4" y="14" width="2" height="10" fill="#0C121C"/>
+<rect x="10" y="18" width="2" height="10" transform="rotate(90 10 18)" fill="#0C121C"/>
+</svg>

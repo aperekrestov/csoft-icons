@@ -1,10 +1,32 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_878_44801)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H16V4.50269L12 0.999838V3.99984H8H7.74269L7.59313 4.20922L5.59973 6.99999L6.19299 7.88989L8.25731 4.99984H12V7.99984L16 4.50269V16H0V11.9998H3H3.25731L3.40687 11.7905L4.42786 10.3611L3.81341 9.50083L2.74269 10.9998H0V4.99967H1.74269L6.59313 11.7903L6.74269 11.9997H7H9V14.9998L13 11.5027L9 7.99984V10.9997H7.25731L2.40687 4.20906L2.25731 3.99967H2H0V0Z" fill="#0C121C"/>
+<g clip-path="url(#clip0_1924_12848)">
+<rect y="1" width="16" height="14" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect x="1.5" y="2.5" width="13" height="11" fill="#FCFCFC" stroke="#919191"/>
+</g>
+<g clip-path="url(#clip1_1924_12848)">
+<path d="M2 4H6V5H8V4H10V3H13V4H14V7H13V8H12V9H13V12H12V13H9V12H8V11H6V12H2V9H4V7H2V4Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect width="3" height="1" transform="matrix(4.37114e-08 1 1 -4.37114e-08 11 4)" fill="#3A3A3A"/>
+<rect width="3" height="1" transform="matrix(4.37114e-08 1 1 -4.37114e-08 10 9)" fill="#3A3A3A"/>
+<rect width="1" height="1" transform="matrix(4.37114e-08 1 1 -4.37114e-08 11 10)" fill="#3A3A3A"/>
+<path d="M5 11L5 10L3 10L3 11L5 11Z" fill="#3A3A3A"/>
+<path d="M6 10L6 9L5 9L5 10L6 10Z" fill="#3A3A3A"/>
+<path d="M7 9L7 8L6 8L6 9L7 9Z" fill="#3A3A3A"/>
+<path d="M8 8L8 7L7 7L7 8L8 8Z" fill="#3A3A3A"/>
+<path d="M9 7L9 6L8 6L8 7L9 7Z" fill="#3A3A3A"/>
+<path d="M13 6L13 5L9 5L9 6L13 6Z" fill="#3A3A3A"/>
+<path d="M5 5L5 6L3 6L3 5L5 5Z" fill="#3A3A3A"/>
+<path d="M6 6L6 7L5 7L5 6L6 6Z" fill="#3A3A3A"/>
+<path d="M7 7L7 8L6 8L6 7L7 7Z" fill="#3A3A3A"/>
+<path d="M8 8L8 9L7 9L7 8L8 8Z" fill="#3A3A3A"/>
+<path d="M9 9L9 10L8 10L8 9L9 9Z" fill="#3A3A3A"/>
+<path d="M11 10L11 11L9 11L9 10L11 10Z" fill="#3A3A3A"/>
 </g>
 <defs>
-<clipPath id="clip0_878_44801">
-<rect width="16" height="16" fill="white"/>
+<clipPath id="clip0_1924_12848">
+<rect width="16" height="14" fill="white" transform="translate(0 1)"/>
+</clipPath>
+<clipPath id="clip1_1924_12848">
+<rect width="12" height="10" fill="white" transform="translate(2 3)"/>
 </clipPath>
 </defs>
 </svg>

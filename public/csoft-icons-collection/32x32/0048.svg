@@ -1,0 +1,30 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2049_12998)">
+<rect x="1" y="2" width="30" height="27" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect x="0.5" y="1.5" width="31" height="28" stroke="#FCFCFC" stroke-opacity="0.75"/>
+<rect x="1.5" y="2.5" width="29" height="26" fill="#FCFCFC" stroke="#919191"/>
+<rect x="1.5" y="2.5" width="29" height="5" fill="url(#paint0_linear_2049_12998)" stroke="#3A3A3A"/>
+<rect x="5" y="12" width="6" height="2" fill="#919191"/>
+<rect x="21" y="12" width="6" height="2" fill="#919191"/>
+<rect x="13" y="12" width="6" height="2" fill="#919191"/>
+<rect x="13" y="17" width="6" height="2" fill="#919191"/>
+<rect x="21" y="17" width="6" height="2" fill="#919191"/>
+<rect x="21" y="22" width="6" height="2" fill="#919191"/>
+<g clip-path="url(#clip1_2049_12998)">
+<path d="M1 20H2V21H9V26H2V31H1V20Z" fill="#00A1DB"/>
+<path d="M1 19.5H0.5V20V31V31.5H1H2H2.5V31V26.5H9H9.5V26V21V20.5H9H2.5V20V19.5H2H1Z" stroke="#FCFCFC" stroke-opacity="0.75"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_2049_12998" x1="15.5" y1="7" x2="15.5" y2="3" gradientUnits="userSpaceOnUse">
+<stop stop-color="#94E1FC"/>
+<stop offset="1" stop-color="#00A1DB"/>
+</linearGradient>
+<clipPath id="clip0_2049_12998">
+<rect width="32" height="32" fill="white"/>
+</clipPath>
+<clipPath id="clip1_2049_12998">
+<rect width="10" height="13" fill="white" transform="translate(0 19)"/>
+</clipPath>
+</defs>
+</svg>

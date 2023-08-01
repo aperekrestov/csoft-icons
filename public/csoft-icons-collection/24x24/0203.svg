@@ -1,11 +1,43 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_466_18365)">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M24.0008 24C24.0008 18.4772 19.5237 14 14.0008 14H10.0008C8.4362 14 6.95548 14.3593 5.63672 15H9.00084C9.55313 15 10.0008 15.4477 10.0008 16C11.3171 16 12.3252 17.1706 12.13 18.4723L11.3008 24H17.0008V21H19.0008V24H24.0008ZM12.0008 0C8.68714 0 6.00084 2.68629 6.00084 6C6.00084 9.31371 8.68714 12 12.0008 12C15.3146 12 18.0008 9.31371 18.0008 6C18.0008 2.68629 15.3146 0 12.0008 0Z" fill="#0C121C"/>
-<path d="M1 15C2 15 2 15 3 15C4 15 4 16 4 16C4 16 7 16 8 16C9 16 9 17 9 17C9 17 9 17 10 17C11 17 11 18 11 18H10.5H10H2L1 23H9L10 18H10.5H11L10 23C10 23 9.5 24 9 24C8.5 24 2 24 1 24C0 24 0 23 0 23V16C0 16 0 15 1 15Z" fill="#0C121C"/>
+<g clip-path="url(#clip0_1907_13564)">
+<circle cx="12" cy="6" r="5" fill="#FCFCFC" fill-opacity="0.75"/>
+<circle cx="12" cy="6" r="5.5" stroke="#FCFCFC" stroke-opacity="0.75"/>
+<path d="M2 21C2 16.5817 5.58172 13 10 13H14C18.4183 13 22 16.5817 22 21V23H17V20H15V23H9V20H7V23H2V21Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M22 23.5H22.5V23V21C22.5 16.3056 18.6944 12.5 14 12.5H10C5.30558 12.5 1.5 16.3056 1.5 21V23V23.5H2H7H7.5V23V20.5H8.5V23V23.5H9H15H15.5V23V20.5H16.5V23V23.5H17H22Z" stroke="#FCFCFC" stroke-opacity="0.75"/>
+<circle cx="12" cy="6" r="4.5" fill="url(#paint0_linear_1907_13564)" stroke="#919191"/>
+<path d="M6.5 20V22.5H2.5V21C2.5 16.8579 5.85786 13.5 10 13.5H14C18.1421 13.5 21.5 16.8579 21.5 21V22.5H17.5V20V19.5H17H15H14.5V20V22.5H9.5V20V19.5H9H7H6.5V20Z" fill="url(#paint1_linear_1907_13564)" stroke="#919191"/>
+<g clip-path="url(#clip1_1907_13564)">
+<path d="M0 16V15H5V16H8V17H9V18H10V22H9V23H8V24H1V23H0V16Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M3 19H8V21H7V22H2V20H3V19Z" fill="url(#paint2_radial_1907_13564)"/>
+<rect x="1" y="17" width="1" height="5" fill="#F2994A"/>
+<rect x="1" y="16" width="3" height="1" fill="#F2994A"/>
+<rect x="2" y="19" width="1" height="1" fill="#F2994A"/>
+<rect x="8" y="19" width="1" height="2" fill="#F2994A"/>
+<rect x="7" y="21" width="1" height="1" fill="#F2994A"/>
+<rect x="2" y="22" width="5" height="1" fill="#F2994A"/>
+<rect x="2" y="17" width="5" height="1" fill="#F2994A"/>
+<rect x="2" y="18" width="6" height="1" fill="#F2994A"/>
+</g>
 </g>
 <defs>
-<clipPath id="clip0_466_18365">
+<linearGradient id="paint0_linear_1907_13564" x1="17" y1="6.45455" x2="7" y2="6.45455" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F4F7F6"/>
+<stop offset="1" stop-color="#D8D8D8"/>
+</linearGradient>
+<linearGradient id="paint1_linear_1907_13564" x1="22" y1="18.4545" x2="2" y2="18.4545" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F4F7F6"/>
+<stop offset="1" stop-color="#D8D8D8"/>
+</linearGradient>
+<radialGradient id="paint2_radial_1907_13564" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(4.73913 22) rotate(-84.1325) scale(3.82775 5.78648)">
+<stop stop-color="#F2994A"/>
+<stop offset="0.588115" stop-color="#F2C94C"/>
+<stop offset="1" stop-color="#FCFCFC"/>
+</radialGradient>
+<clipPath id="clip0_1907_13564">
 <rect width="24" height="24" fill="white"/>
+</clipPath>
+<clipPath id="clip1_1907_13564">
+<rect width="10" height="9" fill="white" transform="translate(0 15)"/>
 </clipPath>
 </defs>
 </svg>

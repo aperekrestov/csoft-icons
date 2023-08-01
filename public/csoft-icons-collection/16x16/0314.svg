@@ -1,0 +1,33 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1950_11516)">
+<rect x="11" width="5" height="15" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect x="14" y="1" width="1" height="13" fill="#00A1DB"/>
+<rect x="12" y="1" width="1" height="13" fill="#00A1DB"/>
+<g clip-path="url(#clip1_1950_11516)">
+<path d="M7 15L7 14L8 14L8 13L9 13L9 12L10 12L10 11L11 11L11 8L10 8L10 7L8 7L8 -1.31134e-07L3 -3.49691e-07L3 7L1 7L1 8L3.0598e-07 8L1.74846e-07 11L1 11L1 12L2 12L2 13L3 13L3 14L4 14L4 15L7 15Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M6 13L10 9L6 9L6 1L5 1L5 9L1 9L5 13L6 13Z" fill="url(#paint0_linear_1950_11516)"/>
+<path d="M9 8L9 9L6 9L6 2L5 2L5 9L2 9L2 8L4 8L4 1L7 1L7 8L9 8Z" fill="#00A1DB"/>
+<rect x="6" y="13" width="1" height="1" transform="rotate(90 6 13)" fill="#00A1DB"/>
+<rect x="8" y="11" width="1" height="1" transform="rotate(90 8 11)" fill="#00A1DB"/>
+<rect x="9" y="10" width="1" height="1" transform="rotate(90 9 10)" fill="#00A1DB"/>
+<rect x="10" y="9" width="1" height="1" transform="rotate(90 10 9)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 1 1 4.37114e-08 3 11)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 1 1 4.37114e-08 2 10)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 1 1 4.37114e-08 1 9)" fill="#00A1DB"/>
+<rect x="7" y="12" width="1" height="1" transform="rotate(90 7 12)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 1 1 4.37114e-08 4 12)" fill="#00A1DB"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1950_11516" x1="8.75" y1="3.33333" x2="0.667099" y2="8.04836" gradientUnits="userSpaceOnUse">
+<stop stop-color="#94E1FC"/>
+<stop offset="1" stop-color="#FCFCFC"/>
+</linearGradient>
+<clipPath id="clip0_1950_11516">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+<clipPath id="clip1_1950_11516">
+<rect width="15" height="11" fill="white" transform="translate(11) rotate(90)"/>
+</clipPath>
+</defs>
+</svg>

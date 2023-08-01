@@ -1,0 +1,23 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1964_10835)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1 2H23V6H21V4H7L15 12L7 20H21V18H23V22H1V20L9 12L1 4V2Z" fill="#3A3A3A"/>
+<path d="M1 1.5H0.5V2V4V4.20711L0.646447 4.35355L8.29289 12L0.646447 19.6464L0.5 19.7929V20V22V22.5H1H23H23.5V22V18V17.5H23H21H20.5V18V19.5H8.20711L15.3536 12.3536L15.7071 12L15.3536 11.6464L8.20711 4.5H20.5V6V6.5H21H23H23.5V6V2V1.5H23H1Z" stroke="#FCFCFC" stroke-opacity="0.75"/>
+</g>
+<g clip-path="url(#clip1_1964_10835)">
+<path d="M10 18V17H4V18H0V24H6V20H8V21H11V18H10Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect width="1" height="1" transform="matrix(-1 0 0 1 10 19)" fill="#EA212D"/>
+<rect width="1" height="1" transform="matrix(-1 0 0 1 5 19)" fill="#EA212D"/>
+<rect width="4" height="1" transform="matrix(-1 0 0 1 9 18)" fill="#EA212D"/>
+<rect width="2" height="2" transform="matrix(-1 0 0 1 4 20)" fill="#EA212D"/>
+<rect width="1" height="4" transform="matrix(-1 0 0 1 2 19)" fill="#EA212D"/>
+<rect width="4" height="1" transform="matrix(-1 0 0 1 5 22)" fill="#EA212D"/>
+</g>
+<defs>
+<clipPath id="clip0_1964_10835">
+<rect width="24" height="22" fill="white" transform="translate(0 1)"/>
+</clipPath>
+<clipPath id="clip1_1964_10835">
+<rect width="11" height="7" fill="white" transform="matrix(-1 0 0 1 11 17)"/>
+</clipPath>
+</defs>
+</svg>

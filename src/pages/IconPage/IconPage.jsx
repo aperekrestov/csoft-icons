@@ -11,14 +11,16 @@ import {
 	COLOR_1, COLOR_2, COLOR_3, COLOR_4, COLOR_5, COLOR_6, 
 	COLOR_7, COLOR_8, COLOR_9, COLOR_10, COLOR_11, COLOR_12, 
 	COLOR_13, COLOR_14, GENERAL_COLOR, 
-	GENERAL_SIZE, ULTRA_SMALL, SMALL, MEDIOM } from '@constants/constants'
+	GENERAL_EXTENSION, PNG_EXTENSION, SVG_EXTENSION,
+	GENERAL_SIZE, ULTRA_SMALL, SMALL, MEDIOM, LARGE, 
+	X2_LARGE, X3_LARGE, X4_LARGE, X5_LARGE, X6_LARGE} from '@constants/constants'
 
 import corner_top_left from '@assets/vector-graphics/corner-top-left.svg'
 import corner_top_right from '@assets/vector-graphics/corner-top-right.svg'
 import corner_bottom_left from '@assets/vector-graphics/corner-bottom-left.svg'
 import corner_bottom_right from '@assets/vector-graphics/corner-bottom-right.svg'
-import pattern_alpha_light from '@assets/vector-graphics/pattern-alpha-light.svg'
-import pattern_alpha_dark from '@assets/vector-graphics/pattern-alpha-dark.svg'
+// import pattern_alpha_light from '@assets/vector-graphics/pattern-alpha-light.svg'
+// import pattern_alpha_dark from '@assets/vector-graphics/pattern-alpha-dark.svg'
 
 import cn from 'classnames'
 import styles from './IconPage.module.css'
@@ -27,20 +29,21 @@ const IconPage = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
 	
 	const [iconSvgData, setIconSvgData] = useState(null)
-	const [newIconColor, setNewIconColor] = useState(GENERAL_COLOR)
-	const [newIconBg, setNewIconBg] = useState(pattern_alpha_light)
+	// const [newIconColor, setNewIconColor] = useState(GENERAL_COLOR)
+	// const [newIconBg, setNewIconBg] = useState(pattern_alpha_light)
 	const [newSize, setSize] = useState(GENERAL_SIZE)
+	const [newExtention, setExtention] = useState(GENERAL_EXTENSION)
 	
 	const iconId = useParams().id
 
 	const errorMassege = 'Файл #' + iconId + ' размером ' + newSize + 'x' + newSize + ' не найден'
 
 	async function fetchSvgData() {
-		let res = await fetch(getIconSvgUrl(iconId, newSize))
+		let res = await fetch(getIconSvgUrl(iconId, GENERAL_SIZE))
 		const resText = await res.text()
-
 		if (resText.slice(0, 4) === '<svg') {
 			setIconSvgData(resText)
+			console.log(iconSvgData)
 			// todo response дает статус OK на несуществующий файл, нужно понять в чем причина и обработать корректно ошибку
 			return
 		}
@@ -73,7 +76,7 @@ const IconPage = () => {
 	}
 
 	const svgModificator = () => {
-		return iconSvgData.replace(new RegExp(GENERAL_COLOR,"gi"), newIconColor)
+		return iconSvgData.replace(new RegExp(`<svg width="${GENERAL_SIZE}" height="${GENERAL_SIZE}"`, "gi"), `<svg width="${newSize}" height="${newSize}"`)
 	}	
 
 	const iconStyle = (svg) => {
@@ -87,7 +90,9 @@ const IconPage = () => {
 
 	const iconContainerStyle = () => {
 		return {
-			backgroundImage: 'url(' + newIconBg + ')'
+			// backgroundImage: 'url(' + newIconBg + ')'
+			width: newSize + 'px',
+			height: newSize + 'px'
 		}
 	}
 
@@ -98,14 +103,26 @@ const IconPage = () => {
 
 	function handleSizeChange(e) {
 		switch (e.target.value) {
-			case ULTRA_SMALL:
-				setSize(ULTRA_SMALL)
-				break
 			case SMALL:
 				setSize(SMALL)
 				break
 			case MEDIOM:
 				setSize(MEDIOM)
+				break
+			case LARGE:
+				setSize(LARGE)
+				break
+			case X2_LARGE:
+				setSize(X2_LARGE)
+				break
+			case X3_LARGE:
+				setSize(X3_LARGE)
+				break
+			case X4_LARGE:
+				setSize(X4_LARGE)
+				break
+			case X5_LARGE:
+				setSize(X5_LARGE)
 				break
 		
 			default:
@@ -113,68 +130,18 @@ const IconPage = () => {
 				break
 		}
 	}
-	function handleColorChange(e) {
+	function handleExtentionChange(e) {
 		switch (e.target.value) {
-			case '1':
-				setNewIconColor(COLOR_1)
-				setNewIconBg(pattern_alpha_dark)			
+			case SVG_EXTENSION:
+				setExtention(SVG_EXTENSION)
 				break
-			case '2':
-				setNewIconColor(COLOR_2)
-				setNewIconBg(pattern_alpha_light)
+			case PNG_EXTENSION:
+				setExtention(PNG_EXTENSION)
 				break
-			case '3':
-				setNewIconColor(COLOR_3)
-				setNewIconBg(pattern_alpha_light)		
-				break
-			case '4':
-				setNewIconColor(COLOR_4)
-				setNewIconBg(pattern_alpha_dark)		
-				break
-			case '5':
-				setNewIconColor(COLOR_5)
-				setNewIconBg(pattern_alpha_dark)		
-				break
-			case '6':
-				setNewIconColor(COLOR_6)
-				setNewIconBg(pattern_alpha_light)		
-				break
-			case '7':
-				setNewIconColor(COLOR_7)
-				setNewIconBg(pattern_alpha_light)		
-				break
-			case '8':
-				setNewIconColor(COLOR_8)
-				setNewIconBg(pattern_alpha_dark)			
-				break
-			case '9':
-				setNewIconColor(COLOR_9)
-				setNewIconBg(pattern_alpha_light)	
-				break
-			case '10':
-				setNewIconColor(COLOR_10)
-				setNewIconBg(pattern_alpha_light)		
-				break
-			case '11':
-				setNewIconColor(COLOR_11)
-				setNewIconBg(pattern_alpha_light)			
-				break
-			case '12':
-				setNewIconColor(COLOR_12)
-				setNewIconBg(pattern_alpha_light)		
-				break
-			case '13':
-				setNewIconColor(COLOR_13)
-				setNewIconBg(pattern_alpha_dark)		
-				break
-			case '14':
-				setNewIconColor(COLOR_14)
-				setNewIconBg(pattern_alpha_dark)			
-				break
-
+		
 			default:
-				setNewIconColor(GENERAL_COLOR)
-				break;
+				setExtention(SVG_EXTENSION)
+				break
 		}
 	}
 
@@ -204,8 +171,7 @@ const IconPage = () => {
 						<section className={styles.container_info}>
 							<div>
 								<h3>Файл #{iconId}</h3>
-								<span className="font_ultra">обновлен</span>
-								<b className={"font_ultra margin_left_ultra_small"} >{iconDateModification}</b>
+								<span className={"font_ultra margin_left_ultra_small"} >{iconDateModification}</span>
 							</div>
 
 							{iconImage && 
@@ -217,42 +183,57 @@ const IconPage = () => {
 							<form className="margin_bottom_xl">
 								<div className="margin_bottom_m">
 									<span className="font_ultra">размер:</span>
-									<b className={"font_ultra margin_left_ultra_small"}>{newSize+'x'+newSize}</b>
+									<b className={"font_ultra margin_left_ultra_small"}>{newSize+'*'+newSize}</b>
 								</div>
 
 								<div className={styles.size_radio_btn_container}>
 									<div className={styles.size_radio_btn}>
-										<input id="radio-1" type="radio" name="radio" value={ULTRA_SMALL} onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-1">8x8</label>
+										<input id="radio-1" type="radio" name="radio" value={SMALL} onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-1">{SMALL}</label>
 									</div>	
 									<div className={styles.size_radio_btn}>
-										<input id="radio-2" type="radio" name="radio" value={SMALL} onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-2">16x16</label>
+										<input id="radio-2" type="radio" name="radio" value={MEDIOM} onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-2">{MEDIOM}</label>
 									</div>	
 									<div className={styles.size_radio_btn}>
-										<input id="radio-3" type="radio" name="radio" value={MEDIOM} defaultChecked onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-3">24x24</label>
+										<input id="radio-3" type="radio" name="radio" value={LARGE} defaultChecked onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-3">{LARGE}</label>
+									</div>
+									<div className={styles.size_radio_btn}>
+										<input id="radio-4" type="radio" name="radio" value={X2_LARGE} onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-4">{X2_LARGE}</label>
+									</div>
+									<div className={styles.size_radio_btn}>
+										<input id="radio-5" type="radio" name="radio" value={X3_LARGE} onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-5">{X3_LARGE}</label>
+									</div>
+									<div className={styles.size_radio_btn}>
+										<input id="radio-6" type="radio" name="radio" value={X4_LARGE} onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-6">{X4_LARGE}</label>
+									</div>
+									<div className={styles.size_radio_btn}>
+										<input id="radio-7" type="radio" name="radio" value={X5_LARGE} onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-7">{X5_LARGE}</label>
 									</div>
 								</div>
 							</form>
 
 							<form className="margin_bottom_xl">
 								<div className="margin_bottom_m">
-									<span className="font_ultra">цвет:</span>
-									<b className={"font_ultra margin_left_ultra_small"}>{newIconColor}</b>
+									<span className="font_ultra">формат:</span>
+									<b className={"font_ultra margin_left_ultra_small"}>{iconId}{newExtention}</b>
 								</div>
-								<input className={cn(styles.input_color, styles.color1, styles.input_dark)} type="radio" name="radio" value="1" onChange={handleColorChange} />	
-								{/* <input className={cn(styles.input_color, styles.color14, styles.input_dark)} type="radio" name="radio" value="14" onChange={handleColorChange} /> */}
-								{/* <input className={cn(styles.input_color, styles.color4, styles.input_dark)} type="radio" name="radio" value="4" onChange={handleColorChange} /> */}
-								{/* <input className={cn(styles.input_color, styles.color5, styles.input_dark)} type="radio" name="radio" value="5" onChange={handleColorChange} /> */}
-								<input className={cn(styles.input_color, styles.color12, styles.input_dark)} type="radio" name="radio" value="12" onChange={handleColorChange} />
-								<input className={cn(styles.input_color, styles.color9, styles.input_dark)} type="radio" name="radio" value="9" onChange={handleColorChange} />
-								<input className={cn(styles.input_color, styles.color7, styles.input_light)} type="radio" name="radio" value="7" onChange={handleColorChange} />
-								<input className={cn(styles.input_color, styles.color10, styles.input_light)} type="radio" name="radio" value="10" defaultChecked onChange={handleColorChange} />
-								<input className={cn(styles.input_color, styles.color2, styles.input_light)} type="radio" name="radio" value="2" onChange={handleColorChange} />
-								<input className={cn(styles.input_color, styles.color3, styles.input_light)} type="radio" name="radio" value="3" onChange={handleColorChange} />
-								{/* <input className={cn(styles.input_color, styles.color13, styles.input_dark)} type="radio" name="radio" value="13" onChange={handleColorChange} /> */}
-								<input className={cn(styles.input_color, styles.color11, styles.input_light)} type="radio" name="radio" value="11" onChange={handleColorChange} />		
+
+								<div className={styles.size_radio_btn_container}>
+									<div className={styles.size_radio_btn}>
+										<input id="radio-png" type="radio" name="radio" value={PNG_EXTENSION} onChange={handleExtentionChange} />
+										<label className="font_small" htmlFor="radio-png">{PNG_EXTENSION}</label>
+									</div>	
+									<div className={styles.size_radio_btn}>
+										<input id="radio-svg" type="radio" name="radio" value={SVG_EXTENSION} defaultChecked onChange={handleExtentionChange} />
+										<label className="font_small" htmlFor="radio-svg">{SVG_EXTENSION}</label>
+									</div>
+								</div>
 							</form>
 
 							<div className={cn(styles.result_section)}>

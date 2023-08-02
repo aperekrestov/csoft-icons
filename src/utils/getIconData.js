@@ -1,8 +1,8 @@
-import { FOLDER, EXTENSION, GENERAL_SIZE } from '@constants/constants'
+import { FOLDER, SVG_EXTENSION, GENERAL_SIZE } from '@constants/constants'
 
-export const getIconImageUrl = id => FOLDER + GENERAL_SIZE + "x" + GENERAL_SIZE + "/" + id + EXTENSION
+export const getIconImageUrl = id => FOLDER + GENERAL_SIZE + "x" + GENERAL_SIZE + "/" + id + SVG_EXTENSION
 
-export const getIconSvgUrl = (id, size) => FOLDER + size + "x" + size + "/" + id + EXTENSION
+export const getIconSvgUrl = (id, size) => FOLDER + size + "x" + size + "/" + id + SVG_EXTENSION
 
 export const getIconTags = string => { return string.split(", ") }
 

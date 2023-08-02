@@ -5,9 +5,19 @@ export const FOLDER = './csoft-icons-collection/'
 export const ULTRA_SMALL = '8'
 export const SMALL = '16'
 export const MEDIOM = '24'
-export const GENERAL_SIZE = '32'
+export const LARGE = '32'
+export const X_LARGE = '48'
+export const X2_LARGE = '64'
+export const X3_LARGE = '96'
+export const X4_LARGE = '128'
+export const X5_LARGE = '256'
+export const X6_LARGE = '512'
 
-export const EXTENSION = '.svg'
+export const GENERAL_SIZE = LARGE
+
+export const SVG_EXTENSION = '.svg'
+export const PNG_EXTENSION = '.png'
+export const GENERAL_EXTENSION = SVG_EXTENSION
 
 export const COLOR_1 = '#FCFCFC'
 export const COLOR_2 = '#ED1C24'

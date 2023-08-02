@@ -1,10 +1,11 @@
 .icon_page_flex{
 	display: flex;
+	overflow: hidden;
+	/* background-color: #cfcf; */
 }
 .container_info{
 	min-width: var(--size-9);
-	display: block;
-	
+	/* display: block; */
 }
 
 .icon{
@@ -16,24 +17,17 @@
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	flex-direction: column;
 	align-content: space-between;
-	width: var(--size-5);
-	height: var(--size-5);
 }
+
 .result__corners_container{
-	width: 100%;
-	height: var(--size-0);
 	display: flex;
 	justify-content: space-between;
 }
 .result__icon_container{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: var(--size-4);
-	height: var(--size-4);
-	margin: 0 auto;
+	margin: 0 var(--size-0);
+	background-image: url(@assets/vector-graphics/pattern-alpha-light.svg);
 }
 
 .color1 {background-color: var(--color-1);}
@@ -103,7 +97,8 @@
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	width: var(--size-8);
+	/* width: var(--size-5); */
+	padding: 0 var(--size-2);
 	height: var(--size-3);
 	border-radius: calc(var(--size-3) / 2);
 	user-select: none;
@@ -139,11 +134,14 @@
 		width: var(--size-7);
 		height: var(--size-7);
 	}
+	.size_radio_btn label {
+		padding: 0 var(--size-1);
+	}
 }
 @media (max-width: 768px) {
 	/* ?меньше 768px */
-	.size_radio_btn label {
-		width: var(--size-6);
+	.container_info{
+		min-width: calc(var(--size-9) - var(--size-7));
 	}
 	.button_link{
 		width: calc(var(--size-6)*3);

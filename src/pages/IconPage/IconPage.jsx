@@ -8,19 +8,14 @@ import IconTags from '@components/IconPage/IconTags'
 import { getIconSvgUrl, getIconTags, getIconContent } from '@utils/getIconData'
 import { IconArray } from '@context/context'
 import { 
-	COLOR_1, COLOR_2, COLOR_3, COLOR_4, COLOR_5, COLOR_6, 
-	COLOR_7, COLOR_8, COLOR_9, COLOR_10, COLOR_11, COLOR_12, 
-	COLOR_13, COLOR_14, GENERAL_COLOR, 
 	GENERAL_EXTENSION, PNG_EXTENSION, SVG_EXTENSION,
-	GENERAL_SIZE, ULTRA_SMALL, SMALL, MEDIOM, LARGE, 
-	X2_LARGE, X3_LARGE, X4_LARGE, X5_LARGE, X6_LARGE} from '@constants/constants'
+	GENERAL_SIZE, SMALL, MEDIUM, LARGE, 
+	X2_LARGE, X3_LARGE, X4_LARGE, X5_LARGE} from '@constants/constants'
 
 import corner_top_left from '@assets/vector-graphics/corner-top-left.svg'
 import corner_top_right from '@assets/vector-graphics/corner-top-right.svg'
 import corner_bottom_left from '@assets/vector-graphics/corner-bottom-left.svg'
 import corner_bottom_right from '@assets/vector-graphics/corner-bottom-right.svg'
-// import pattern_alpha_light from '@assets/vector-graphics/pattern-alpha-light.svg'
-// import pattern_alpha_dark from '@assets/vector-graphics/pattern-alpha-dark.svg'
 
 import cn from 'classnames'
 import styles from './IconPage.module.css'
@@ -29,8 +24,6 @@ const IconPage = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
 	
 	const [iconSvgData, setIconSvgData] = useState(null)
-	// const [newIconColor, setNewIconColor] = useState(GENERAL_COLOR)
-	// const [newIconBg, setNewIconBg] = useState(pattern_alpha_light)
 	const [newSize, setSize] = useState(GENERAL_SIZE)
 	const [newExtention, setExtention] = useState(GENERAL_EXTENSION)
 	
@@ -39,15 +32,19 @@ const IconPage = () => {
 	const errorMassege = 'Файл #' + iconId + ' размером ' + newSize + 'x' + newSize + ' не найден'
 
 	async function fetchSvgData() {
-		let res = await fetch(getIconSvgUrl(iconId, GENERAL_SIZE))
-		const resText = await res.text()
-		if (resText.slice(0, 4) === '<svg') {
-			setIconSvgData(resText)
-			console.log(iconSvgData)
-			// todo response дает статус OK на несуществующий файл, нужно понять в чем причина и обработать корректно ошибку
-			return
+		let iconSrcLink = GENERAL_SIZE
+		if(Number(newSize) >= Number(LARGE)) {
+			iconSrcLink = LARGE
+		} else {
+			iconSrcLink = newSize
 		}
-		console.error('ОШИБКА:', errorMassege)
+		let response = await fetch(getIconSvgUrl(iconId, iconSrcLink))
+		const responseIconText = await response.text()
+		if (responseIconText.slice(0, 4) === '<svg') {
+			setIconSvgData(responseIconText)
+			return
+		} 	
+		console.error('ОШИБКА:', 'Исходник #' + iconId + ' размером ' + iconSrcLink + 'x' + iconSrcLink + ' не найден')
 		setIconSvgData(null)
 
 		// todo response дает статус OK на несуществующий файл, нужно понять в чем причина и обработать корректно ошибку
@@ -60,7 +57,7 @@ const IconPage = () => {
 		// } else {
 		// 	console.error('ОШИБКА', response.status)
 		// }
-	}
+	}	
 	
 	let iconContent = null
 	let iconTitle = null
@@ -90,7 +87,6 @@ const IconPage = () => {
 
 	const iconContainerStyle = () => {
 		return {
-			// backgroundImage: 'url(' + newIconBg + ')'
 			width: newSize + 'px',
 			height: newSize + 'px'
 		}
@@ -106,8 +102,8 @@ const IconPage = () => {
 			case SMALL:
 				setSize(SMALL)
 				break
-			case MEDIOM:
-				setSize(MEDIOM)
+			case MEDIUM:
+				setSize(MEDIUM)
 				break
 			case LARGE:
 				setSize(LARGE)
@@ -192,8 +188,8 @@ const IconPage = () => {
 										<label className="font_small" htmlFor="radio-1">{SMALL}</label>
 									</div>	
 									<div className={styles.size_radio_btn}>
-										<input id="radio-2" type="radio" name="radio" value={MEDIOM} onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-2">{MEDIOM}</label>
+										<input id="radio-2" type="radio" name="radio" value={MEDIUM} onChange={handleSizeChange} />
+										<label className="font_small" htmlFor="radio-2">{MEDIUM}</label>
 									</div>	
 									<div className={styles.size_radio_btn}>
 										<input id="radio-3" type="radio" name="radio" value={LARGE} defaultChecked onChange={handleSizeChange} />

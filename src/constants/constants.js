@@ -4,7 +4,7 @@ export const FOLDER = './csoft-icons-collection/'
 
 export const ULTRA_SMALL = '8'
 export const SMALL = '16'
-export const MEDIOM = '24'
+export const MEDIUM = '24'
 export const LARGE = '32'
 export const X_LARGE = '48'
 export const X2_LARGE = '64'

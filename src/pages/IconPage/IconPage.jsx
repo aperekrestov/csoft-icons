@@ -73,6 +73,13 @@ const IconPage = () => {
 		iconTags = getIconTags(iconContent.tags)
 	}
 
+	function geticonIndex() {
+		if (iconArray != null) {
+			return iconArray.findIndex(i => i.id === iconId)
+		}
+		return 0
+	}
+
 	const svgModificator = () => {
 		return iconSvgData.replace(new RegExp(`<svg width="${GENERAL_SIZE}" height="${GENERAL_SIZE}"`, "gi"), `<svg width="${newSize}" height="${newSize}"`)
 	}
@@ -141,16 +148,7 @@ const IconPage = () => {
 				break
 		}
 	}
-
-	useEffect(() => {
-		fetchSvgData()
-	}, [newSize])
-
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [])
-
-	function test() {
+	function handleClick() {
 		if (newExtention === SVG_EXTENSION) {
 			triggerDownload(blobFinalSvg(svgModificator()), iconId + ".svg");
 		} else {
@@ -200,6 +198,14 @@ const IconPage = () => {
 		img.src = url;
 	}
 
+	useEffect(() => {
+		fetchSvgData()
+	}, [newSize])
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
 
 	console.log('IconPage')
 	return (
@@ -210,7 +216,7 @@ const IconPage = () => {
 				<div className={"content_width_middle padding_top_bottom_l content_height_auto"}>
 
 					<div className="margin_bottom_xl">
-						<IconLinkBack />
+						<IconLinkBack iconIndex={geticonIndex()}/>
 					</div>
 
 					<div className={styles.icon_page_flex}>
@@ -305,7 +311,7 @@ const IconPage = () => {
 									<p className="margin_bottom_xxl warning_text font_ultra">{errorMassege}</p>
 								}
 								{iconSvgData &&
-									<div className={cn(styles.button_link, "font_small margin_bottom_l")} onClick={test} >Загрузить</div>
+									<div className={cn(styles.button_link, "font_small margin_bottom_l")} onClick={handleClick} >Загрузить</div>
 								}
 
 								<div className="font_ultra margin_bottom_m">теги:</div>

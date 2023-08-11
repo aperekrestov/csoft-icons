@@ -2,6 +2,8 @@ import { useContext } from 'react'
 
 import Header from '@components/Header'
 import BannerBig from '@components/BannerBig'
+import {useLocation} from "react-router"
+
 import IconsList from '@components/IconsPage/IconsList'
 import GoToTop from '@components/GoToTop'
 import Footer from '@components/Footer'
@@ -15,6 +17,16 @@ import styles from './IconsPage.module.css'
 const IconsPage = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
 
+	const location = useLocation();
+	const { state } = location;
+
+	function getStateFrom() {
+		if(state != null) {
+			return state.from
+		}
+		return 0
+	}
+
 	console.log('IconsPage')
 	return (
 		<>
@@ -25,7 +37,7 @@ const IconsPage = () => {
 					<BannerBig />					
 					<section className={"width_limiter padding_top_bottom_l content_height_auto"}>
 						<h2 className={cn(styles.icons_page__header, "content_indent")}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
-						<IconsList iconArrayList={iconArray}/>	
+						<IconsList iconArrayList={iconArray} stateFrom={getStateFrom()}/>	
 					</section>
 					<GoToTop />
 					<Footer />

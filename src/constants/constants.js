@@ -35,4 +35,4 @@ export const COLOR_13 = '#D6F0BF'
 export const COLOR_14 = '#F5FAFC'
 export const GENERAL_COLOR = COLOR_10
 
-
+export const ICONS_PER_PAGE = 6

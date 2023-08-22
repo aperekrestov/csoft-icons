@@ -1,8 +1,8 @@
-import { useContext } from 'react'
+import { useEffect, useContext } from 'react'
+import { useLocation } from "react-router"
 
 import Header from '@components/Header'
 import BannerBig from '@components/BannerBig'
-import {useLocation} from "react-router"
 
 import IconsList from '@components/IconsPage/IconsList'
 import GoToTop from '@components/GoToTop'
@@ -19,13 +19,21 @@ const IconsPage = () => {
 
 	const location = useLocation();
 	const { state } = location;
+	// console.log(location.state)
 
 	function getStateFrom() {
 		if(state != null) {
-			return state.from
+			return state.indexNumber
 		}
 		return 0
 	}
+
+	useEffect(() => {
+		// todo прокрутку до корректной иконки
+		// window.scrollTo(0, 550)
+		// console.log(document.querySelector('.list__container').getBoundingClientRect().y + ' докручиваем')
+		// document.querySelector('.list__container').getBoundingClientRect().y
+	}, [])
 
 	console.log('IconsPage')
 	return (
@@ -37,7 +45,7 @@ const IconsPage = () => {
 					<BannerBig />					
 					<section className={"width_limiter padding_top_bottom_l content_height_auto"}>
 						<h2 className={cn(styles.icons_page__header, "content_indent")}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
-						<IconsList iconArrayList={iconArray} stateFrom={getStateFrom()}/>	
+						<IconsList iconArrayList={iconArray} stateIconIndex={getStateFrom()}/>	
 					</section>
 					<GoToTop />
 					<Footer />

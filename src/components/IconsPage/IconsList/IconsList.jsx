@@ -1,10 +1,10 @@
-import { useEffect, useState, useContext, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { ICONS_PER_PAGE } from '@constants/constants'
 // todo завести тип принимаемых данных iconArrayList
 
-const IconsList = ({iconArrayList, stateFrom}) => {
+const IconsList = ({iconArrayList, stateIconIndex}) => {
 	const [iconArrayLazy, setIconArrayLazy] = useState([])
 	
 	
@@ -32,24 +32,21 @@ const IconsList = ({iconArrayList, stateFrom}) => {
 	}
 	
 	useEffect(() => {
-		// // ? добавляем первую порцию данных от 0 до ICONS_PER_PAGE
-		// setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
 		// ? добавляем умный список иконок
-		let step = Math.trunc(stateFrom/ICONS_PER_PAGE) + 1
+		let step = Math.trunc(stateIconIndex/ICONS_PER_PAGE) + 1
 		setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE * step)])
-		// console.log(step)
+		console.log(step + ' шаг')
+		// ? прокручиваем массив иконок до необходимой
+		if(stateIconIndex !== 0){
+			setTimeout(() => window.scrollTo(0, document.querySelector('.list__container').clientHeight), 10)
+		}
 
-		// todo прокрутку до корректной иконки
-		window.scrollTo(0, 500)
-		console.log(document.querySelector('.list__container').getBoundingClientRect().y + ' докручиваем')
-		// document.querySelector('.list__container').getBoundingClientRect().y
-		
-		// console.log(iconArrayLazy)
 		document.addEventListener('scroll', scrollHandler)
 		return function () {
 			document.removeEventListener('scroll', scrollHandler)
 		}
 	}, [])
+
 
 	return (
 		<>

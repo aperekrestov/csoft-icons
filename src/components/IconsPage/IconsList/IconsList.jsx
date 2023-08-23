@@ -21,7 +21,6 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 	
 	
 	function loadMore() {
-		console.log('loadMore');
 		if(document.querySelector('.list__container').childNodes.length < iconArrayList.length) {
 			setIconArrayLazy((iconArrayLazy) => {
 				return [...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)]
@@ -32,13 +31,17 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 	}
 	
 	useEffect(() => {
-		// ? добавляем умный список иконок
-		let step = Math.trunc(stateIconIndex/ICONS_PER_PAGE) + 1
-		setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE * step)])
-		console.log(step + ' шаг')
+		// // ? добавляем умный список иконок
+		// let step = Math.trunc(stateIconIndex/ICONS_PER_PAGE) + 1
+		// setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE * step)])
+		// console.log(step + ' шаг')
 		// ? прокручиваем массив иконок до необходимой
-		if(stateIconIndex !== 0){
+		console.log(stateIconIndex)
+		if(stateIconIndex !== 0) {
+			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + stateIconIndex)])
 			setTimeout(() => window.scrollTo(0, document.querySelector('.list__container').clientHeight), 10)
+		} else {
+			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
 		}
 
 		document.addEventListener('scroll', scrollHandler)

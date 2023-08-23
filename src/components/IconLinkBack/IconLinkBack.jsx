@@ -7,7 +7,6 @@ const IconLinkBack = ({iconIndex}) => {
 	console.log(iconIndex);
 	// const navigate = useNavigate()
 	return (
-		// todo получить номер иконки и передовать номер обратно дляпрямой ссылке на загрузку массива иконок до конкретной иконки
 		<NavLink 
 			// onClick={() => (navigate(-1))} 
 			to={'/'}

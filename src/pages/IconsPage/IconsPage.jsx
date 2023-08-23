@@ -1,4 +1,4 @@
-import { useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { useLocation } from "react-router"
 
 import Header from '@components/Header'
@@ -27,13 +27,6 @@ const IconsPage = () => {
 		}
 		return 0
 	}
-
-	useEffect(() => {
-		// todo прокрутку до корректной иконки
-		// window.scrollTo(0, 550)
-		// console.log(document.querySelector('.list__container').getBoundingClientRect().y + ' докручиваем')
-		// document.querySelector('.list__container').getBoundingClientRect().y
-	}, [])
 
 	console.log('IconsPage')
 	return (

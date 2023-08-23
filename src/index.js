@@ -25,13 +25,3 @@ function Main() {
 root.render(
 	<Main />
 )
-
-
-
-// todo создать стил рваной иконки изображения
-// document.addEventListener("DOMContentLoaded", function(event) {
-// 	document.querySelectorAll('img').forEach(function(img){
-// 	   img.onerror = function(){this.style.display='none';};
-// 	})
-//  });
-

@@ -28,10 +28,9 @@
 	width: inherit;
 	max-width: inherit;
 	max-height: calc(var(--size-5) * 6);
-	overflow-y: scroll;
+	overflow: hidden;
 	list-style: none;
-	/* padding: 0 0 0 2px; */
-	box-sizing:border-box;
+	box-sizing: border-box;
 	border: 1px solid var(--color-10);
 }
 .search_options li {
@@ -43,6 +42,12 @@
 	cursor: pointer;
 	user-select: none;
 }
+.search_options li:focus {
+	outline: none;
+	background-color: var(--color-5);
+	border-left: var(--size-0) solid var(--color-3);
+}
+
 .search_options li:hover {
 	background-color: var(--color-5);
 }
@@ -91,7 +96,7 @@ input[type=search] {
 	height: calc(var(--size-5) - 4px);
 	margin-right: 2px;
 	background-image: url(@assets/vector-graphics/icon-0127-s.svg);
-	background-repeat:no-repeat;
+	background-repeat: no-repeat;
 	background-position: center center;
 	background-color: var(--color-10);
 	cursor: pointer;

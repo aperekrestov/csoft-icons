@@ -4,7 +4,7 @@ import cn from "classnames"
 import styles from './IconLinkBack.module.css'
 
 const IconLinkBack = ({iconIndex}) => {
-	console.log(iconIndex);
+	if(!iconIndex) { iconIndex = 0 }
 	// const navigate = useNavigate()
 	return (
 		<NavLink 

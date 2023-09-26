@@ -10,8 +10,10 @@ import styles from './Header.module.css'
 const Header = ({searchText=''}) => {
 	const { iconArray, setIconArray } = useContext(IconArray)
 	const [ coincidence, setCoincidence ] = useState()
-	const navigate = useNavigate()
-	const userQuery  = useRef()
+	const navigate = useNavigate(null)
+	const userQuery = useRef(null)
+	const coincidenceList = useRef(null)
+	let coincidenceTabIndex = -1
 	let uniqueTags = []
 	let inputValue = ''
 
@@ -19,6 +21,12 @@ const Header = ({searchText=''}) => {
 		e.preventDefault()
 		// todo .../icons?icon=abc$id=123
 		goToUserQueryPage()
+	}
+
+	const handleFocuseout = (e) => {
+		if (!e.currentTarget.contains(e.relatedTarget)) {
+			setCoincidence('')
+		}
 	}
 
 	const clickCoincidence = (e) => {
@@ -41,11 +49,33 @@ const Header = ({searchText=''}) => {
 		}
 	}
 
+	const searchKeyDown = (e) => {
+		if(e.keyCode === 40) {
+			e.preventDefault()
+			coincidenceTabIndex === coincidenceList.current.children.length - 1 ? coincidenceTabIndex = 0 : coincidenceTabIndex ++
+			coincidenceList.current.children[coincidenceTabIndex].focus()
+			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
+		}
+		if(e.keyCode === 38) {
+			e.preventDefault()
+			coincidenceTabIndex <= 0 ? coincidenceTabIndex = coincidenceList.current.children.length - 1 : coincidenceTabIndex --
+			coincidenceList.current.children[coincidenceTabIndex].focus()
+			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
+		}
+		if(e.keyCode === 13) {
+			goToUserQueryPage()
+		}
+	}
+
 	function getOptions() {
-		const regex = new RegExp(inputValue, 'gi')
-		return uniqueTags.filter(item => {
-			return item.match(regex)
-		})
+		// todo совпадения по первыйм буквам
+		// const regex = new RegExp(inputValue, 'gi')
+		// let coincidencesFullArray = uniqueTags.filter(item => {	return item.match(regex) })
+		const regex = new RegExp('^'+inputValue, 'gi')
+		let coincidencesFullArray = uniqueTags.filter(item => {	return item.match(regex) })
+		// coincidencesFullArray.sort()
+		// console.log(coincidencesFullArray)
+		return coincidencesFullArray.slice(0, 5)
 	}
 
 	useEffect(()=>{
@@ -68,7 +98,7 @@ const Header = ({searchText=''}) => {
 
 			{iconArray
 				?
-				<form autoComplete='off' onChange={handleChange} onSubmit={handleSubmit} className={styles.search}>
+				<form autoComplete='off' onChange={handleChange} onSubmit={handleSubmit} onBlur={handleFocuseout} className={styles.search}>
 					<input 
 						type='search' 
 						name='search' 
@@ -76,6 +106,7 @@ const Header = ({searchText=''}) => {
 						defaultValue={searchText}
 						className={cn(styles.search__input)} 
 						ref={userQuery}
+						onKeyDown={searchKeyDown}
 					/>
 					<input 
 						type='submit' 
@@ -84,9 +115,14 @@ const Header = ({searchText=''}) => {
 					/>
 					
 					{coincidence &&
-						<ul className={styles.search_options}>
-							{coincidence.map((item) => 
-							<li onClick={clickCoincidence} key={item}>
+						<ul ref={coincidenceList} className={styles.search_options}>
+							{coincidence.map((item, index) => 
+							<li 
+								onClick={clickCoincidence} 
+								onKeyDown={searchKeyDown}
+								key={index}
+								tabIndex={index}
+							>
 								{item}
 							</li>
 							)}

@@ -13,6 +13,8 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 		if (scrollGalleryValue <= 0) {
 			loadMore()
 		}
+		// todo процент отображаемых иконок
+		// console.log(iconArrayList.length + ' - 100%')
 		// console.log(document.querySelector('.list__container').getBoundingClientRect().y)
 		// console.log("Общяя высота страницы scrollHeight", e.target.documentElement.scrollHeight);
 		// console.log("Текущее положение скролла scrollTop", e.target.documentElement.scrollTop);
@@ -36,12 +38,12 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 		// setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE * step)])
 		// console.log(step + ' шаг')
 		// ? прокручиваем массив иконок до необходимой
-		console.log(stateIconIndex)
-		if(stateIconIndex !== 0) {
+		// console.log(stateIconIndex)
+		if(stateIconIndex === 0 ||  typeof stateIconIndex == 'undefined') {
+			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
+		} else {
 			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + stateIconIndex)])
 			setTimeout(() => window.scrollTo(0, document.querySelector('.list__container').clientHeight), 10)
-		} else {
-			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
 		}
 
 		document.addEventListener('scroll', scrollHandler)

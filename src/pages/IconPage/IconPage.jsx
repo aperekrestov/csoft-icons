@@ -26,6 +26,7 @@ const IconPage = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
 
 	const [iconSvgData, setIconSvgData] = useState(null)
+	
 	const [newSize, setSize] = useState(GENERAL_SIZE)
 	const [newExtention, setNewExtention] = useState(GENERAL_EXTENSION)
 
@@ -62,64 +63,43 @@ const IconPage = () => {
 		// }
 	}
 
+
+	const [iconUrl, setIconUrl] = useState(null)
 	let iconContent = null
 	let iconTitle = null
-	let iconImage = null
-	let iconDateModification = null
+	const [iconLastModified, setIconLastModified ] = useState(null)
 	let iconTags = null
-	if (iconArray != null) {
-		iconContent = getIconContent(iconArray, iconId)
-		iconTitle = iconContent.title
-		iconImage = iconContent.imgUrl
-		iconDateModification = iconContent.modificated
-		iconTags = getIconTags(iconContent.tags)
-
-		//todo прочитать информация в метатегах, загружаемого файла
-		setTimeout(() => shoeMetaDataIcon(), 1000)
+	//todo определяем данные 
+	function setIconData() {
+		if (iconArray != null) {
+			iconContent = getIconContent(iconArray, iconId)
+			iconTitle = iconContent.title
+			setIconUrl(iconContent.imgUrl)
+			setIconLastModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
+			iconTags = getIconTags(iconContent.tags)
+		}
 	}
-
+	//? запасной вариант получения ссылки на файл 
+	// function showMetaDataIcon() {
+	// 	let iconlocationHreL = imgDOMIcon.current.src
+	// 	console.log(fetchHeader(iconlocationHreL, 'Last-Modified'))
+	// }
 	function fetchHeader(url, wch) {
 		try {
-			var req=new XMLHttpRequest();
+			var req = new XMLHttpRequest();
 			req.open("HEAD", url, false);
 			req.send(null);
-			if(req.status== 200){
+			if (req.status == 200) {
 				return req.getResponseHeader(wch);
 			}
 			else return false;
-		} catch(er) {
+		} catch (er) {
 			return er.message;
 		}
 	}
-	
-	
-	function shoeMetaDataIcon() {
-		let iconlocationHreL = imgDOMIcon.current.src
-		console.log(fetchHeader(iconlocationHreL,'Last-Modified'))
-		// const files = img1
-		// const now = new Date()
-		
-		
-	
-		// todo методанные файла
-		// let metaData = new Blob([imgDOMIcon])
-		// console.log(imgDOMIcon.current.src);
-		// for (const file of files) {
-		// 	const date = new Date(file.lastModified);
-		// 	// true if the file hasn't been modified for more than 1 year
-		// 	const stale = now.getTime() - file.lastModified > 31_536_000_000;
-		// 	console.log(`${file.name} is ${stale ? "stale" : "fresh" } (${date}).\n`);
-		// }
 
-		// EXIF.getData(img1, function () {
-		// 	var exifData = EXIF.pretty(this)
-		// 	var allTags = EXIF.getAllTags(this)
-		// 	var make = EXIF.getTag(this, "Make")
-		// 	var model = EXIF.getTag(this, "Model")
-		// 	let l = EXIF.enableXmp(this)
-		// 	console.log(allTags.constructor.create)
-		// });
-	}
+
+
 
 	function geticonIndex() {
 		if (iconArray != null) {
@@ -252,7 +232,8 @@ const IconPage = () => {
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
-	}, [])
+		setIconData()
+	}, [iconArray])
 
 
 	return (
@@ -271,12 +252,12 @@ const IconPage = () => {
 						<section className={styles.container_info}>
 							<div>
 								<h3>Файл #{iconId}</h3>
-								<span className={"font_ultra margin_left_ultra_small"} >{iconDateModification}</span>
+								<span className={"font_ultra margin_left_ultra_small"} >{iconLastModified}</span>
 							</div>
 
-							{iconImage &&
+							{iconUrl &&
 								// <img ref={imgDOMIcon} className={cn(styles.icon, "padding_top_bottom_m")} src={'./csoft-icons-collection/monalisa.jpg'} alt={iconTitle} />
-								<img ref={imgDOMIcon} className={cn(styles.icon, "padding_top_bottom_m")} src={iconImage} alt={iconTitle} />
+								<img ref={imgDOMIcon} className={cn(styles.icon, "padding_top_bottom_m")} src={iconUrl} alt={iconTitle} />
 							}
 						</section>
 

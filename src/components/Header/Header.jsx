@@ -68,13 +68,8 @@ const Header = ({searchText=''}) => {
 	}
 
 	function getOptions() {
-		// todo совпадения по первыйм буквам
-		// const regex = new RegExp(inputValue, 'gi')
-		// let coincidencesFullArray = uniqueTags.filter(item => {	return item.match(regex) })
 		const regex = new RegExp('^'+inputValue, 'gi')
 		let coincidencesFullArray = uniqueTags.filter(item => {	return item.match(regex) })
-		// coincidencesFullArray.sort()
-		// console.log(coincidencesFullArray)
 		return coincidencesFullArray.slice(0, 5)
 	}
 
@@ -155,6 +150,5 @@ Header.propTypes = {
 	isSearchHidden: PropTypes.bool,
 	searchText: PropTypes.string
 }
-
 
 export default Header

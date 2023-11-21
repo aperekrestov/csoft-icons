@@ -16,10 +16,8 @@ import styles from './IconsPage.module.css'
 
 const IconsPage = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
-
 	const location = useLocation();
 	const { state } = location;
-	// console.log(location.state)
 
 	function getStateFrom() {
 		if(state != null) {
@@ -28,7 +26,6 @@ const IconsPage = () => {
 		return 0
 	}
 
-	console.log('IconsPage')
 	return (
 		<>
 			{iconArray

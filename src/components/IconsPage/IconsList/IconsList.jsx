@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import { ICONS_PER_PAGE } from '@constants/constants'
-// todo завести тип принимаемых данных iconArrayList
 
 const IconsList = ({iconArrayList, stateIconIndex}) => {
 	const [iconArrayLazy, setIconArrayLazy] = useState([])
@@ -14,11 +14,11 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 			loadMore()
 		}
 		// todo процент отображаемых иконок
-		// console.log(iconArrayList.length + ' - 100%')
-		// console.log(document.querySelector('.list__container').getBoundingClientRect().y)
-		// console.log("Общяя высота страницы scrollHeight", e.target.documentElement.scrollHeight);
-		// console.log("Текущее положение скролла scrollTop", e.target.documentElement.scrollTop);
-		// console.log("Высота браузера window.innerHeight", window.innerHeight);
+		//? console.log(iconArrayList.length + ' - 100%')
+		//? console.log(document.querySelector('.list__container').getBoundingClientRect().y)
+		//? console.log("Общяя высота страницы scrollHeight", e.target.documentElement.scrollHeight);
+		//? console.log("Текущее положение скролла scrollTop", e.target.documentElement.scrollTop);
+		//? console.log("Высота браузера window.innerHeight", window.innerHeight);
 	}
 	
 	
@@ -33,12 +33,7 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 	}
 	
 	useEffect(() => {
-		// // ? добавляем умный список иконок
-		// let step = Math.trunc(stateIconIndex/ICONS_PER_PAGE) + 1
-		// setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE * step)])
-		// console.log(step + ' шаг')
-		// ? прокручиваем массив иконок до необходимой
-		// console.log(stateIconIndex)
+		//? прокручиваем массив иконок до необходимой
 		if(stateIconIndex === 0 ||  typeof stateIconIndex == 'undefined') {
 			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
 		} else {
@@ -47,6 +42,7 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 		}
 
 		document.addEventListener('scroll', scrollHandler)
+
 		return function () {
 			document.removeEventListener('scroll', scrollHandler)
 		}
@@ -71,5 +67,12 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 		</>
 	)
 }
+
+
+IconsList.propTypes = {
+	iconArrayList: PropTypes.array,
+	stateIconIndex: PropTypes.number
+}
+
 
 export default IconsList

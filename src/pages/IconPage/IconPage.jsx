@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router'
+import EXIF from 'exif-js'
 
 import Header from '@components/Header'
 import Footer from '@components/Footer'
@@ -29,6 +30,7 @@ const IconPage = () => {
 	const [newExtention, setNewExtention] = useState(GENERAL_EXTENSION)
 
 	const iconId = useParams().id
+	const imgDOMIcon = useRef(null)
 
 	const errorMassege = 'Файл #' + iconId + ' размером ' + newSize + 'x' + newSize + ' не найден'
 
@@ -48,7 +50,7 @@ const IconPage = () => {
 		console.error('ОШИБКА:', 'Исходник #' + iconId + ' размером ' + iconSrcLink + 'x' + iconSrcLink + ' не найден')
 		setIconSvgData(null)
 
-		// todo response дает статус OK на несуществующий файл, нужно понять в чем причина и обработать корректно ошибку
+		//todo response дает статус OK на несуществующий файл, нужно понять в чем причина и обработать корректно ошибку
 		// const response = await fetch(url)
 		// if (response.ok) {
 		// 	let responseText= await response.text()
@@ -71,6 +73,52 @@ const IconPage = () => {
 		iconImage = iconContent.imgUrl
 		iconDateModification = iconContent.modificated
 		iconTags = getIconTags(iconContent.tags)
+
+		//todo прочитать информация в метатегах, загружаемого файла
+		setTimeout(() => shoeMetaDataIcon(), 1000)
+	}
+
+	function fetchHeader(url, wch) {
+		try {
+			var req=new XMLHttpRequest();
+			req.open("HEAD", url, false);
+			req.send(null);
+			if(req.status== 200){
+				return req.getResponseHeader(wch);
+			}
+			else return false;
+		} catch(er) {
+			return er.message;
+		}
+	}
+	
+	
+	function shoeMetaDataIcon() {
+		let iconlocationHreL = imgDOMIcon.current.src
+		console.log(fetchHeader(iconlocationHreL,'Last-Modified'))
+		// const files = img1
+		// const now = new Date()
+		
+		
+	
+		// todo методанные файла
+		// let metaData = new Blob([imgDOMIcon])
+		// console.log(imgDOMIcon.current.src);
+		// for (const file of files) {
+		// 	const date = new Date(file.lastModified);
+		// 	// true if the file hasn't been modified for more than 1 year
+		// 	const stale = now.getTime() - file.lastModified > 31_536_000_000;
+		// 	console.log(`${file.name} is ${stale ? "stale" : "fresh" } (${date}).\n`);
+		// }
+
+		// EXIF.getData(img1, function () {
+		// 	var exifData = EXIF.pretty(this)
+		// 	var allTags = EXIF.getAllTags(this)
+		// 	var make = EXIF.getTag(this, "Make")
+		// 	var model = EXIF.getTag(this, "Model")
+		// 	let l = EXIF.enableXmp(this)
+		// 	console.log(allTags.constructor.create)
+		// });
 	}
 
 	function geticonIndex() {
@@ -89,7 +137,7 @@ const IconPage = () => {
 			width: newSize + 'px',
 			height: newSize + 'px',
 			backgroundImage: "url('data:image/svg+xml; base64," + window.btoa(svg) + "')"
-			// ? window.btoa кодирует строку в base-64
+			//? window.btoa кодирует строку в base-64
 		}
 	}
 
@@ -207,7 +255,6 @@ const IconPage = () => {
 	}, [])
 
 
-	console.log('IconPage')
 	return (
 		<>
 			<div className="wrapper grey_page">
@@ -216,7 +263,7 @@ const IconPage = () => {
 				<div className={"content_width_middle padding_top_bottom_l content_height_auto"}>
 
 					<div className="margin_bottom_xl">
-						<IconLinkBack iconIndex={geticonIndex()}/>
+						<IconLinkBack iconIndex={geticonIndex()} />
 					</div>
 
 					<div className={styles.icon_page_flex}>
@@ -228,7 +275,8 @@ const IconPage = () => {
 							</div>
 
 							{iconImage &&
-								<img className={cn(styles.icon, "padding_top_bottom_m")} src={iconImage} alt={iconTitle} />
+								// <img ref={imgDOMIcon} className={cn(styles.icon, "padding_top_bottom_m")} src={'./csoft-icons-collection/monalisa.jpg'} alt={iconTitle} />
+								<img ref={imgDOMIcon} className={cn(styles.icon, "padding_top_bottom_m")} src={iconImage} alt={iconTitle} />
 							}
 						</section>
 

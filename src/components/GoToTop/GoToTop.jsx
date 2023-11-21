@@ -23,6 +23,7 @@ const GoToTop = () => {
 
 	useEffect(() => {
 		document.addEventListener('scroll', scrollHandler)
+		
 		return function () {
 			document.removeEventListener('scroll', scrollHandler)	
 		}

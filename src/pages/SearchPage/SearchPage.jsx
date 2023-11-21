@@ -8,19 +8,19 @@ import IconLinkBack from '@components/IconLinkBack'
 import { IconArray } from '@context/context'
 
 const SearchPage = () => {
-	console.log('SearchPage')
-	window.scrollTo(0, 0)
 	const { iconArray, setIconArray } = useContext(IconArray)
 	const location = useLocation()
 	const userQuery = decodeURI(location.pathname.split('/search=').join(''))
-	// todo userQuery = location.state.query
-		
-		let arrAfterSearch = null
-		if(iconArray){
+	
+	let arrAfterSearch = null
+	
+	if(iconArray){
 		arrAfterSearch = iconArray.filter(function(item){
 			return item.tags.toLowerCase().includes(userQuery.toLowerCase())
 		})
 	}
+
+	window.scrollTo(0, 0)
 
 	return (
 		<div className="wrapper">

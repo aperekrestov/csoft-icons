@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router'
-import EXIF from 'exif-js'
+// import EXIF from 'exif-js'
+import dateFormat, { masks } from "dateformat"
 
 import Header from '@components/Header'
 import Footer from '@components/Footer'
@@ -26,7 +27,7 @@ const IconPage = () => {
 	const { iconArray, setIconArray } = useContext(IconArray)
 
 	const [iconSvgData, setIconSvgData] = useState(null)
-	
+
 	const [newSize, setSize] = useState(GENERAL_SIZE)
 	const [newExtention, setNewExtention] = useState(GENERAL_EXTENSION)
 
@@ -67,7 +68,8 @@ const IconPage = () => {
 	const [iconUrl, setIconUrl] = useState(null)
 	let iconContent = null
 	let iconTitle = null
-	const [iconLastModified, setIconLastModified ] = useState(null)
+	const [iconMetaDataModified, setIconMetaDataModified] = useState(null)
+	const [iconConvertedMetaDataModified, setIconConvertedMetaDataModified] = useState(null)
 	let iconTags = null
 	//todo определяем данные 
 	function setIconData() {
@@ -75,15 +77,18 @@ const IconPage = () => {
 			iconContent = getIconContent(iconArray, iconId)
 			iconTitle = iconContent.title
 			setIconUrl(iconContent.imgUrl)
-			setIconLastModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
+
+			setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
 			iconTags = getIconTags(iconContent.tags)
+
 		}
 	}
 	//? запасной вариант получения ссылки на файл 
-	// function showMetaDataIcon() {
-	// 	let iconlocationHreL = imgDOMIcon.current.src
-	// 	console.log(fetchHeader(iconlocationHreL, 'Last-Modified'))
-	// }
+	function showMetaDataIcon() {
+		setIconConvertedMetaDataModified(dateFormat(iconMetaDataModified, 'dd.mm.yyyy'))
+		// let iconlocationHreL = imgDOMIcon.current.src
+		// console.log(fetchHeader(iconlocationHreL, 'Last-Modified'))
+	}
 	function fetchHeader(url, wch) {
 		try {
 			var req = new XMLHttpRequest();
@@ -229,6 +234,10 @@ const IconPage = () => {
 	useEffect(() => {
 		fetchSvgData()
 	}, [newSize])
+	
+	useEffect(() => {
+		showMetaDataIcon()
+	}, [iconMetaDataModified])
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
@@ -252,7 +261,7 @@ const IconPage = () => {
 						<section className={styles.container_info}>
 							<div>
 								<h3>Файл #{iconId}</h3>
-								<span className={"font_ultra margin_left_ultra_small"} >{iconLastModified}</span>
+								<span className={"font_ultra margin_left_ultra_small"} >от {iconConvertedMetaDataModified}</span>
 							</div>
 
 							{iconUrl &&

@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import { useContext } from 'react'
 import { useParams } from 'react-router'
-import dateFormat, { masks } from "dateformat"
+import dateFormat, { } from "dateformat"
 
 import Context from '@context/Context'
 import Header from '@components/Header'
@@ -9,7 +9,6 @@ import Footer from '@components/Footer'
 import IconLinkBack from '@components/IconLinkBack'
 import IconTags from '@components/IconPage/IconTags'
 import { getIconSvgUrl, getIconTags, getIconContent } from '@utils/getIconData'
-// import { IconArray } from '@context/context'
 import {
 	GENERAL_EXTENSION, PNG_EXTENSION, SVG_EXTENSION,
 	GENERAL_SIZE, SMALL, MEDIUM, LARGE,
@@ -25,25 +24,22 @@ import cn from 'classnames'
 import styles from './IconPage.module.css'
 
 const IconPage = () => {
-	// const { iconArray, setIconArray } = useContext(IconArray)
-
-	
 	const [iconSvgData, setIconSvgData] = useState(null)
+	const [iconConvertedMetaDataModified, setIconConvertedMetaDataModified] = useState(null)
+	const [iconMetaDataModified, setIconMetaDataModified] = useState(null)
+	const [iconUrl, setIconUrl] = useState(null)
+	const [iconTitle, setIconTitle] = useState(null)
+	const [iconTags, setIconTags] = useState(null)
 	
 	const [newSize, setSize] = useState(GENERAL_SIZE)
 	const [newExtention, setNewExtention] = useState(GENERAL_EXTENSION)
-
-	const [iconConvertedMetaDataModified, setIconConvertedMetaDataModified] = useState(null)
-	const [iconMetaDataModified, setIconMetaDataModified] = useState(null)
 	
 	const iconId = useParams().id
-	// console.log(iconId)
 	const imgDOMIcon = useRef(null)
-	
 	const value = useContext(Context)
-	// console.log(value.iconArrayDefault)
-
 	const errorMassege = 'Файл #' + iconId + ' размером ' + newSize + 'x' + newSize + ' не найден'
+
+	let iconContent = null
 
 	async function fetchSvgData() {
 		let iconSrcLink = GENERAL_SIZE
@@ -72,39 +68,18 @@ const IconPage = () => {
 		// 	console.error('ОШИБКА', response.status)
 		// }
 	}
-
-
-	// const [iconUrl, setIconUrl] = useState(null)
-	let iconUrl = null
-	let iconContent = null
-	// const [iconContent, setIconContent] = useState(null)
-	// const [iconTitle, setIconTitle] = useState(null)
-	let iconTitle = null
-	// let iconConvertedMetaDataModified = null
-	
-	let iconTags = null
-	//todo определяем данные 
 	
 	function setIconData() {
+		//? определяем данные 
 		if (value.iconArrayDefault.length > 0) {
 			iconContent = getIconContent(value.iconArrayDefault, iconId)
-			console.log(iconContent);
-			// iconContent = getIconContent(iconArray, iconId)
-			
-			// setIconTitle(iconContent.title)
-			// iconTitle = iconContent.title
-			// iconUrl = iconContent.imgUrl
-			// setIconUrl(iconContent.imgUrl)
-
+			setIconUrl(iconContent.imgUrl)
+			setIconTitle(iconContent.title)
+			setIconTags(getIconTags(iconContent.tags))
 			setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
-			// iconTags = getIconTags(iconContent.tags)
-
-			console.log(value.iconArrayDefault);
 		}
 	}
-
 	function showMetaDataIcon() {
-		// iconConvertedMetaDataModified = dateFormat(iconMetaDataModified, 'dd.mm.yyyy')
 		setIconConvertedMetaDataModified(dateFormat(iconMetaDataModified, 'dd.mm.yyyy'))
 	}
 	function fetchHeader(url, wch) {
@@ -125,9 +100,9 @@ const IconPage = () => {
 
 
 	function geticonIndex() {
-		// if (iconArray != null) {
-		// 	return iconArray.findIndex(i => i.id === iconId)
-		// }
+		if (value.iconArrayDefault.length > 0) {
+			return value.iconArrayDefault.findIndex(i => i.id === iconId)
+		}
 		return 0
 	}
 

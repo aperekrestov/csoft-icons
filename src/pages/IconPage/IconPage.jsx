@@ -65,29 +65,38 @@ const IconPage = () => {
 	}
 
 
-	const [iconUrl, setIconUrl] = useState(null)
+	// const [iconUrl, setIconUrl] = useState(null)
+	let iconUrl = null
 	let iconContent = null
+	// const [iconContent, setIconContent] = useState()
+	// const [iconTitle, setIconTitle] = useState(null)
 	let iconTitle = null
-	const [iconMetaDataModified, setIconMetaDataModified] = useState(null)
+	// let iconConvertedMetaDataModified = null
 	const [iconConvertedMetaDataModified, setIconConvertedMetaDataModified] = useState(null)
+	const [iconMetaDataModified, setIconMetaDataModified] = useState(null)
 	let iconTags = null
 	//todo определяем данные 
+	
 	function setIconData() {
 		if (iconArray != null) {
+			// setIconContent(getIconContent(iconArray, iconId))
 			iconContent = getIconContent(iconArray, iconId)
-			iconTitle = iconContent.title
-			setIconUrl(iconContent.imgUrl)
+			
+			// setIconTitle(iconContent.title)
+			// iconTitle = iconContent.title
+			// iconUrl = iconContent.imgUrl
+			// setIconUrl(iconContent.imgUrl)
 
-			setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
-			iconTags = getIconTags(iconContent.tags)
+			// setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
+			// iconTags = getIconTags(iconContent.tags)
 
+			console.log(iconContent);
 		}
 	}
-	//? запасной вариант получения ссылки на файл 
+
 	function showMetaDataIcon() {
+		// iconConvertedMetaDataModified = dateFormat(iconMetaDataModified, 'dd.mm.yyyy')
 		setIconConvertedMetaDataModified(dateFormat(iconMetaDataModified, 'dd.mm.yyyy'))
-		// let iconlocationHreL = imgDOMIcon.current.src
-		// console.log(fetchHeader(iconlocationHreL, 'Last-Modified'))
 	}
 	function fetchHeader(url, wch) {
 		try {
@@ -243,6 +252,7 @@ const IconPage = () => {
 		window.scrollTo(0, 0)
 		setIconData()
 	}, [iconArray])
+
 
 
 	return (

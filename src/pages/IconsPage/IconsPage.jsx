@@ -21,7 +21,7 @@ const IconsPage = () => {
 	const { state } = location;
 
 	const value = useContext(Context)
-	console.log(value.iconArrayDefault.length);
+	// console.log(value.iconArrayDefault.length);
 
 	function getStateFrom() {
 		if(state != null) {

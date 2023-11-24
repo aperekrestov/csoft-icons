@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
+import { useContext } from 'react'
 import { useParams } from 'react-router'
 import dateFormat, { masks } from "dateformat"
 
+import Context from '@context/Context'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import IconLinkBack from '@components/IconLinkBack'
@@ -25,13 +27,21 @@ import styles from './IconPage.module.css'
 const IconPage = () => {
 	// const { iconArray, setIconArray } = useContext(IconArray)
 
+	
 	const [iconSvgData, setIconSvgData] = useState(null)
-
+	
 	const [newSize, setSize] = useState(GENERAL_SIZE)
 	const [newExtention, setNewExtention] = useState(GENERAL_EXTENSION)
 
+	const [iconConvertedMetaDataModified, setIconConvertedMetaDataModified] = useState(null)
+	const [iconMetaDataModified, setIconMetaDataModified] = useState(null)
+	
 	const iconId = useParams().id
+	// console.log(iconId)
 	const imgDOMIcon = useRef(null)
+	
+	const value = useContext(Context)
+	// console.log(value.iconArrayDefault)
 
 	const errorMassege = 'Файл #' + iconId + ' размером ' + newSize + 'x' + newSize + ' не найден'
 
@@ -67,30 +77,30 @@ const IconPage = () => {
 	// const [iconUrl, setIconUrl] = useState(null)
 	let iconUrl = null
 	let iconContent = null
-	// const [iconContent, setIconContent] = useState()
+	// const [iconContent, setIconContent] = useState(null)
 	// const [iconTitle, setIconTitle] = useState(null)
 	let iconTitle = null
 	// let iconConvertedMetaDataModified = null
-	const [iconConvertedMetaDataModified, setIconConvertedMetaDataModified] = useState(null)
-	const [iconMetaDataModified, setIconMetaDataModified] = useState(null)
+	
 	let iconTags = null
 	//todo определяем данные 
 	
 	function setIconData() {
-		// if (iconArray != null) {
-		// 	// setIconContent(getIconContent(iconArray, iconId))
-		// 	iconContent = getIconContent(iconArray, iconId)
+		if (value.iconArrayDefault.length > 0) {
+			iconContent = getIconContent(value.iconArrayDefault, iconId)
+			console.log(iconContent);
+			// iconContent = getIconContent(iconArray, iconId)
 			
-		// 	// setIconTitle(iconContent.title)
-		// 	// iconTitle = iconContent.title
-		// 	// iconUrl = iconContent.imgUrl
-		// 	// setIconUrl(iconContent.imgUrl)
+			// setIconTitle(iconContent.title)
+			// iconTitle = iconContent.title
+			// iconUrl = iconContent.imgUrl
+			// setIconUrl(iconContent.imgUrl)
 
-		// 	// setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
-		// 	// iconTags = getIconTags(iconContent.tags)
+			setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
+			// iconTags = getIconTags(iconContent.tags)
 
-		// 	console.log(iconContent);
-		// }
+			console.log(value.iconArrayDefault);
+		}
 	}
 
 	function showMetaDataIcon() {
@@ -247,10 +257,10 @@ const IconPage = () => {
 		showMetaDataIcon()
 	}, [iconMetaDataModified])
 
-	// useEffect(() => {
-	// 	window.scrollTo(0, 0)
-	// 	setIconData()
-	// }, [iconArray])
+	useEffect(() => {
+		window.scrollTo(0, 0)
+		setIconData()
+	}, [value.iconArrayDefault])
 
 
 

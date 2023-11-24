@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router'
-// import EXIF from 'exif-js'
 import dateFormat, { masks } from "dateformat"
 
 import Header from '@components/Header'
@@ -8,7 +7,7 @@ import Footer from '@components/Footer'
 import IconLinkBack from '@components/IconLinkBack'
 import IconTags from '@components/IconPage/IconTags'
 import { getIconSvgUrl, getIconTags, getIconContent } from '@utils/getIconData'
-import { IconArray } from '@context/context'
+// import { IconArray } from '@context/context'
 import {
 	GENERAL_EXTENSION, PNG_EXTENSION, SVG_EXTENSION,
 	GENERAL_SIZE, SMALL, MEDIUM, LARGE,
@@ -24,7 +23,7 @@ import cn from 'classnames'
 import styles from './IconPage.module.css'
 
 const IconPage = () => {
-	const { iconArray, setIconArray } = useContext(IconArray)
+	// const { iconArray, setIconArray } = useContext(IconArray)
 
 	const [iconSvgData, setIconSvgData] = useState(null)
 
@@ -78,20 +77,20 @@ const IconPage = () => {
 	//todo определяем данные 
 	
 	function setIconData() {
-		if (iconArray != null) {
-			// setIconContent(getIconContent(iconArray, iconId))
-			iconContent = getIconContent(iconArray, iconId)
+		// if (iconArray != null) {
+		// 	// setIconContent(getIconContent(iconArray, iconId))
+		// 	iconContent = getIconContent(iconArray, iconId)
 			
-			// setIconTitle(iconContent.title)
-			// iconTitle = iconContent.title
-			// iconUrl = iconContent.imgUrl
-			// setIconUrl(iconContent.imgUrl)
+		// 	// setIconTitle(iconContent.title)
+		// 	// iconTitle = iconContent.title
+		// 	// iconUrl = iconContent.imgUrl
+		// 	// setIconUrl(iconContent.imgUrl)
 
-			// setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
-			// iconTags = getIconTags(iconContent.tags)
+		// 	// setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
+		// 	// iconTags = getIconTags(iconContent.tags)
 
-			console.log(iconContent);
-		}
+		// 	console.log(iconContent);
+		// }
 	}
 
 	function showMetaDataIcon() {
@@ -116,9 +115,9 @@ const IconPage = () => {
 
 
 	function geticonIndex() {
-		if (iconArray != null) {
-			return iconArray.findIndex(i => i.id === iconId)
-		}
+		// if (iconArray != null) {
+		// 	return iconArray.findIndex(i => i.id === iconId)
+		// }
 		return 0
 	}
 
@@ -248,10 +247,10 @@ const IconPage = () => {
 		showMetaDataIcon()
 	}, [iconMetaDataModified])
 
-	useEffect(() => {
-		window.scrollTo(0, 0)
-		setIconData()
-	}, [iconArray])
+	// useEffect(() => {
+	// 	window.scrollTo(0, 0)
+	// 	setIconData()
+	// }, [iconArray])
 
 
 

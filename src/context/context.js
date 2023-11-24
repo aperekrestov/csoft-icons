@@ -1,3 +1,10 @@
-import React from 'react'
+import { createContext } from 'react'
 
-export const IconArray = React.createContext(null)
+const Context = createContext()
+
+export default Context
+
+
+// import React from 'react'
+
+// export const IconArray = React.createContext(null)

@@ -7,7 +7,6 @@ import { ICONS_PER_PAGE } from '@constants/constants'
 const IconsList = ({iconArrayList, stateIconIndex}) => {
 	const [iconArrayLazy, setIconArrayLazy] = useState([])
 	
-	
 	const scrollHandler = (e) => {
 		let scrollGalleryValue = document.querySelector('.list__container').getBoundingClientRect().y + document.querySelector('.list__container').clientHeight - window.innerHeight
 		if (scrollGalleryValue <= 0) {
@@ -34,7 +33,7 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 	
 	useEffect(() => {
 		//? прокручиваем массив иконок до необходимой
-		if(stateIconIndex === 0 ||  typeof stateIconIndex == 'undefined') {
+		if(stateIconIndex === 0 || typeof stateIconIndex == 'undefined') {
 			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
 		} else {
 			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + stateIconIndex)])

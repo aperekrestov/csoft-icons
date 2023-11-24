@@ -1,39 +1,46 @@
-import { useEffect, useContext } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import IconsPage from '@pages/IconsPage'
 import IconPage from '@pages/IconPage'
 import LegalPage from '@pages/LegalPage'
 import SearchPage from '@pages/SearchPage'
 import NotFoundPage from '@pages/NotFoundPage'
-import { IconArray } from '@context/context'
+// import { IconArray } from '@context/context'
+import Context from '@context/Context'
+
 import { getIconImageUrl } from '@utils/getIconData'
 import iconsCollectionData from '@data/csoft-icons-collection.json'
 
 const App = () => {
-	const { iconArray, setIconArray } = useContext(IconArray)
+	// const { iconArray, setIconArray } = useContext(IconArray)
 
 	const setResource = () => {
-		const iconsApproved = iconsCollectionData.filter(function(item){
+		const iconsApproved = iconsCollectionData.filter(function (item) {
 			return item.status === "true"
 		})
-		
-		const iconsApprovedWithImgUrl = iconsApproved.map(({id, title, modificated, tags}) => {
+
+		const iconsApprovedWithImgUrl = iconsApproved.map(({ id, title, modificated, tags }) => {
 			const imgUrl = getIconImageUrl(id)
 			return {
-				id, 
-				title, 
-				modificated, 
-				imgUrl, 
+				id,
+				title,
+				modificated,
+				imgUrl,
 				tags
 			}
 		})
+		setIconArrayDefault(iconsApprovedWithImgUrl)
+	}
+	
+	const [iconArrayDefault, setIconArrayDefault] = useState([])
 
-		setIconArray(iconsApprovedWithImgUrl)
+	const value = {
+		iconArrayDefault
 	}
 
 
 	useEffect(() => {
-		if(iconsCollectionData.length > 0 ) {
+		if (iconsCollectionData.length > 0) {
 			setResource()
 		} else {
 			// todo определить HOC с выводом данных об ошибке
@@ -41,7 +48,7 @@ const App = () => {
 	}, [])
 
 	return (
-		<>		
+		<Context.Provider value={value}>
 			<Routes>
 				<Route path='/' element={<IconsPage />} />
 				<Route path='/legal' element={<LegalPage />} />
@@ -49,7 +56,7 @@ const App = () => {
 				<Route path='/search=:id' element={<SearchPage />} />
 				<Route path='*' element={<NotFoundPage />} />
 			</Routes>
-		</>
+		</Context.Provider>
 	)
 }
 

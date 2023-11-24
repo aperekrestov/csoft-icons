@@ -7,7 +7,8 @@ import BannerBig from '@components/BannerBig'
 import IconsList from '@components/IconsPage/IconsList'
 import GoToTop from '@components/GoToTop'
 import Footer from '@components/Footer'
-import { IconArray } from '@context/context'
+// import { IconArray } from '@context/context'
+import Context from '@context/Context'
 
 import cn from 'classnames'
 import styles from './IconsPage.module.css'
@@ -15,9 +16,12 @@ import styles from './IconsPage.module.css'
 
 
 const IconsPage = () => {
-	const { iconArray, setIconArray } = useContext(IconArray)
+	// const { iconArray, setIconArray } = useContext(IconArray)
 	const location = useLocation();
 	const { state } = location;
+
+	const value = useContext(Context)
+	console.log(value.iconArrayDefault.length);
 
 	function getStateFrom() {
 		if(state != null) {
@@ -28,14 +32,15 @@ const IconsPage = () => {
 
 	return (
 		<>
-			{iconArray
+			{value.iconArrayDefault.length > 0
 				?
 				<div className="wrapper">
 					<Header />
 					<BannerBig />					
 					<section className={"width_limiter padding_top_bottom_l content_height_auto"}>
 						<h2 className={cn(styles.icons_page__header, "content_indent")}>Группа компаний CSoft разработала визуальный язык для лучшего пользовательского опыта</h2>
-						<IconsList iconArrayList={iconArray} stateIconIndex={getStateFrom()}/>	
+						{/* <IconsList iconArrayList={iconArray} stateIconIndex={getStateFrom()}/>	 */}
+						<IconsList iconArrayList={value.iconArrayDefault} stateIconIndex={getStateFrom()}/>	
 					</section>
 					<GoToTop />
 					<Footer />

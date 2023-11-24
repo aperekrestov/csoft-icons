@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import { IconArray } from './context/context'
+// import { IconArray } from './context/context'
 
 import '@styles/index.css'
 import { BrowserRouter } from 'react-router-dom'
@@ -13,11 +13,11 @@ function Main() {
 
 	return (
 		// <React.StrictMode>
-			<IconArray.Provider value={{iconArray, setIconArray}}>
+			// <IconArray.Provider value={{iconArray, setIconArray}}>
 				<BrowserRouter>
 					<App />
 				</BrowserRouter>
-			</IconArray.Provider>
+			// </IconArray.Provider>
 		// </React.StrictMode>
 	)
 }

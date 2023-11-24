@@ -1,24 +1,24 @@
 import { useLocation } from 'react-router'
-import { useContext } from 'react'
+// import { useContext } from 'react'
 import IconsList from '@components/IconsPage/IconsList'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import GoToTop from '@components/GoToTop'
 import IconLinkBack from '@components/IconLinkBack'
-import { IconArray } from '@context/context'
+// import { IconArray } from '@context/context'
 
 const SearchPage = () => {
-	const { iconArray, setIconArray } = useContext(IconArray)
+	// const { iconArray, setIconArray } = useContext(IconArray)
 	const location = useLocation()
 	const userQuery = decodeURI(location.pathname.split('/search=').join(''))
 	
 	let arrAfterSearch = null
 	
-	if(iconArray){
-		arrAfterSearch = iconArray.filter(function(item){
-			return item.tags.toLowerCase().includes(userQuery.toLowerCase())
-		})
-	}
+	// if(iconArray){
+	// 	arrAfterSearch = iconArray.filter(function(item){
+	// 		return item.tags.toLowerCase().includes(userQuery.toLowerCase())
+	// 	})
+	// }
 
 	window.scrollTo(0, 0)
 

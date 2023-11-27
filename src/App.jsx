@@ -1,19 +1,16 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import IconsPage from '@pages/IconsPage'
 import IconPage from '@pages/IconPage'
 import LegalPage from '@pages/LegalPage'
 import SearchPage from '@pages/SearchPage'
 import NotFoundPage from '@pages/NotFoundPage'
-// import { IconArray } from '@context/context'
 import Context from '@context/Context'
 
 import { getIconImageUrl } from '@utils/getIconData'
 import iconsCollectionData from '@data/csoft-icons-collection.json'
 
 const App = () => {
-	// const { iconArray, setIconArray } = useContext(IconArray)
-
 	const setResource = () => {
 		const iconsApproved = iconsCollectionData.filter(function (item) {
 			return item.status === "true"

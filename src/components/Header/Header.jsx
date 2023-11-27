@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types'
-import { useState, useContext, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-
-// import { IconArray } from '@context/context'
 
 import cn from 'classnames'
 import styles from './Header.module.css'
 
 const Header = ({searchText=''}) => {
-	// const { iconArray, setIconArray } = useContext(IconArray)
 	const [ coincidence, setCoincidence ] = useState()
 	const navigate = useNavigate(null)
 	const userQuery = useRef(null)
@@ -73,24 +70,12 @@ const Header = ({searchText=''}) => {
 		return coincidencesFullArray.slice(0, 5)
 	}
 
-	// useEffect(()=>{
-	// 	if(iconArray) {
-	// 		const iconArrayTags = iconArray.map(item => item.tags.toLowerCase())
-	// 		const iconArrayTagsJoin = iconArrayTags.join(', ')
-	// 		const iconArrayTagsSplit = iconArrayTagsJoin.split(', ')
-	// 		const uniqueTagsSet = new Set(iconArrayTagsSplit)
-	// 		uniqueTags = [...uniqueTagsSet]
-	// 	}
-	// }, [iconArray, uniqueTags])
-
-
 	return (
 		<nav className={cn(styles.wrapper)}>
 
 			<div className={cn(styles.container, "content_width_large content_indent")}>
 
 			<NavLink to='/' className={styles.logo}></NavLink>
-
 			
 				<form autoComplete='off' onChange={handleChange} onSubmit={handleSubmit} onBlur={handleFocuseout} className={styles.search}>
 					<input 
@@ -122,11 +107,7 @@ const Header = ({searchText=''}) => {
 							)}
 						</ul>
 					}
-
-				</form>
-				
-				{/* <span className={"warning_text font_ultra text_center"}>ограниченный режим</span> */}
-			
+				</form>			
 
 			<ul className={styles.list__btn}>
 				<li>

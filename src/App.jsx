@@ -5,7 +5,7 @@ import IconPage from '@pages/IconPage'
 import LegalPage from '@pages/LegalPage'
 import SearchPage from '@pages/SearchPage'
 import NotFoundPage from '@pages/NotFoundPage'
-import Context from '@context/Context'
+import Context from '@context/context'
 
 import { getIconImageUrl } from '@utils/getIconData'
 import iconsCollectionData from '@data/csoft-icons-collection.json'

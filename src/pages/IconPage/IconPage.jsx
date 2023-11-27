@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import { useParams } from 'react-router'
 import dateFormat, { } from "dateformat"
 
-import Context from '@context/Context'
+import Context from '@context/context'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import IconLinkBack from '@components/IconLinkBack'

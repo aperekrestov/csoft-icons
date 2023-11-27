@@ -7,7 +7,7 @@ import BannerBig from '@components/BannerBig'
 import IconsList from '@components/IconsPage/IconsList'
 import GoToTop from '@components/GoToTop'
 import Footer from '@components/Footer'
-import Context from '@context/Context'
+import Context from '@context/context'
 
 import cn from 'classnames'
 import styles from './IconsPage.module.css'

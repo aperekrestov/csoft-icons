@@ -30,13 +30,17 @@ const App = () => {
 	}
 	
 	const [iconArrayDefault, setIconArrayDefault] = useState([])
-	const [loadStatus, setLoadStatus] = useState(0)
-	const loadedValue = (n) => setLoadStatus(loadStatus + n)
+	// const [loader, setLoader] = useState(0)
+	let loader = 0
+	const loaderUpdate = (n) => {
+		console.log(`loader update ` + n);
+		loader = loader + n
+	}
 
 	const value = {
 		iconArrayDefault,
-		loadStatus,
-		loadedValue
+		loader,
+		loaderUpdate
 	}
 
 

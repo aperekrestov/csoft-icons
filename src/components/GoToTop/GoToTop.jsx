@@ -39,6 +39,9 @@ const GoToTop = () => {
 				className={styles.go_to_top} 
 				style={visibleStyle()}
 			/>
+			<p className={cn(styles.progress_value)}>
+				100%
+			</p>
 		</div>
 	)
 }

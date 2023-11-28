@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import Context from '@context/context'
 
 import { ICONS_PER_PAGE } from '@constants/constants'
 
 const IconsList = ({iconArrayList, stateIconIndex}) => {
 	const [iconArrayLazy, setIconArrayLazy] = useState([])
+	const value = useContext(Context)
+	console.log(value.loader);
 	
 	const scrollHandler = (e) => {
 		let scrollGalleryValue = document.querySelector('.list__container').getBoundingClientRect().y + document.querySelector('.list__container').clientHeight - window.innerHeight
@@ -22,10 +25,13 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 	
 	
 	function loadMore() {
+		console.log('loader ' + value.loader)
 		if(document.querySelector('.list__container').childNodes.length < iconArrayList.length) {
 			setIconArrayLazy((iconArrayLazy) => {
 				return [...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)]
 			})
+			value.loaderUpdate(ICONS_PER_PAGE)
+			console.log('обновляем значение через loadedValue')
 		} else {
 			document.removeEventListener('scroll', scrollHandler)
 		}
@@ -34,6 +40,7 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 	useEffect(() => {
 		//? прокручиваем массив иконок до необходимой
 		if(stateIconIndex === 0 || typeof stateIconIndex == 'undefined') {
+			value.loaderUpdate(ICONS_PER_PAGE)
 			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
 		} else {
 			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + stateIconIndex)])
@@ -61,7 +68,6 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 						</li>
 					)
 				}
-
 			</ul>
 		</>
 	)

@@ -5,11 +5,18 @@ import Context from '@context/context'
 
 import { ICONS_PER_PAGE } from '@constants/constants'
 
-const IconsList = ({iconArrayList, stateIconIndex}) => {
+const IconsList = ({ iconArrayList, stateIconIndex }) => {
 	const [iconArrayLazy, setIconArrayLazy] = useState([])
 	const value = useContext(Context)
-	console.log(value.loader);
-	
+	// const {
+	// 	iconArrayDefault,
+	// 	loader,
+	// 	loaderUpdate
+	// } = useContext(Context)
+
+
+	// console.log(value.iconArrayDefault)
+
 	const scrollHandler = (e) => {
 		let scrollGalleryValue = document.querySelector('.list__container').getBoundingClientRect().y + document.querySelector('.list__container').clientHeight - window.innerHeight
 		if (scrollGalleryValue <= 0) {
@@ -22,25 +29,27 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 		//? console.log("Текущее положение скролла scrollTop", e.target.documentElement.scrollTop);
 		//? console.log("Высота браузера window.innerHeight", window.innerHeight);
 	}
-	
-	
+
+
 	function loadMore() {
-		console.log('loader ' + value.loader)
-		if(document.querySelector('.list__container').childNodes.length < iconArrayList.length) {
+		// console.log('loader ' + value.loader)
+		if (document.querySelector('.list__container').childNodes.length < iconArrayList.length) {
 			setIconArrayLazy((iconArrayLazy) => {
 				return [...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)]
 			})
 			value.loaderUpdate(ICONS_PER_PAGE)
-			console.log('обновляем значение через loadedValue')
+			// loaderUpdate(ICONS_PER_PAGE)
+			// console.log('обновляем значение через loadedValue')
 		} else {
 			document.removeEventListener('scroll', scrollHandler)
 		}
 	}
-	
+
 	useEffect(() => {
 		//? прокручиваем массив иконок до необходимой
-		if(stateIconIndex === 0 || typeof stateIconIndex == 'undefined') {
+		if (stateIconIndex === 0 || typeof stateIconIndex == 'undefined') {
 			value.loaderUpdate(ICONS_PER_PAGE)
+			// loaderUpdate(ICONS_PER_PAGE)
 			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + ICONS_PER_PAGE)])
 		} else {
 			setIconArrayLazy([...iconArrayLazy, ...iconArrayList.slice(iconArrayLazy.length, iconArrayLazy.length + stateIconIndex)])
@@ -60,7 +69,7 @@ const IconsList = ({iconArrayList, stateIconIndex}) => {
 
 			<ul className="list__container">
 				{
-					iconArrayLazy.map(({id, title, imgUrl}) =>
+					iconArrayLazy.map(({ id, title, imgUrl }) =>
 						<li className="icon_container" key={id}>
 							<Link to={`/icon-${id}`}>
 								<img className="icon_container__image" src={imgUrl} alt={title} />

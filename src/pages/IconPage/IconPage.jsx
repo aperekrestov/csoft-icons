@@ -71,8 +71,8 @@ const IconPage = () => {
 	
 	function setIconData() {
 		//? определяем данные 
-		if (value.iconArrayDefault.length > 0) {
-			iconContent = getIconContent(value.iconArrayDefault, iconId)
+		if (value.iconsArray.length > 0) {
+			iconContent = getIconContent(value.iconsArray, iconId)
 			setIconUrl(iconContent.imgUrl)
 			setIconTitle(iconContent.title)
 			setIconTags(getIconTags(iconContent.tags))
@@ -87,7 +87,7 @@ const IconPage = () => {
 			var req = new XMLHttpRequest();
 			req.open("HEAD", url, false);
 			req.send(null);
-			if (req.status == 200) {
+			if (req.status === 200) {
 				return req.getResponseHeader(wch);
 			}
 			else return false;
@@ -100,8 +100,8 @@ const IconPage = () => {
 
 
 	function geticonIndex() {
-		if (value.iconArrayDefault.length > 0) {
-			return value.iconArrayDefault.findIndex(i => i.id === iconId)
+		if (value.iconsArray.length > 0) {
+			return value.iconsArray.findIndex(i => i.id === iconId)
 		}
 		return 0
 	}
@@ -235,7 +235,7 @@ const IconPage = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0)
 		setIconData()
-	}, [value.iconArrayDefault])
+	}, [value.iconsArray])
 
 
 

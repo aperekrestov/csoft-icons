@@ -13,12 +13,11 @@ import iconsCollectionData from '@data/csoft-icons-collection.json'
 const App = () => {
 	const [iconsArray, setIconArray] = useState([])
 	const [loader, setLoader] = useState(0)
-	let num = 0
 	
 	const loaderUpdate = (n) => {
-		console.log(`loader update ${n}`)
-		setLoader(num+=n)
-		console.log(`${loader} - значение в контексте`)
+		// console.log(`loader update ${n}`)
+		setLoader(n)
+		// console.log(`${loader} - значение в контексте`)
 	}
 
 	const value = {

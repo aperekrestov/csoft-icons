@@ -13,18 +13,36 @@ import iconsCollectionData from '@data/csoft-icons-collection.json'
 const App = () => {
 	const [iconsArray, setIconArray] = useState([])
 	const [loader, setLoader] = useState(0)
-	
+
 	const loaderUpdate = (n) => {
-		// console.log(`loader update ${n}`)
-		setLoader(n)
-		// console.log(`${loader} - значение в контексте`)
+		if (iconsArray.length === n) {
+			//? вычисляем процент позиуии ползунка прокрутки от общей высоты документа
+			let h = document.documentElement,
+				b = document.body,
+				st = 'scrollTop',
+				sh = 'scrollHeight'
+			let percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100
+			setLoader(Math.round(percent) + '%')
+			// let contentHeight = Math.max(
+			// 	document.body.scrollHeight, document.documentElement.scrollHeight,
+			// 	document.body.offsetHeight, document.documentElement.offsetHeight,
+			// 	document.body.clientHeight, document.documentElement.clientHeight
+			// );
+			// setLoader(Math.round(window.pageYOffset * 100 / contentHeight) + '%')
+
+		} else {
+			//? округляем в большую сторону
+			//? вычисляем процент от числа подгрузившихся иконок
+			setLoader(Math.ceil(n * 100 / iconsArray.length) + '%')
+			//todo определить вектор движение скролла при частичном отображении массива иконок и отобразать текущее значение прокрутки
+		}
 	}
 
 	const value = {
 		iconsArray,
 		loader,
 		loaderUpdate
-	}	
+	}
 
 	const setResource = () => {
 		const iconsApproved = iconsCollectionData.filter(function (item) {

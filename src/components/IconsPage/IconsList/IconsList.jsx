@@ -6,7 +6,7 @@ import Context from '@context/context'
 import { ICONS_PER_PAGE } from '@constants/constants'
 
 const IconsList = ({ iconArrayList, stateIconIndex }) => {
-	console.log(iconArrayList.length + ' количесвто иконок')
+	//? console.log(iconArrayList.length + ' количесвто иконок')
 	const [iconArrayLazy, setIconArrayLazy] = useState([])
 	const value = useContext(Context)
 	let iconArrayLazyHasLoaded = []
@@ -15,12 +15,17 @@ const IconsList = ({ iconArrayList, stateIconIndex }) => {
 		let scrollGalleryValue = document.querySelector('.list__container').getBoundingClientRect().y + document.querySelector('.list__container').clientHeight - window.innerHeight
 		if (scrollGalleryValue <= 0) {
 			loadMore()
+		} 
+		
+		if (iconArrayLazyHasLoaded.length === iconArrayList.length) {
+			value.loaderUpdate(iconArrayList.length)
 		}
 		// todo процент отображаемых иконок
 		//? console.log(iconArrayList.length + ' - 100%')
 		//? console.log(document.querySelector('.list__container').getBoundingClientRect().y)
 		//? console.log("Общяя высота страницы scrollHeight", e.target.documentElement.scrollHeight);
-		//? console.log("Текущее положение скролла scrollTop", e.target.documentElement.scrollTop);
+		//? console.log("Текущее положение скролла scrollTop", e.target.documentElement.scrollTop); 
+		//! текущее положение скролла лучше брать у pageYOffset
 		//? console.log("Высота браузера window.innerHeight", window.innerHeight);
 	}
 
@@ -32,9 +37,9 @@ const IconsList = ({ iconArrayList, stateIconIndex }) => {
 				setTimeout(() => value.loaderUpdate(iconArrayLazyHasLoaded.length), 0)
 				return iconArrayLazyHasLoaded
 			})
-		} else {
-			document.removeEventListener('scroll', scrollHandler)
-		}
+		} 
+		//? не снимаем слушатель события, чтобы продолжал работать виджет загрузки
+		// 	document.removeEventListener('scroll', scrollHandler)
 	}
 
 	useEffect(() => {

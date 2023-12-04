@@ -11,6 +11,8 @@ const IconsList = ({ iconArrayList, stateIconIndex }) => {
 	const value = useContext(Context)
 	let iconArrayLazyHasLoaded = []
 
+	//? оставляю функциональность частичной загрузки иконок, для дальнейшей работы
+
 	const scrollHandler = (e) => {
 		let scrollGalleryValue = document.querySelector('.list__container').getBoundingClientRect().y + document.querySelector('.list__container').clientHeight - window.innerHeight
 		if (scrollGalleryValue <= 0) {

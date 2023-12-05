@@ -8,8 +8,9 @@ import topArrow from '@assets/vector-graphics/icon-0379-s.svg'
 const GoToTop = () => {
 	const topArrowRef = useRef()
 	const [styleDisplayProp, setStyleDisplayProp] = useState('none')
+	const [percentage, setPercentage] = useState(0)
 	// const [progress, setProgress] = useState(0)
-	const value = useContext(Context)
+	// const value = useContext(Context)
 	// const {
 	// 	iconArrayDefault,
 	// 	loader,
@@ -20,11 +21,19 @@ const GoToTop = () => {
 	// todo реализовать визуализацию прогресса загрузки
 
 	function scrollHandler(e) {
-		if(e.target.documentElement.scrollTop > 300){
+		if (e.target.documentElement.scrollTop > 300) {
 			setStyleDisplayProp('block')
-			return
+			// return
+		} else {
+			setStyleDisplayProp('none')
 		}
-		setStyleDisplayProp('none')
+
+		let h = document.documentElement,
+			b = document.body,
+			st = 'scrollTop',
+			sh = 'scrollHeight'
+		let percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100
+		setPercentage(Math.round(percent) + '%')
 	}
 
 	const visibleStyle = () => {
@@ -37,22 +46,22 @@ const GoToTop = () => {
 		document.addEventListener('scroll', scrollHandler)
 		// setProgress(value.loader)
 		return function () {
-			document.removeEventListener('scroll', scrollHandler)	
+			document.removeEventListener('scroll', scrollHandler)
 		}
 	}, [])
 
 	return (
 		<div className={cn(styles.container, "content_width_large content_indent")}>
-			<img 
-				ref={topArrowRef} 
-				src={topArrow} 
-				alt="наверх" 
+			<img
+				ref={topArrowRef}
+				src={topArrow}
+				alt="наверх"
 				onClick={() => window.scroll(0, 0)}
-				className={styles.go_to_top} 
+				className={styles.go_to_top}
 				style={visibleStyle()}
 			/>
 			<p className={cn(styles.progress_value)}>
-				{value.loader}
+				{percentage}
 			</p>
 		</div>
 	)

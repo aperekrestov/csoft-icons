@@ -15,7 +15,6 @@ const App = () => {
 	const [loader, setLoader] = useState(0)
 
 	const loaderUpdate = (n) => {
-		if (iconsArray.length === n) {
 			//? вычисляем процент позиуии ползунка прокрутки от общей высоты документа
 			let h = document.documentElement,
 				b = document.body,
@@ -30,12 +29,7 @@ const App = () => {
 			// );
 			// setLoader(Math.round(window.pageYOffset * 100 / contentHeight) + '%')
 
-		} else {
-			//? округляем в большую сторону
-			//? вычисляем процент от числа подгрузившихся иконок
-			setLoader(Math.ceil(n * 100 / iconsArray.length) + '%')
-			//todo определить вектор движение скролла при частичном отображении массива иконок и отобразать текущее значение прокрутки
-		}
+	
 	}
 
 	const value = {

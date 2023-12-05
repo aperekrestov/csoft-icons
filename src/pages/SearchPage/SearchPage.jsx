@@ -24,8 +24,6 @@ const SearchPage = () => {
 		window.scrollTo(0, 0)
 	}, [])
 
-
-
 	return (
 		<div className="wrapper">
 			<Header searchText={userQuery} />

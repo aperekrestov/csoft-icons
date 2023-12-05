@@ -12,30 +12,16 @@ import iconsCollectionData from '@data/csoft-icons-collection.json'
 
 const App = () => {
 	const [iconsArray, setIconArray] = useState([])
-	const [loader, setLoader] = useState(0)
+	const [scrollTop, setScrollTop] = useState(0)
 
-	const loaderUpdate = (n) => {
-			//? вычисляем процент позиуии ползунка прокрутки от общей высоты документа
-			let h = document.documentElement,
-				b = document.body,
-				st = 'scrollTop',
-				sh = 'scrollHeight'
-			let percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100
-			setLoader(Math.round(percent) + '%')
-			// let contentHeight = Math.max(
-			// 	document.body.scrollHeight, document.documentElement.scrollHeight,
-			// 	document.body.offsetHeight, document.documentElement.offsetHeight,
-			// 	document.body.clientHeight, document.documentElement.clientHeight
-			// );
-			// setLoader(Math.round(window.pageYOffset * 100 / contentHeight) + '%')
-
-	
+	const updateScrollTop = (n) => {
+		setScrollTop(n)
 	}
 
 	const value = {
 		iconsArray,
-		loader,
-		loaderUpdate
+		scrollTop, 
+		updateScrollTop
 	}
 
 	const setResource = () => {
@@ -52,7 +38,6 @@ const App = () => {
 				tags
 			}
 		})
-		// console.log(iconsApprovedWithImgUrl)
 		setIconArray(iconsApprovedWithImgUrl)
 	}
 

@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState, useContext } from 'react'
-import Context from '@context/context'
+import { useEffect, useRef, useState } from 'react'
 
 import styles from './GoToTop.module.css'
 import cn from 'classnames'
@@ -9,16 +8,6 @@ const GoToTop = () => {
 	const topArrowRef = useRef()
 	const [styleDisplayProp, setStyleDisplayProp] = useState('none')
 	const [percentage, setPercentage] = useState(0)
-	// const [progress, setProgress] = useState(0)
-	// const value = useContext(Context)
-	// const {
-	// 	iconArrayDefault,
-	// 	loader,
-	// 	loaderUpdate
-	// } = useContext(Context)
-
-	// console.log(loader +  ' из компонента go top')
-	// todo реализовать визуализацию прогресса загрузки
 
 	function scrollHandler(e) {
 		if (e.target.documentElement.scrollTop > 300) {
@@ -44,7 +33,6 @@ const GoToTop = () => {
 
 	useEffect(() => {
 		document.addEventListener('scroll', scrollHandler)
-		// setProgress(value.loader)
 		return function () {
 			document.removeEventListener('scroll', scrollHandler)
 		}

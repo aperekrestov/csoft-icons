@@ -1,4 +1,5 @@
 {
+  "homepage": "https://aperekrestov.github.io/csoft-icons/",
   "name": "csoft-icons",
   "version": "0.1.0",
   "private": true,
@@ -14,7 +15,8 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "deploy": "npm run build && npm run build-gh-pages",
+	"predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-app-rewired build",
     "eject": "react-scripts eject",
     "build-gh-pages": "gh-pages -d build"
@@ -38,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "gh-pages": "^6.1.0",
     "react-app-rewire-alias": "^1.1.7",
     "react-app-rewired": "^2.2.1"
   }

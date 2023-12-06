@@ -1,9 +1,0 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="16" width="3" height="2" fill="#0C121C"/>
-<rect x="8" y="16" width="3" height="2" fill="#0C121C"/>
-<rect x="4" y="20" width="3" height="2" fill="#0C121C"/>
-<rect x="1" y="14" width="1" height="10" fill="#0C121C"/>
-<rect x="9" y="14" width="1" height="10" fill="#0C121C"/>
-<rect x="5" y="14" width="1" height="10" fill="#0C121C"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0 2V13H2V4H17V9H22V20H11V22H24V7L19 2H0Z" fill="#0C121C"/>
-</svg>

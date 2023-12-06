@@ -1,0 +1,16 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2104_6421)">
+<circle cx="7.5" cy="7.5" r="6" stroke="#3A3A3A" stroke-width="3"/>
+<path d="M11.2304 11.9375L10.8769 12.291L11.2304 12.6446L13.5962 15.0103L13.9497 15.3639L14.3033 15.0103L15.0104 14.3032L15.364 13.9497L15.0104 13.5961L12.6446 11.2304L12.2911 10.8768L11.9375 11.2304L11.2304 11.9375Z" fill="#FCFCFC" stroke="#3A3A3A"/>
+<circle cx="7.5" cy="7.5" r="6" fill="url(#paint0_linear_2104_6421)" stroke="#FCFCFC"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_2104_6421" x1="11.5" y1="2.5" x2="5" y2="12.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0C121C"/>
+<stop offset="1" stop-color="#3A3A3A"/>
+</linearGradient>
+<clipPath id="clip0_2104_6421">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

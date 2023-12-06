@@ -1,0 +1,39 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1951_11169)">
+<rect y="1" width="6" height="22" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect x="4" y="2" width="1" height="20" fill="#00A1DB"/>
+<rect x="1" y="2" width="1" height="20" fill="#00A1DB"/>
+<g clip-path="url(#clip1_1951_11169)">
+<path d="M12 23H19V12H23V11H24V8H23V7H22V6H21V5H20V4H19V3H18V2H17V1H14V2H13V3H12V4H11V5H10V6H9V7H8L8 8H7L7 11H8V12H12V23Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M16 3L22 9L22 10L17 10L17 21L14 21L14 10L9 10L9 9L15 3L16 3Z" fill="url(#paint0_linear_1951_11169)"/>
+<path d="M18 22L18 11L22 11L22 10L17 10L17 21L14 21L14 10L9 10L9 11L13 11L13 21L13 22L18 22Z" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 20 7)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 21 8)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 12 7)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 13 6)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 14 5)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 15 4)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 19 6)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 18 5)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 16 3)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 11 8)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 17 4)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 10 9)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 9 10)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 22 9)" fill="#00A1DB"/>
+<rect width="1" height="1" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 23 10)" fill="#00A1DB"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1951_11169" x1="20.1944" y1="17.5" x2="8.29959" y2="10.8183" gradientUnits="userSpaceOnUse">
+<stop stop-color="#94E1FC"/>
+<stop offset="1" stop-color="#FCFCFC"/>
+</linearGradient>
+<clipPath id="clip0_1951_11169">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+<clipPath id="clip1_1951_11169">
+<rect width="24" height="17" fill="white" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 24 24)"/>
+</clipPath>
+</defs>
+</svg>

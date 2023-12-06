@@ -1,0 +1,28 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1838_17509)">
+<path d="M7 2H2C0.895431 2 0 2.89543 0 4V19C0 20.6569 1.34315 22 3 22H18.6135C20.0104 22 21.2225 21.0358 21.5366 19.6746L24 9C24 7.34315 22.6569 6 21 6C21 4.89543 20.1046 4 19 4H9C9 2.89543 8.10457 2 7 2Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M6 3H3C1.89543 3 1 3.89543 1 5V18C1 19.6569 2.34315 21 4 21H17.7086C19.0615 21 20.2469 20.0945 20.6029 18.7894L23 10C23 8.34315 21.6569 7 20 7C20 5.89543 19.1046 5 18 5H8C8 3.89543 7.10457 3 6 3Z" fill="#F2994A"/>
+<path d="M3.3971 11.2106C3.75306 9.90546 4.93853 9 6.29139 9H18.0722C20.0504 9 21.487 10.8809 20.9665 12.7894L19.6029 17.7894C19.2469 19.0945 18.0615 20 16.7086 20H4.92775C2.94963 20 1.51298 18.1191 2.03346 16.2106L3.3971 11.2106Z" fill="url(#paint0_radial_1838_17509)"/>
+</g>
+<g clip-path="url(#clip1_1838_17509)">
+<path d="M1 18V17H7V18H11V24H5V20H3V21H0V18H1Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect x="1" y="19" width="1" height="1" fill="#00A1DB"/>
+<rect x="6" y="19" width="1" height="1" fill="#00A1DB"/>
+<rect x="2" y="18" width="4" height="1" fill="#00A1DB"/>
+<rect x="7" y="20" width="2" height="2" fill="#00A1DB"/>
+<rect x="9" y="19" width="1" height="4" fill="#00A1DB"/>
+<rect x="6" y="22" width="4" height="1" fill="#00A1DB"/>
+</g>
+<defs>
+<radialGradient id="paint0_radial_1838_17509" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(10.587 20) rotate(-84.3975) scale(14.0286 20.2621)">
+<stop stop-color="#FCFCFC"/>
+<stop offset="1" stop-color="#F2C94C"/>
+</radialGradient>
+<clipPath id="clip0_1838_17509">
+<rect width="24" height="20" fill="white" transform="translate(0 2)"/>
+</clipPath>
+<clipPath id="clip1_1838_17509">
+<rect width="11" height="7" fill="white" transform="translate(0 17)"/>
+</clipPath>
+</defs>
+</svg>

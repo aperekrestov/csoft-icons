@@ -1,0 +1,18 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-outside-1_2120_6222" maskUnits="userSpaceOnUse" x="3" y="0" width="12" height="16" fill="black">
+<rect fill="white" x="3" width="12" height="16"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 1H11V2H12V3H13V4H14V15H4V2V1ZM13 5H11H10V4V2H5V14H13V5Z"/>
+</mask>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 1H11V2H12V3H13V4H14V15H4V2V1ZM13 5H11H10V4V2H5V14H13V5Z" fill="#FCFCFC"/>
+<path d="M11 1H12V0H11V1ZM4 1V0H3V1H4ZM11 2H10V3H11V2ZM12 2H13V1H12V2ZM12 3H11V4H12V3ZM13 3H14V2H13V3ZM13 4H12V5H13V4ZM14 4H15V3H14V4ZM14 15V16H15V15H14ZM4 15H3V16H4V15ZM13 5H14V4H13V5ZM10 5H9V6H10V5ZM10 2H11V1H10V2ZM5 2V1H4V2H5ZM5 14H4V15H5V14ZM13 14V15H14V14H13ZM11 0H4V2H11V0ZM12 2V1H10V2H12ZM12 1H11V3H12V1ZM13 3V2H11V3H13ZM13 2H12V4H13V2ZM14 4V3H12V4H14ZM14 3H13V5H14V3ZM15 15V4H13V15H15ZM4 16H14V14H4V16ZM3 2V15H5V2H3ZM3 1V2H5V1H3ZM13 4H11V6H13V4ZM11 4H10V6H11V4ZM11 5V4H9V5H11ZM9 2V4H11V2H9ZM5 3H10V1H5V3ZM6 14V2H4V14H6ZM13 13H5V15H13V13ZM12 5V14H14V5H12Z" fill="#3A3A3A" mask="url(#path-1-outside-1_2120_6222)"/>
+<path d="M0 8H13V11H12V13H11V16H4V14H3V16H0V8Z" fill="#3A3A3A"/>
+<path d="M1 9H2H3V10H2V12H3V13H2V15H1V9Z" fill="#FCFCFC"/>
+<rect x="5" y="9" width="1" height="6" fill="#FCFCFC"/>
+<rect x="7" y="10" width="1" height="4" fill="#FCFCFC"/>
+<rect x="3" y="10" width="1" height="2" fill="#FCFCFC"/>
+<rect x="6" y="9" width="1" height="1" fill="#FCFCFC"/>
+<rect x="10" y="11" width="1" height="1" fill="#FCFCFC"/>
+<rect x="10" y="9" width="2" height="1" fill="#FCFCFC"/>
+<rect x="6" y="14" width="1" height="1" fill="#FCFCFC"/>
+<rect x="9" y="9" width="1" height="6" fill="#FCFCFC"/>
+</svg>

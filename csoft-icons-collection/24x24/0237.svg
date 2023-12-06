@@ -1,0 +1,30 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1917_13403)">
+<g clip-path="url(#clip1_1917_13403)">
+<rect y="2" width="24" height="20" fill="#FCFCFC" fill-opacity="0.75"/>
+<rect x="1" y="3" width="22" height="18" fill="#00A1DB"/>
+</g>
+<rect x="11" y="8" width="3" height="1" fill="#FCFCFC"/>
+<rect x="11" y="14" width="3" height="1" fill="#FCFCFC"/>
+<rect x="14" y="15" width="1" height="1" fill="#FCFCFC"/>
+<rect x="10" y="9" width="1" height="5" fill="#FCFCFC"/>
+<rect x="14" y="9" width="1" height="5" fill="#FCFCFC"/>
+<rect x="18" y="14" width="3" height="1" fill="#FCFCFC"/>
+<rect x="17" y="8" width="1" height="7" fill="#FCFCFC"/>
+<rect x="4" y="8" width="3" height="1" fill="#FCFCFC"/>
+<rect x="4" y="11" width="3" height="1" fill="#FCFCFC"/>
+<rect x="7" y="9" width="1" height="1" fill="#FCFCFC"/>
+<rect x="3" y="13" width="1" height="1" fill="#FCFCFC"/>
+<rect x="4" y="14" width="3" height="1" fill="#FCFCFC"/>
+<rect x="7" y="12" width="1" height="2" fill="#FCFCFC"/>
+<rect x="3" y="9" width="1" height="2" fill="#FCFCFC"/>
+</g>
+<defs>
+<clipPath id="clip0_1917_13403">
+<rect width="24" height="20" fill="white" transform="translate(0 2)"/>
+</clipPath>
+<clipPath id="clip1_1917_13403">
+<rect width="24" height="20" fill="white" transform="translate(0 2)"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,25 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1875_15228)">
+<g clip-path="url(#clip1_1875_15228)">
+<path d="M7 8H6V4H7H8V5H9V4V3H8V2H6V1H5V2H4V1H1V5H4V4H5V8H4V15H7V8Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M7 7.5H7.5V8V15V15.5H7H4H3.5V15V8V7.5H4H4.5V5.5H4H1H0.5V5V1V0.5H1H4H4.5H5H6H6.5V1V1.5H8H8.5V2V2.5H9H9.5V3V4V5V5.5H9H8H7.5V5V4.5H7H6.5V7.5H7Z" stroke="#FCFCFC" stroke-opacity="0.75"/>
+<path d="M3.5 2V1.5H1.5V4.5H3.5V4V3.5H4H5H5.5H6H7H7.5V3V2.5H6H5.5H5H4H3.5V2ZM5 8.5H4.5V14.5H6.5V8.5H6H5.5H5Z" fill="#919191" stroke="#3A3A3A"/>
+<rect x="5" y="1" width="1" height="7" fill="#3A3A3A"/>
+</g>
+<g clip-path="url(#clip2_1875_15228)">
+<path d="M9 11H10V10H11V1H13V10H14V11H15V14H14V15H13V12H11V15H10V14H9V11Z" fill="#3A3A3A"/>
+<path d="M9 10.5H8.5V11V14V14.5H9H9.5V15V15.5H10H11H11.5V15V12.5H12.5V15V15.5H13H14H14.5V15V14.5H15H15.5V14V11V10.5H15H14.5V10V9.5H14H13.5V1V0.5H13H11H10.5V1V9.5H10H9.5V10V10.5H9Z" stroke="#FCFCFC" stroke-opacity="0.75"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_1875_15228">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+<clipPath id="clip1_1875_15228">
+<rect width="10" height="16" fill="white" transform="matrix(-1 0 0 1 10 0)"/>
+</clipPath>
+<clipPath id="clip2_1875_15228">
+<rect width="8" height="16" fill="white" transform="translate(8)"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,39 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1912_14032)">
+<path d="M11 0H2V16H14V3H13V2H12V1H11V0Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M3 1H10V2H11V3H12V4H13V15H3V1Z" fill="url(#paint0_linear_1912_14032)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3 1H10V2H11V3H10V4H11V3H12V4H13V15H3V2V1ZM12 5H10H9V4V2H4V14H12V5Z" fill="#3A3A3A"/>
+</g>
+<rect x="4" y="6" width="3" height="1" fill="#D8D8D8"/>
+<rect x="4" y="7" width="3" height="1" fill="#FCFCFC"/>
+<rect x="6" y="6" width="4" height="1" fill="#D8D8D8"/>
+<rect x="6" y="7" width="4" height="1" fill="#FCFCFC"/>
+<rect x="9" y="6" width="3" height="1" fill="#D8D8D8"/>
+<rect x="9" y="7" width="3" height="1" fill="#FCFCFC"/>
+<rect x="6" y="2" width="1" height="4" fill="#D8D8D8"/>
+<rect x="4" y="11" width="3" height="1" fill="#FCFCFC"/>
+<rect x="6" y="11" width="4" height="1" fill="#FCFCFC"/>
+<rect x="6" y="10" width="1" height="4" fill="#D8D8D8"/>
+<rect x="9" y="11" width="3" height="1" fill="#FCFCFC"/>
+<rect x="9" y="5" width="1" height="1" fill="#D8D8D8"/>
+<rect x="9" y="6" width="1" height="5" fill="#D8D8D8"/>
+<rect x="4" y="10" width="3" height="1" fill="#D8D8D8"/>
+<rect x="9" y="10" width="3" height="1" fill="#D8D8D8"/>
+<g clip-path="url(#clip1_1912_14032)">
+<path d="M4.99998 8C2.02933 8 0 12 0 12C0 12 1.98043 16 4.99998 16C8.03176 16 10 12 10 12C10 12 7.97063 8 4.99998 8Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M8.29443 11.8105C8.34256 11.882 8.38452 11.9468 8.42002 12.0032C8.3857 12.059 8.34518 12.1229 8.29869 12.1934C8.12392 12.4584 7.86804 12.8101 7.54322 13.1597C6.87908 13.8745 6.00334 14.5 4.99999 14.5C4.0018 14.5 3.12608 13.8749 2.46013 13.1593C2.1346 12.8096 1.87774 12.4577 1.70216 12.1926C1.65552 12.1222 1.61485 12.0583 1.58038 12.0026C1.6158 11.9463 1.65762 11.8817 1.70557 11.8105C1.88438 11.5448 2.14517 11.1923 2.47361 10.8419C3.14683 10.1236 4.02244 9.5 4.99999 9.5C5.97753 9.5 6.85315 10.1236 7.52638 10.8419C7.85482 11.1924 8.11562 11.5448 8.29443 11.8105Z" fill="#D8D8D8" stroke="#3A3A3A"/>
+<circle cx="5" cy="12" r="1" fill="#3A3A3A"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1912_14032" x1="8" y1="1" x2="8" y2="15" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FCFCFC"/>
+<stop offset="1" stop-color="#E6EAEA"/>
+</linearGradient>
+<clipPath id="clip0_1912_14032">
+<rect width="12" height="16" fill="white" transform="translate(2)"/>
+</clipPath>
+<clipPath id="clip1_1912_14032">
+<rect width="10" height="8" fill="white" transform="translate(0 8)"/>
+</clipPath>
+</defs>
+</svg>

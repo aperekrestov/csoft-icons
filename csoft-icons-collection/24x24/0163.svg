@@ -1,0 +1,31 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1886_14160)">
+<circle cx="12.5" cy="4.5" r="3.5" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M7 11C7 8.79086 8.79086 7 11 7H14C16.2091 7 18 8.79086 18 11V12H7V11Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M13.4 8H11.6C9.35 8 8 9.25 8 10.5V11H10V10H11V11H14V10H15V11H16.9998L17 10.5C16.9998 9.25 15.65 8 13.4 8Z" fill="#00A1DB"/>
+<circle cx="12.5" cy="4.5" r="2.5" fill="#00A1DB"/>
+</g>
+<g clip-path="url(#clip1_1886_14160)">
+<circle cx="6.5" cy="15.5" r="3.5" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M1 22C1 19.7909 2.79086 18 5 18H8C10.2091 18 12 19.7909 12 22V23H1V22Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M7.4 19H5.6C3.35 19 2 20.25 2 21.5V22H4V21H5V22H8V21H9V22H10.9998L11 21.5C10.9998 20.25 9.65 19 7.4 19Z" fill="#00A1DB"/>
+<circle cx="6.5" cy="15.5" r="2.5" fill="#00A1DB"/>
+</g>
+<g clip-path="url(#clip2_1886_14160)">
+<circle cx="18.5" cy="15.5" r="3.5" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M13 22C13 19.7909 14.7909 18 17 18H20C22.2091 18 24 19.7909 24 22V23H13V22Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M19.4 19H17.6C15.35 19 14 20.25 14 21.5V22H16V21H17V22H20V21H21V22H22.9998L23 21.5C22.9998 20.25 21.65 19 19.4 19Z" fill="#00A1DB"/>
+<circle cx="18.5" cy="15.5" r="2.5" fill="#00A1DB"/>
+</g>
+<defs>
+<clipPath id="clip0_1886_14160">
+<rect width="11" height="11" fill="white" transform="translate(7 1)"/>
+</clipPath>
+<clipPath id="clip1_1886_14160">
+<rect width="11" height="11" fill="white" transform="translate(1 12)"/>
+</clipPath>
+<clipPath id="clip2_1886_14160">
+<rect width="11" height="11" fill="white" transform="translate(13 12)"/>
+</clipPath>
+</defs>
+</svg>

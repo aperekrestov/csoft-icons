@@ -1,0 +1,32 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17 0H3V24H21V4H20V3H19V2H18V1H17V0Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M4 1H15V3H17V4H18V6H20V23H4V1Z" fill="url(#paint0_linear_1827_17522)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16 1H4V2V23H5H20V5H19V4H18V3H17V2H16V1ZM18 5H16V3H17V4H18V5ZM5 2H15V6H19V22H5V2Z" fill="#3A3A3A"/>
+<rect x="12" y="12" width="5" height="1" fill="#D8D8D8"/>
+<rect x="12" y="13" width="5" height="1" fill="#FCFCFC"/>
+<rect x="12" y="9" width="5" height="1" fill="#D8D8D8"/>
+<rect x="12" y="10" width="5" height="1" fill="#FCFCFC"/>
+<rect x="7" y="9" width="5" height="1" fill="#D8D8D8"/>
+<rect x="7" y="10" width="5" height="1" fill="#FCFCFC"/>
+<rect x="7" y="6" width="5" height="1" fill="#D8D8D8"/>
+<rect x="7" y="7" width="5" height="1" fill="#FCFCFC"/>
+<rect x="7" y="12" width="5" height="1" fill="#D8D8D8"/>
+<rect x="7" y="13" width="5" height="1" fill="#FCFCFC"/>
+<rect x="12" y="18" width="5" height="1" fill="#D8D8D8"/>
+<rect x="12" y="19" width="5" height="1" fill="#FCFCFC"/>
+<rect x="12" y="15" width="5" height="1" fill="#D8D8D8"/>
+<rect x="12" y="16" width="5" height="1" fill="#FCFCFC"/>
+<g clip-path="url(#clip0_1827_17522)">
+<path d="M0 13H3L3.5 16L4 15H7L7.5 16L8 13H11L10 24H1L0 13Z" fill="#FCFCFC" fill-opacity="0.75"/>
+<path d="M1 14H2L2.75 21L5 16H6L8.25 21L9 14H10L9 23H8L5.5 17.5L3 23H2L1 14Z" fill="#00A1DB"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_1827_17522" x1="12" y1="1" x2="12" y2="23" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FCFCFC"/>
+<stop offset="1" stop-color="#E6EAEA"/>
+</linearGradient>
+<clipPath id="clip0_1827_17522">
+<rect width="11" height="11" fill="white" transform="translate(0 13)"/>
+</clipPath>
+</defs>
+</svg>

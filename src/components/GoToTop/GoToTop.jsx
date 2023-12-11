@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-
+import { gsap } from "gsap"
 import styles from './GoToTop.module.css'
 import cn from 'classnames'
 import topArrow from '@assets/vector-graphics/icon-0379-s.svg'
@@ -11,10 +11,9 @@ const GoToTop = () => {
 
 	function scrollHandler(e) {
 		if (e.target.documentElement.scrollTop > 300) {
-			setStyleDisplayProp('flex')
-			// return
+			gsap.to(topArrowRef.current, { duration: 0.2, opacity: 1, display: 'flex' })
 		} else {
-			setStyleDisplayProp('none')
+			gsap.to(topArrowRef.current, { duration: 0.2, opacity: 0, display: 'none' })
 		}
 
 		let h = document.documentElement,
@@ -39,20 +38,23 @@ const GoToTop = () => {
 	}, [])
 
 	return (
-		<div 
-			ref={topArrowRef}  
-			className={cn(`content_width_large content_indent`, styles.container)}
-			style={visibleStyle()}
+		<div
+			ref={topArrowRef}
+			className={cn(`content_width_large content_indent`, styles.wrapper)}
+		// style={visibleStyle()}
 		>
-			<img
-				src={topArrow}
-				alt="наверх"
-				onClick={() => window.scroll(0, 0)}
-				className={styles.go_to_top}
-			/>
-			<p className={cn(styles.progress_value)}>
-				{percentage}
-			</p>
+			<div className={cn(styles.container)}>
+				<img
+					src={topArrow}
+					alt="наверх"
+					onClick={() => window.scroll(0, 0)}
+					className={styles.go_to_top}
+				/>
+				<p className={cn(styles.progress_value)}>
+					{percentage}
+				</p>
+			</div>
+			
 		</div>
 	)
 }

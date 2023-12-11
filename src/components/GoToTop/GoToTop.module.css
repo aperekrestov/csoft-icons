@@ -1,4 +1,4 @@
-.container {
+.wrapper {
 	bottom: var(--size-7);
 	position: sticky;
 	width: 100%;
@@ -8,15 +8,30 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+	opacity: 0;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	pointer-events: painted;
+	cursor: pointer;
+}
+.container:not(:hover) .go_to_top{
+	padding-bottom: 0px;
+	transition: .2s ease-out;
+}
+.container:hover .go_to_top{
+	padding-bottom: 10px;
+	transition: .2s ease-out;
 }
 .go_to_top{
 	width: 16px;
 	height: 16px;
-	pointer-events: painted;
-	cursor: pointer;
 }
 .progress_value{
 	margin: 0;
 	padding: 0;
 	color: var(--color-1);
+	padding-right: 2px;
 }

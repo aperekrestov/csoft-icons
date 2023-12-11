@@ -2,7 +2,6 @@
 	bottom: var(--size-7);
 	position: sticky;
 	width: 100%;
-	height: 32px;
 	pointer-events: none;
 	box-sizing: border-box;
 	mix-blend-mode: exclusion;
@@ -15,12 +14,9 @@
 	height: 16px;
 	pointer-events: painted;
 	cursor: pointer;
-	/* float: right; */
 }
 .progress_value{
-	text-align: right;
-	display: block;
+	margin: 0;
+	padding: 0;
 	color: var(--color-1);
-	/* background-color: green; */
-
 }

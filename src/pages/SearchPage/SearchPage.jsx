@@ -3,7 +3,6 @@ import { useContext, useEffect } from 'react'
 import IconsList from '@components/IconsPage/IconsList'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
-import GoToTop from '@components/GoToTop'
 import IconLinkBack from '@components/IconLinkBack'
 import Context from '@context/context'
 
@@ -43,7 +42,6 @@ const SearchPage = () => {
 				{arrAfterSearch && <IconsList iconArrayList={arrAfterSearch} />}
 			</section>
 
-			<GoToTop />
 			<Footer />
 		</div>
 	)

@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom'
 import Header from '@components/Header'
 
-import styles from './NotFoundPage.module.css'
+// import styles from './NotFoundPage.module.css'
 
 const NotFoundPage = () => {
 	let location = useLocation()

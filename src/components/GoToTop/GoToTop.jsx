@@ -11,7 +11,7 @@ const GoToTop = () => {
 
 	function scrollHandler(e) {
 		if (e.target.documentElement.scrollTop > 300) {
-			setStyleDisplayProp('block')
+			setStyleDisplayProp('flex')
 			// return
 		} else {
 			setStyleDisplayProp('none')
@@ -39,14 +39,16 @@ const GoToTop = () => {
 	}, [])
 
 	return (
-		<div className={cn(styles.container, "content_width_large content_indent")}>
+		<div 
+			ref={topArrowRef}  
+			className={cn(`content_width_large content_indent`, styles.container)}
+			style={visibleStyle()}
+		>
 			<img
-				ref={topArrowRef}
 				src={topArrow}
 				alt="наверх"
 				onClick={() => window.scroll(0, 0)}
 				className={styles.go_to_top}
-				style={visibleStyle()}
 			/>
 			<p className={cn(styles.progress_value)}>
 				{percentage}

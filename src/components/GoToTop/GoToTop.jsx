@@ -41,13 +41,13 @@ const GoToTop = () => {
 		<div
 			ref={topArrowRef}
 			className={cn(`content_width_large content_indent`, styles.wrapper)}
-		// style={visibleStyle()}
+			onClick={() => window.scroll(0, 0)}
+			// style={visibleStyle()}
 		>
 			<div className={cn(styles.container)}>
 				<img
 					src={topArrow}
 					alt="наверх"
-					onClick={() => window.scroll(0, 0)}
 					className={styles.go_to_top}
 				/>
 				<p className={cn(styles.progress_value)}>

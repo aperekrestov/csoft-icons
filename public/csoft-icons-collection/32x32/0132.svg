@@ -13,12 +13,11 @@
 <rect x="21" y="17" width="6" height="2" fill="#919191"/>
 <rect x="21" y="22" width="6" height="2" fill="#919191"/>
 <g clip-path="url(#clip1_2071_13787)">
+<path d="M0 21H2V19H7L12 21.5V26.5L8 28.5V32H2V27H0V21Z" fill="#FCFCFC" fill-opacity="0.75"/>
 <path d="M7 20L11 22V23H7V24H3V23H1V22H3V20H7Z" fill="#00A1DB"/>
 <path d="M3 26H1V25H11V26L7 28H3V26Z" fill="#00A1DB"/>
 <path d="M7 29H3V31H7V29Z" fill="#00A1DB"/>
-<path d="M7 19.5H7.11803L7.22361 19.5528L11.2236 21.5528L11.5 21.691V22V23V23.5H11H7.5V24V24.5H11H11.5V25V26V26.309L11.2236 26.4472L7.22361 28.4472L7.11803 28.5H7.5V29V31V31.5H7H3H2.5V31V29V28.5V28V26.5H1H0.5V26V25V24.5H1H2.5V24V23.5H1H0.5V23V22V21.5H1H2.5V20V19.5H3H7Z" stroke="#FCFCFC" stroke-opacity="0.75"/>
 </g>
-<rect x="1" y="19" width="1" height="2" fill="#FCFCFC" fill-opacity="0.75"/>
 <rect x="1" y="27" width="1" height="2" fill="#FCFCFC" fill-opacity="0.75"/>
 </g>
 <defs>

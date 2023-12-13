@@ -178,6 +178,9 @@ input[type=search] {
 		padding-bottom: var(--spacing-l);
 		height: var(--size-6);
 	}
+	.search_options {
+		display: none;
+	}
 	.search, .warning_text{
 		max-width: unset;
 	}

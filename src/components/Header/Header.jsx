@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types'
-import { useState, useRef } from 'react'
+import { useState, useRef, useContext,useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import Context from '@context/context'
 
 import cn from 'classnames'
 import styles from './Header.module.css'
 
 const Header = ({searchText=''}) => {
+	const value = useContext(Context)
 	const [ coincidence, setCoincidence ] = useState()
 	const navigate = useNavigate(null)
 	const userQuery = useRef(null)
 	const coincidenceList = useRef(null)
+
+	const [uniqueTags, setUniqueTags] = useState([])
+	// let uniqueTags = []
 	let coincidenceTabIndex = -1
-	let uniqueTags = []
 	let inputValue = ''
 
 	const handleSubmit = (e) => {
@@ -70,6 +74,18 @@ const Header = ({searchText=''}) => {
 		return coincidencesFullArray.slice(0, 5)
 	}
 
+	useEffect(()=>{
+		if(value.iconsArray.length > 0) {
+			const iconArrayTags = value.iconsArray.map(item => item.tags.toLowerCase())
+			const iconArrayTagsJoin = iconArrayTags.join(', ')
+			const iconArrayTagsSplit = iconArrayTagsJoin.split(', ')
+			const uniqueTagsSet = new Set(iconArrayTagsSplit)
+			//todo определить uniqueTags
+			setUniqueTags([...uniqueTagsSet])
+			// uniqueTags = [...uniqueTagsSet]
+		}
+	}, [value])
+
 	return (
 		<nav className={cn(styles.wrapper)}>
 
@@ -94,7 +110,10 @@ const Header = ({searchText=''}) => {
 					/>
 					
 					{coincidence &&
-						<ul ref={coincidenceList} className={styles.search_options}>
+						<ul 
+							ref={coincidenceList} 
+							className={styles.search_options}
+						>
 							{coincidence.map((item, index) => 
 							<li 
 								onClick={clickCoincidence} 

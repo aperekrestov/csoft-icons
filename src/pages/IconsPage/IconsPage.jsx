@@ -10,6 +10,7 @@ import Context from '@context/context'
 import cn from 'classnames'
 import styles from './IconsPage.module.css'
 
+//todo страницу вверх при загрузке
 
 const IconsPage = () => {
 	const value = useContext(Context)

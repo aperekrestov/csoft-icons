@@ -8,13 +8,12 @@ import styles from './Header.module.css'
 
 const Header = ({searchText=''}) => {
 	const value = useContext(Context)
-	const [ coincidence, setCoincidence ] = useState()
+	const [ coincidence, setCoincidence ] = useState([])
+	const [ uniqueTags, setUniqueTags ] = useState([])
 	const navigate = useNavigate(null)
 	const userQuery = useRef(null)
 	const coincidenceList = useRef(null)
 
-	const [uniqueTags, setUniqueTags] = useState([])
-	// let uniqueTags = []
 	let coincidenceTabIndex = -1
 	let inputValue = ''
 
@@ -26,7 +25,7 @@ const Header = ({searchText=''}) => {
 
 	const handleFocuseout = (e) => {
 		if (!e.currentTarget.contains(e.relatedTarget)) {
-			setCoincidence('')
+			setCoincidence([])
 		}
 	}
 
@@ -39,13 +38,13 @@ const Header = ({searchText=''}) => {
 		inputValue = e.target.value
 		setCoincidence(getOptions)
 		if (inputValue === '') {
-			setCoincidence('')
+			setCoincidence([])
 		}
 	}
 
 	const goToUserQueryPage = () => {
 		if (userQuery.current.value !== '') {
-			setCoincidence('')
+			setCoincidence([])
 			navigate('/search=' + userQuery.current.value, { state: {query: userQuery.current.value} })
 		}
 	}
@@ -76,13 +75,12 @@ const Header = ({searchText=''}) => {
 
 	useEffect(()=>{
 		if(value.iconsArray.length > 0) {
+			//? определяем массив уникальных тегов для подсказки в поисковой строке
 			const iconArrayTags = value.iconsArray.map(item => item.tags.toLowerCase())
 			const iconArrayTagsJoin = iconArrayTags.join(', ')
 			const iconArrayTagsSplit = iconArrayTagsJoin.split(', ')
 			const uniqueTagsSet = new Set(iconArrayTagsSplit)
-			//todo определить uniqueTags
 			setUniqueTags([...uniqueTagsSet])
-			// uniqueTags = [...uniqueTagsSet]
 		}
 	}, [value])
 
@@ -109,7 +107,7 @@ const Header = ({searchText=''}) => {
 						className={styles.search__btn}
 					/>
 					
-					{coincidence &&
+					{coincidence && coincidence.length !== 0 &&
 						<ul 
 							ref={coincidenceList} 
 							className={styles.search_options}

@@ -26,7 +26,9 @@ const GoToTop = () => {
 	}
 
 	function goTop() {
-		gsap.to(window, { duration: 2, scrollTo: { y: 0, x: 0 }, ease: 'power2.inOut' })
+		if(window) {
+			gsap.to(window, { duration: 2, scrollTo: { y: 0, x: 0 }, ease: 'power2.inOut' })
+		}
 	}
 
 	useEffect(() => {

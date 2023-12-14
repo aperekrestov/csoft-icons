@@ -24,7 +24,7 @@ const IconsList = ({ iconArrayList }) => {
 				{
 					iconArrayList.map(({ id, title, imgUrl }) =>
 						<li className="icon_container" key={id} onClick={clickHandler}>
-							<Link to={`/icon-${id}`}>
+							<Link to={`/icon-${id}`} data-title={`id ${id}`}>
 								<img className="icon_container__image" src={imgUrl} alt={title} />
 							</Link>
 						</li>

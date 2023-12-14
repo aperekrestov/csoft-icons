@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from "gsap"
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 import styles from './GoToTop.module.css'
 import cn from 'classnames'
 import topArrow from '@assets/vector-graphics/icon-0379-s.svg'
 
 const GoToTop = () => {
+	gsap.registerPlugin(ScrollToPlugin)
 	const topArrowRef = useRef()
-	const [styleDisplayProp, setStyleDisplayProp] = useState('none')
 	const [percentage, setPercentage] = useState(0)
 
 	function scrollHandler(e) {
@@ -24,10 +25,8 @@ const GoToTop = () => {
 		setPercentage(Math.round(percent) + '%')
 	}
 
-	const visibleStyle = () => {
-		return {
-			display: styleDisplayProp
-		}
+	function goTop() {
+		gsap.to(window, { duration: 2, scrollTo: { y: 0, x: 0 }, ease: 'power2.inOut' })
 	}
 
 	useEffect(() => {
@@ -41,8 +40,8 @@ const GoToTop = () => {
 		<div
 			ref={topArrowRef}
 			className={cn(`content_width_large content_indent`, styles.wrapper)}
-			onClick={() => window.scroll(0, 0)}
-			// style={visibleStyle()}
+			onClick={goTop}
+			// onClick={() => window.scroll(0, 0)}
 		>
 			<div className={cn(styles.container)}>
 				<img

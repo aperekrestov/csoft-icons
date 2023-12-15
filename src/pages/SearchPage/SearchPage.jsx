@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import IconsList from '@components/IconsPage/IconsList'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
@@ -11,17 +11,22 @@ const SearchPage = () => {
 	const userQuery = decodeURI(location.pathname.split('/search=').join(''))
 	const value = useContext(Context)
 
-	let arrAfterSearch = null
+	let arrAfterSearch = []
 
+	
 	if (value.iconsArray.length > 0) {
+		//? отображения списка иконок по ТЭГАМ
 		arrAfterSearch = value.iconsArray.filter(function (item) {
 			return item.tags.toLowerCase().includes(userQuery.toLowerCase())
 		})
+		
+		//? отображения списка иконок по ID
+		if (arrAfterSearch.length === 0) {
+			arrAfterSearch = value.iconsArray.filter(function (item) {
+				return item.id.includes(userQuery)
+			})
+		}
 	}
-
-	useEffect(() => {
-		window.scrollTo(0, 0)
-	}, [])
 
 	return (
 		<div className="wrapper">

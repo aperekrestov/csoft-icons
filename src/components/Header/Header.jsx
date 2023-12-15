@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useState, useRef, useContext,useEffect } from 'react'
+import { useState, useRef, useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import Context from '@context/context'
 
@@ -9,7 +9,6 @@ import styles from './Header.module.css'
 const Header = ({searchText=''}) => {
 	const value = useContext(Context)
 	const [ coincidence, setCoincidence ] = useState([])
-	const [ uniqueTags, setUniqueTags ] = useState([])
 	const navigate = useNavigate(null)
 	const userQuery = useRef(null)
 	const coincidenceList = useRef(null)
@@ -37,12 +36,14 @@ const Header = ({searchText=''}) => {
 	const handleChange = (e) => {
 		inputValue = e.target.value
 		setCoincidence(getOptions)
+
 		if (inputValue === '') {
 			setCoincidence([])
 		}
 	}
 
 	const goToUserQueryPage = () => {
+		window.scrollTo(0, 0)
 		if (userQuery.current.value !== '') {
 			setCoincidence([])
 			navigate('/search=' + userQuery.current.value, { state: {query: userQuery.current.value} })
@@ -69,20 +70,18 @@ const Header = ({searchText=''}) => {
 
 	function getOptions() {
 		const regex = new RegExp('^'+inputValue, 'gi')
-		let coincidencesFullArray = uniqueTags.filter(item => {	return item.match(regex) })
+		//todo задать более подходящий RegExp для поиска по числам
+
+		//? задаем список подсказок из массива ТЭГОВ
+		let coincidencesFullArray = value.uniqueTags.filter(item => { return item.match(regex) })
+
+		//? задаем списко подсказок из ID значений, если по ТЭГАМ нет совпадений
+		if (coincidencesFullArray.length === 0) {
+			coincidencesFullArray = value.listID.filter(item => { return item.match(regex) })			
+		}
+
 		return coincidencesFullArray.slice(0, 5)
 	}
-
-	useEffect(()=>{
-		if(value.iconsArray.length > 0) {
-			//? определяем массив уникальных тегов для подсказки в поисковой строке
-			const iconArrayTags = value.iconsArray.map(item => item.tags.toLowerCase())
-			const iconArrayTagsJoin = iconArrayTags.join(', ')
-			const iconArrayTagsSplit = iconArrayTagsJoin.split(', ')
-			const uniqueTagsSet = new Set(iconArrayTagsSplit)
-			setUniqueTags([...uniqueTagsSet])
-		}
-	}, [value])
 
 	return (
 		<nav className={cn(styles.wrapper)}>

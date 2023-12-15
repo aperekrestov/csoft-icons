@@ -11,8 +11,10 @@ import { getIconImageUrl } from '@utils/getIconData'
 import iconsCollectionData from '@data/csoft-icons-collection.json'
 
 const App = () => {
-	const [iconsArray, setIconArray] = useState([])
-	const [scrollTop, setScrollTop] = useState(0)
+	const [ iconsArray, setIconArray ] = useState([])
+	const [ uniqueTags, setUniqueTags ] = useState([])
+	const [ listID, setListID ] = useState([])
+	const [ scrollTop, setScrollTop ] = useState(0)
 
 	const updateScrollTop = (n) => {
 		setScrollTop(n)
@@ -20,15 +22,17 @@ const App = () => {
 
 	const value = {
 		iconsArray,
+		uniqueTags,
+		listID,
 		scrollTop, 
 		updateScrollTop
 	}
 
 	const setResource = () => {
+		//? определяем рабочий массив данных коллекции иконок
 		const iconsApproved = iconsCollectionData.filter(function (item) {
 			return item.status === "true"
 		})
-
 		const iconsApprovedWithImgUrl = iconsApproved.map(({ id, title, tags }) => {
 			const imgUrl = getIconImageUrl(id)
 			return {
@@ -39,6 +43,17 @@ const App = () => {
 			}
 		})
 		setIconArray(iconsApprovedWithImgUrl)
+
+		//? определяем массив уникальных тегов для подсказки в поисковой строке
+		const iconArrayTags = iconsApprovedWithImgUrl.map(item => item.tags.toLowerCase())
+		const iconArrayTagsJoin = iconArrayTags.join(', ')
+		const iconArrayTagsSplit = iconArrayTagsJoin.split(', ')
+		const uniqueTagsSet = new Set(iconArrayTagsSplit)
+		setUniqueTags([...uniqueTagsSet])
+		
+		//? определяем vfccbd ID для подсказки в поисковой строке
+		const iconArrayIDs = iconsApprovedWithImgUrl.map(item => item.id)
+		setListID(iconArrayIDs)
 	}
 
 	useEffect(() => {

@@ -6,9 +6,11 @@ import Context from '@context/context'
 import cn from 'classnames'
 import styles from './Header.module.css'
 
-const Header = ({searchText=''}) => {
+import logoImg from '@assets/vector-graphics/logo-light.svg'
+
+const Header = ({ searchText = '' }) => {
 	const value = useContext(Context)
-	const [ coincidence, setCoincidence ] = useState([])
+	const [coincidence, setCoincidence] = useState([])
 	const navigate = useNavigate(null)
 	const userQuery = useRef(null)
 	const coincidenceList = useRef(null)
@@ -46,38 +48,37 @@ const Header = ({searchText=''}) => {
 		window.scrollTo(0, 0)
 		if (userQuery.current.value !== '') {
 			setCoincidence([])
-			navigate('/search=' + userQuery.current.value, { state: {query: userQuery.current.value} })
+			navigate('/search=' + userQuery.current.value, { state: { query: userQuery.current.value } })
 		}
 	}
 
 	const searchKeyDown = (e) => {
-		if(e.keyCode === 40) {
+		if (e.keyCode === 40) {
 			e.preventDefault()
-			coincidenceTabIndex === coincidenceList.current.children.length - 1 ? coincidenceTabIndex = 0 : coincidenceTabIndex ++
+			coincidenceTabIndex === coincidenceList.current.children.length - 1 ? coincidenceTabIndex = 0 : coincidenceTabIndex++
 			coincidenceList.current.children[coincidenceTabIndex].focus()
 			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
 		}
-		if(e.keyCode === 38) {
+		if (e.keyCode === 38) {
 			e.preventDefault()
-			coincidenceTabIndex <= 0 ? coincidenceTabIndex = coincidenceList.current.children.length - 1 : coincidenceTabIndex --
+			coincidenceTabIndex <= 0 ? coincidenceTabIndex = coincidenceList.current.children.length - 1 : coincidenceTabIndex--
 			coincidenceList.current.children[coincidenceTabIndex].focus()
 			userQuery.current.value = coincidenceList.current.children[coincidenceTabIndex].innerHTML
 		}
-		if(e.keyCode === 13) {
+		if (e.keyCode === 13) {
 			goToUserQueryPage()
 		}
 	}
 
 	function getOptions() {
-		const regex = new RegExp('^'+inputValue, 'gi')
-		//todo задать более подходящий RegExp для поиска по числам
+		let regex = new RegExp('^' + inputValue, 'gi')
 
 		//? задаем список подсказок из массива ТЭГОВ
 		let coincidencesFullArray = value.uniqueTags.filter(item => { return item.match(regex) })
 
 		//? задаем списко подсказок из ID значений, если по ТЭГАМ нет совпадений
 		if (coincidencesFullArray.length === 0) {
-			coincidencesFullArray = value.listID.filter(item => { return item.match(regex) })			
+			coincidencesFullArray = value.listID.filter(item => { return item.match(regex) })
 		}
 
 		return coincidencesFullArray.slice(0, 5)
@@ -88,54 +89,62 @@ const Header = ({searchText=''}) => {
 
 			<div className={cn(styles.container, "content_width_large content_indent")}>
 
-			<NavLink to='/' className={styles.logo}></NavLink>
-			
+				{/* <NavLink to='/' className={styles.logo}></NavLink> */}
+				<div className={styles.logo_container}>
+					<NavLink to='/'>
+						<img src={logoImg} alt="логотип" />
+					</NavLink>
+				</div>
+
 				<form autoComplete='off' onChange={handleChange} onSubmit={handleSubmit} onBlur={handleFocuseout} className={styles.search}>
-					<input 
-						type='search' 
-						name='search' 
+					<input
+						type='search'
+						name='search'
 						placeholder="Поиск графических иконок"
 						defaultValue={searchText}
-						className={cn(styles.search__input)} 
+						className={cn(styles.search__input)}
 						ref={userQuery}
 						onKeyDown={searchKeyDown}
 					/>
-					<input 
-						type='submit' 
+					<input
+						type='submit'
 						value=""
 						className={styles.search__btn}
 					/>
-					
+
 					{coincidence && coincidence.length !== 0 &&
-						<ul 
-							ref={coincidenceList} 
+						<ul
+							ref={coincidenceList}
 							className={styles.search_options}
 						>
-							{coincidence.map((item, index) => 
-							<li 
-								onClick={clickCoincidence} 
-								onKeyDown={searchKeyDown}
-								key={index}
-								tabIndex={index}
-							>
-								{item}
-							</li>
+							{coincidence.map((item, index) =>
+								<li
+									onClick={clickCoincidence}
+									onKeyDown={searchKeyDown}
+									key={index}
+									tabIndex={index}
+								>
+									{item}
+								</li>
 							)}
 						</ul>
 					}
-				</form>			
+				</form>
 
-			<ul className={styles.list__btn}>
-				<li>
-					<NavLink to='/' className={styles.list__btn_1}></NavLink>
-				</li>
-				<li>
-					<NavLink to='/legal' className={styles.list__btn_2}></NavLink>
-				</li>
-				<li>
-					<a href="csoft-icons-collection.pdf" target="_blank" className={styles.list__btn_3}></a>
-				</li>
-			</ul>
+				<ul className={styles.list__btn}>
+					<li>
+						<NavLink to='/' className={styles.list__btn_1}></NavLink>
+					</li>
+					<li>
+						<NavLink to='/instruction' className={styles.list__btn_2}></NavLink>
+					</li>
+					<li>
+						<a href="/legal" className={styles.list__btn_3}></a>
+					</li>
+					<li>
+						<NavLink href="csoft-icons-collection.pdf" target="_blank" className={styles.list__btn_4}></NavLink>
+					</li>
+				</ul>
 
 			</div>
 		</nav>

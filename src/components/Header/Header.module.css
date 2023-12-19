@@ -15,11 +15,16 @@
 	align-items: center;
 }
 
-.logo{
+.logo_container{
 	/*! ширина должна быть равной ширине блоку иконок справа */
-	width: var(--size-7); 
+	width: var(--size-8); 
 	height: var(--size-2);
-	background-image: url(@assets/vector-graphics/logo-light.svg);
+	pointer-events: none;
+}
+.logo_container img {
+	width: var(--size-7); 
+	height: inherit;
+	pointer-events: painted;
 }
 
 .search_options{
@@ -108,7 +113,7 @@ input[type=search] {
 	display: flex;
 	justify-content: space-between;
 	list-style-type: none;
-	width: var(--size-7); 
+	width: var(--size-8); 
 	order: 3;
 	/*! ширина должна быть равной ширине логотипа */
 }
@@ -117,16 +122,22 @@ input[type=search] {
 	width: 16px;
 	height: 16px;
 	background-image: url(@assets/vector-graphics/icon-0375-s.svg);
-	margin-right: var(--spacing-m);
+	/* margin-right: var(--spacing-m); */
 }
 .list__btn_2{
 	display: block;
 	width: 16px;
 	height: 16px;
 	background-image: url(@assets/vector-graphics/icon-0172-s.svg);
-	margin-right: var(--spacing-m);
+	/* margin-right: var(--spacing-m); */
 }
 .list__btn_3{
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-image: url(@assets/vector-graphics/icon-0193-s.svg);
+}
+.list__btn_4{
 	display: block;
 	width: 16px;
 	height: 16px;
@@ -167,6 +178,14 @@ input[type=search] {
 		height: calc(var(--size-4) - 2px);
 		margin-right: 1px;
 	}
+	.logo_container{
+		width: var(--size-7); 
+		/*! ширина должна быть равной ширине блоку иконок справа */
+	}
+	.list__btn{
+		width: var(--size-7); 
+		/*! ширина должна быть равной ширине логотипа */
+	}
 }
 @media (max-width: 576px) {
 	/* ?меньше 576px */
@@ -190,5 +209,13 @@ input[type=search] {
 	}
 	.search{
 		order: 3;
+	}
+	.logo_container{
+		width: var(--size-8); 
+		/*! ширина должна быть равной ширине блоку иконок справа */
+	}
+	.list__btn{
+		width: var(--size-8); 
+		/*! ширина должна быть равной ширине логотипа */
 	}
 }

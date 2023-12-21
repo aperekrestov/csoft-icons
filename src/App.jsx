@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import IconsPage from '@pages/IconsPage'
 import IconPage from '@pages/IconPage'
 import LegalPage from '@pages/LegalPage'
+import InstructionPage from '@pages/InstructionPage'
 import SearchPage from '@pages/SearchPage'
 import NotFoundPage from '@pages/NotFoundPage'
 import Context from '@context/context'
@@ -69,6 +70,7 @@ const App = () => {
 			<Routes>
 				<Route path='/' element={<IconsPage />} />
 				<Route path='/legal' element={<LegalPage />} />
+				<Route path='/instruction' element={<InstructionPage />} />
 				<Route path='/icon-:id' element={<IconPage />} />
 				<Route path='/search=:id' element={<SearchPage />} />
 				<Route path='*' element={<NotFoundPage />} />

@@ -139,10 +139,10 @@ const Header = ({ searchText = '' }) => {
 						<NavLink to='/instruction' className={styles.list__btn_2}></NavLink>
 					</li>
 					<li>
-						<a href="/legal" className={styles.list__btn_3}></a>
+						<NavLink to="/legal" className={styles.list__btn_3}></NavLink>
 					</li>
 					<li>
-						<NavLink href="csoft-icons-collection.pdf" target="_blank" className={styles.list__btn_4}></NavLink>
+						<a href="csoft-icons-collection.pdf" target="_blank" className={styles.list__btn_4}></a>
 					</li>
 				</ul>
 

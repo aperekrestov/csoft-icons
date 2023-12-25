@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
+
 import IconsPage from '@pages/IconsPage'
 import IconPage from '@pages/IconPage'
 import LegalPage from '@pages/LegalPage'
 import InstructionPage from '@pages/InstructionPage'
 import SearchPage from '@pages/SearchPage'
 import NotFoundPage from '@pages/NotFoundPage'
+
 import Context from '@context/context'
 
 import { getIconImageUrl } from '@utils/getIconData'
@@ -69,8 +71,8 @@ const App = () => {
 		<Context.Provider value={value}>
 			<Routes>
 				<Route path='/' element={<IconsPage />} />
-				<Route path='/legal' element={<LegalPage />} />
 				<Route path='/instruction' element={<InstructionPage />} />
+				<Route path='/legal' element={<LegalPage />} />
 				<Route path='/icon-:id' element={<IconPage />} />
 				<Route path='/search=:id' element={<SearchPage />} />
 				<Route path='*' element={<NotFoundPage />} />

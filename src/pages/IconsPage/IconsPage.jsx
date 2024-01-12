@@ -10,7 +10,7 @@ import Context from '@context/context'
 import cn from 'classnames'
 import styles from './IconsPage.module.css'
 
-//todo страницу вверх при загрузке
+// todo заменить <h2>Сервис временно недоступен</h2> на ПРЕДОАДЕР
 
 const IconsPage = () => {
 	const value = useContext(Context)

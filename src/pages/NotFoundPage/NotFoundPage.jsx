@@ -15,13 +15,9 @@ const NotFoundPage = () => {
 
 			<section className={"content_width_middle padding_top_bottom_l"}>
 				<h2>404</h2>
-				{/* todo дописать стилизацию и полный адрес ссылки */}
-				<p>К сожалению данной страницы не существует. Возможно допушена ошибка в адресной строке: <br />
-					<b>
-						<u>
-							{addrass}
-						</u>
-					</b>
+				<p>К сожалению данной страницы не существует. Возможна ошибка в части адресной строки: 
+					<br />
+					<span className="warning_text font_ultra">...{addrass}</span>
 				</p>
 
 			</section>

@@ -223,7 +223,16 @@ input {
     width: 100%;
     /* text-align: center; */
     max-width: var(--breakpoint-m);
+	animation: fadeIn var(--time-slow);
 }
+
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+	
+  }
+
 
 span {
     margin: 0;

@@ -6,11 +6,10 @@ import Header from '@components/Header'
 const NotFoundPage = () => {
 	let location = useLocation()
 	let addrass = decodeURI(location.pathname)
-	console.log(addrass);
 	// let addrass = decodeURI(location.pathname.split('/search=').join(''))
 
 	return (
-		<div className="wrapper">
+		<div className="wrapper bg_page">
 			<Header searchText={""} />
 
 			<section className={"content_width_middle padding_top_bottom_l"}>

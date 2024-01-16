@@ -1,46 +1,50 @@
 .wrapper {
-	bottom: var(--size-7);
-	position: sticky;
-	width: 100%;
-	pointer-events: none;
-	box-sizing: border-box;
-	mix-blend-mode: exclusion;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	opacity: 0;
+    bottom: var(--size-7);
+    position: sticky;
+    width: 100%;
+    pointer-events: none;
+    box-sizing: border-box;
+    mix-blend-mode: exclusion;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    opacity: 0;
 }
+
 .container {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	pointer-events: painted;
-	cursor: pointer;
-	width: var(--size-5);
-	height: var(--size-6);
-	/* background-color: #ccc; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    pointer-events: painted;
+    cursor: pointer;
+    width: var(--size-5);
+    height: var(--size-6);
+    /* background-color: #ccc; */
 }
-.container:not(:hover) .go_to_top{
-	top: 16px;
-	transform: scale(1, 1);
-	transition: .2s ease-out;
+
+.container:not(:hover) .go_to_top {
+    top: 16px;
+    transform: scale(1, 1);
+    transition: var(--transition-fast);
 }
-.container:hover .go_to_top{
-	top: 0;
-	transform: scale(0.8, 1.2);
-	transition: .2s ease-out;
+
+.container:hover .go_to_top {
+    top: 0;
+    transform: scale(0.8, 1.2);
+    transition: var(--transition-fast);
 }
-.go_to_top{
-	width: 16px;
-	height: 16px;
-	position: absolute;
-	
+
+.go_to_top {
+    width: 16px;
+    height: 16px;
+    position: absolute;
 }
-.progress_value{
-	position: absolute;
-	bottom: 0;
-	margin: 0;
-	padding: 0;
-	padding-right: 2px;
-	color: var(--color-1);
+
+.progress_value {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    padding-right: 2px;
+    color: var(--color-1);
 }

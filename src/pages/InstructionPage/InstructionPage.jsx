@@ -2,13 +2,16 @@ import { useEffect } from 'react'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 
+import cn from 'classnames'
+import styles from './InstructionPage.module.css'
+
 const InstructionPage = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0)
 	}, [])
 
 	return (
-		<div className="wrapper">
+		<div className={cn(styles.bg_page_img, "wrapper bg_page")}>
 			<Header searchText={""} />
 
 			<div className="content_width_middle padding_top_bottom_l content_height_auto">

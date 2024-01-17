@@ -1,7 +1,8 @@
 import { useLocation } from 'react-router-dom'
 import Header from '@components/Header'
 
-// import styles from './NotFoundPage.module.css'
+import cn from 'classnames'
+import styles from './NotFoundPage.module.css'
 
 const NotFoundPage = () => {
 	let location = useLocation()
@@ -9,10 +10,10 @@ const NotFoundPage = () => {
 	// let addrass = decodeURI(location.pathname.split('/search=').join(''))
 
 	return (
-		<div className="wrapper bg_page">
+		<div className={cn(styles.bg_page_img, "wrapper bg_page")} >
 			<Header searchText={""} />
 
-			<section className={"content_width_middle padding_top_bottom_l"}>
+			<section className="content_width_middle padding_top_bottom_l">
 				<h2>404</h2>
 				<p>К сожалению данной страницы не существует. Возможна ошибка в части адресной строки: 
 					<br />

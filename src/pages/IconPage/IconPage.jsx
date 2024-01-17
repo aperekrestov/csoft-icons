@@ -244,7 +244,7 @@ const IconPage = () => {
 			<div className="wrapper grey_page">
 				<Header />
 
-				<div className={"content_width_middle padding_top_bottom_l content_height_auto"}>
+				<div className="content_width_middle padding_top_bottom_l content_height_auto">
 
 					<div className="margin_bottom_xl">
 						<IconLinkBack iconIndex={geticonIndex()} />

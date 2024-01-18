@@ -10,7 +10,7 @@ import Context from '@context/context'
 import cn from 'classnames'
 import styles from './IconsPage.module.css'
 
-// todo заменить <h2>Сервис временно недоступен</h2> на ПРЕДОАДЕР
+// todo заменить <h2>Сервис временно недоступен</h2> на ПРЕЛОАДЕР
 
 const IconsPage = () => {
 	const value = useContext(Context)

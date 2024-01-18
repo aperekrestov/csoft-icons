@@ -30,10 +30,10 @@ const IconPage = () => {
 	const [iconUrl, setIconUrl] = useState(null)
 	const [iconTitle, setIconTitle] = useState(null)
 	const [iconTags, setIconTags] = useState(null)
-	
+
 	const [newSize, setSize] = useState(GENERAL_SIZE)
 	const [newExtention, setNewExtention] = useState(GENERAL_EXTENSION)
-	
+
 	const iconId = useParams().id
 	const imgDOMIcon = useRef(null)
 	const value = useContext(Context)
@@ -68,20 +68,26 @@ const IconPage = () => {
 		// 	console.error('ОШИБКА', response.status)
 		// }
 	}
-	
+
 	function setIconData() {
 		//? определяем данные 
 		if (value.iconsArray.length > 0) {
-			iconContent = getIconContent(value.iconsArray, iconId)
-			setIconUrl(iconContent.imgUrl)
-			setIconTitle(iconContent.title)
-			setIconTags(getIconTags(iconContent.tags))
-			setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
+			for (let i = 0; i < value.iconsArray.length; i++) {
+				if (value.iconsArray[i].id === iconId) {
+					iconContent = getIconContent(value.iconsArray, iconId)
+					setIconUrl(iconContent.imgUrl)
+					setIconTitle(iconContent.title)
+					setIconTags(getIconTags(iconContent.tags))
+					setIconMetaDataModified(fetchHeader(iconContent.imgUrl, 'Last-Modified'))
+					setIconConvertedMetaDataModified('создан ' + dateFormat(iconMetaDataModified, 'dd.mm.yyyy'))
+					//? проверяем соответствие введенного ID в адресной строке со списками массива иконок
+					return
+				}
+			}
+			setIconConvertedMetaDataModified('отсутствует')
 		}
 	}
-	function showMetaDataIcon() {
-		setIconConvertedMetaDataModified(dateFormat(iconMetaDataModified, 'dd.mm.yyyy'))
-	}
+
 	function fetchHeader(url, wch) {
 		try {
 			var req = new XMLHttpRequest();
@@ -227,10 +233,12 @@ const IconPage = () => {
 	useEffect(() => {
 		fetchSvgData()
 	}, [newSize])
-	
-	useEffect(() => {
-		showMetaDataIcon()
-	}, [iconMetaDataModified])
+
+	// !
+	// useEffect(() => {
+	// 	showMetaDataIcon()
+	// }, [iconMetaDataModified])
+	// !
 
 	useEffect(() => {
 		window.scrollTo(0, 0)
@@ -254,8 +262,8 @@ const IconPage = () => {
 
 						<section className={styles.container_info}>
 							<div>
-								<h3>Файл #{iconId}</h3>
-								<span className={"font_ultra margin_left_ultra_small"} >от {iconConvertedMetaDataModified}</span>
+								<h3>ID <i>{iconId}</i></h3>
+								<span className={"font_ultra margin_left_ultra_small"} >{iconConvertedMetaDataModified}</span>
 							</div>
 
 							{iconUrl &&
@@ -265,62 +273,65 @@ const IconPage = () => {
 						</section>
 
 						<section>
-							<form className="margin_bottom_xl">
-								<div className="margin_bottom_m">
-									<span className="font_ultra">размер:</span>
-									<b className={"font_ultra margin_left_ultra_small"}>{newSize + '*' + newSize}</b>
-								</div>
+							{iconSvgData &&
+								<>
+									<form className="margin_bottom_xl">
+										<div className="margin_bottom_m">
+											<span className="font_ultra">размер:</span>
+											<b className={"font_ultra margin_left_ultra_small"}>{newSize + '*' + newSize}</b>
+										</div>
 
-								<div className={styles.size_radio_btn_container}>
-									<div className={styles.size_radio_btn}>
-										<input id="radio-1" type="radio" name="radio" value={SMALL} onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-1">{SMALL}</label>
-									</div>
-									<div className={styles.size_radio_btn}>
-										<input id="radio-2" type="radio" name="radio" value={MEDIUM} onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-2">{MEDIUM}</label>
-									</div>
-									<div className={styles.size_radio_btn}>
-										<input id="radio-3" type="radio" name="radio" value={LARGE} defaultChecked onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-3">{LARGE}</label>
-									</div>
-									<div className={styles.size_radio_btn}>
-										<input id="radio-4" type="radio" name="radio" value={X2_LARGE} onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-4">{X2_LARGE}</label>
-									</div>
-									<div className={styles.size_radio_btn}>
-										<input id="radio-5" type="radio" name="radio" value={X3_LARGE} onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-5">{X3_LARGE}</label>
-									</div>
-									<div className={styles.size_radio_btn}>
-										<input id="radio-6" type="radio" name="radio" value={X4_LARGE} onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-6">{X4_LARGE}</label>
-									</div>
-									<div className={styles.size_radio_btn}>
-										<input id="radio-7" type="radio" name="radio" value={X5_LARGE} onChange={handleSizeChange} />
-										<label className="font_small" htmlFor="radio-7">{X5_LARGE}</label>
-									</div>
-								</div>
-							</form>
+										<div className={styles.size_radio_btn_container}>
+											<div className={styles.size_radio_btn}>
+												<input id="radio-1" type="radio" name="radio" value={SMALL} onChange={handleSizeChange} />
+												<label className="font_small" htmlFor="radio-1">{SMALL}</label>
+											</div>
+											<div className={styles.size_radio_btn}>
+												<input id="radio-2" type="radio" name="radio" value={MEDIUM} onChange={handleSizeChange} />
+												<label className="font_small" htmlFor="radio-2">{MEDIUM}</label>
+											</div>
+											<div className={styles.size_radio_btn}>
+												<input id="radio-3" type="radio" name="radio" value={LARGE} defaultChecked onChange={handleSizeChange} />
+												<label className="font_small" htmlFor="radio-3">{LARGE}</label>
+											</div>
+											<div className={styles.size_radio_btn}>
+												<input id="radio-4" type="radio" name="radio" value={X2_LARGE} onChange={handleSizeChange} />
+												<label className="font_small" htmlFor="radio-4">{X2_LARGE}</label>
+											</div>
+											<div className={styles.size_radio_btn}>
+												<input id="radio-5" type="radio" name="radio" value={X3_LARGE} onChange={handleSizeChange} />
+												<label className="font_small" htmlFor="radio-5">{X3_LARGE}</label>
+											</div>
+											<div className={styles.size_radio_btn}>
+												<input id="radio-6" type="radio" name="radio" value={X4_LARGE} onChange={handleSizeChange} />
+												<label className="font_small" htmlFor="radio-6">{X4_LARGE}</label>
+											</div>
+											<div className={styles.size_radio_btn}>
+												<input id="radio-7" type="radio" name="radio" value={X5_LARGE} onChange={handleSizeChange} />
+												<label className="font_small" htmlFor="radio-7">{X5_LARGE}</label>
+											</div>
+										</div>
+									</form>
 
-							<form className="margin_bottom_xl">
-								<div className="margin_bottom_m">
-									<span className="font_ultra">формат:</span>
-									<b className={"font_ultra margin_left_ultra_small"}>{iconId}{newExtention}</b>
-								</div>
+									<form className="margin_bottom_xl">
+										<div className="margin_bottom_m">
+											<span className="font_ultra">формат:</span>
+											<b className={"font_ultra margin_left_ultra_small"}>{iconId}{newExtention}</b>
+										</div>
 
-								<div className={styles.size_radio_btn_container}>
-									<div className={styles.size_radio_btn}>
-										<input id="radio-png" type="radio" name="radio" value={PNG_EXTENSION} onChange={handleExtentionChange} />
-										<label className="font_small" htmlFor="radio-png">{PNG_EXTENSION}</label>
-									</div>
-									<div className={styles.size_radio_btn}>
-										<input id="radio-svg" type="radio" name="radio" value={SVG_EXTENSION} defaultChecked onChange={handleExtentionChange} />
-										<label className="font_small" htmlFor="radio-svg">{SVG_EXTENSION}</label>
-									</div>
-								</div>
-							</form>
-
+										<div className={styles.size_radio_btn_container}>
+											<div className={styles.size_radio_btn}>
+												<input id="radio-png" type="radio" name="radio" value={PNG_EXTENSION} onChange={handleExtentionChange} />
+												<label className="font_small" htmlFor="radio-png">{PNG_EXTENSION}</label>
+											</div>
+											<div className={styles.size_radio_btn}>
+												<input id="radio-svg" type="radio" name="radio" value={SVG_EXTENSION} defaultChecked onChange={handleExtentionChange} />
+												<label className="font_small" htmlFor="radio-svg">{SVG_EXTENSION}</label>
+											</div>
+										</div>
+									</form>
+								</>
+							}
 							<div className={cn(styles.result_section)}>
 								<div className="font_ultra margin_bottom_m">результат:</div>
 
@@ -346,8 +357,12 @@ const IconPage = () => {
 									<div className={cn(styles.button_link, "font_small margin_bottom_l")} onClick={handleClick} >Загрузить</div>
 								}
 
-								<div className="font_ultra margin_bottom_m">теги:</div>
-								{iconTags && <IconTags iconTags={iconTags} />}
+								{iconTags &&
+									<>
+										<div className="font_ultra margin_bottom_m">теги:</div>
+										<IconTags iconTags={iconTags} />
+									</>
+								}
 							</div>
 
 						</section>

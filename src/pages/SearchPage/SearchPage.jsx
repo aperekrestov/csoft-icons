@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import IconsList from '@components/IconsPage/IconsList'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
@@ -27,6 +27,10 @@ const SearchPage = () => {
 			})
 		}
 	}
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 
 	return (
 		<div className="wrapper">

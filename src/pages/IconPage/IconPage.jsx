@@ -102,9 +102,6 @@ const IconPage = () => {
 		}
 	}
 
-
-
-
 	function geticonIndex() {
 		if (value.iconsArray.length > 0) {
 			return value.iconsArray.findIndex(i => i.id === iconId)
@@ -233,12 +230,6 @@ const IconPage = () => {
 	useEffect(() => {
 		fetchSvgData()
 	}, [newSize])
-
-	// !
-	// useEffect(() => {
-	// 	showMetaDataIcon()
-	// }, [iconMetaDataModified])
-	// !
 
 	useEffect(() => {
 		window.scrollTo(0, 0)

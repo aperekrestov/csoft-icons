@@ -194,6 +194,20 @@ input {
 	background-color: unset;
 }
 
+.preloader_wrapper {
+	width: inherit;
+	height: 12px;
+	display: flex;
+	justify-content: center;
+}
+.preloader {
+	width: 32px;
+	height: 12px;
+	background-image: url(@assets/vector-graphics/preloader.svg);
+	background-repeat: no-repeat;
+	/* float: right; */
+}
+
 .font_bold {
 	font-weight: 600;
 }

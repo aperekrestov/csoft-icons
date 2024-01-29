@@ -73,6 +73,7 @@ const App = () => {
 				<Route path='/' element={<IconsPage />} />
 				<Route path='/instruction' element={<InstructionPage />} />
 				<Route path='/legal' element={<LegalPage />} />
+				<Route path='/not-found' element={<NotFoundPage />} />
 				<Route path='/icon-:id' element={<IconPage />} />
 				<Route path='/search=:id' element={<SearchPage />} />
 				<Route path='*' element={<NotFoundPage />} />

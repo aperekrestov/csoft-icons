@@ -214,13 +214,12 @@ span {
 }
 
 .wrapper {
-	/* todo проверить нужна ли ширина */
-	/* width: 100%; */
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	background-color: var(--color-4);
-	overflow: hidden;
+	/* overflow: hidden; */
+	overflow-x: clip;
 }
 
 .content_height_auto {

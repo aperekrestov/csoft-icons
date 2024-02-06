@@ -133,16 +133,16 @@ const Header = ({ searchText = '' }) => {
 
 				<ul className={styles.list__btn}>
 					<li>
-						<NavLink to='/' className={styles.list__btn_1}></NavLink>
+						<NavLink to='/' className={styles.list__btn_1} data-title="ГЛАВНАЯ"></NavLink>
 					</li>
 					<li>
-						<NavLink to='/instruction' className={styles.list__btn_2}></NavLink>
+						<NavLink to='/instruction' className={styles.list__btn_2} data-title="ИНСТРУКЦИИ"></NavLink>
 					</li>
 					<li>
-						<NavLink to="/legal" className={styles.list__btn_3}></NavLink>
+						<NavLink to="/legal" className={styles.list__btn_3} data-title="СОГЛАШЕНИЕ"></NavLink>
 					</li>
 					<li>
-						<a href="csoft-icons-collection.pdf" target="_blank" className={styles.list__btn_4}></a>
+						<a href="csoft-icons-collection.pdf" target="_blank" className={styles.list__btn_4} data-title="ЗАГРУЗИТЬ PDF"></a>
 					</li>
 				</ul>
 

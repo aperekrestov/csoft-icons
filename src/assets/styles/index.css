@@ -112,38 +112,6 @@ a {
 	position: relative;
 }
 
-a[data-title]:hover:after {
-	content: attr(data-title);
-	left: 0;
-	top: calc(100% + 16px);
-	width: 100%;
-	position: absolute;
-	text-align: center;
-	opacity: 1;
-	color: var(--color-7);
-	font-size: 11px;
-	letter-spacing: 1.4px;
-	text-transform: uppercase;
-	transition: .25s ease-in-out;
-	pointer-events: none;
-}
-
-a[data-title]:not(:hover):after {
-	content: attr(data-title);
-	left: 0;
-	top: calc(100% + 16px);
-	width: 100%;
-	position: absolute;
-	text-align: center;
-	opacity: 0;
-	color: var(--color-7);
-	font-size: 11px;
-	letter-spacing: 1.4px;
-	text-transform: uppercase;
-	transition: .25s ease-in-out;
-	pointer-events: none;
-}
-
 html,
 body {
 	height: 100%;
@@ -252,6 +220,7 @@ span {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--color-4);
+	overflow: hidden;
 }
 
 .content_height_auto {
@@ -356,11 +325,48 @@ span {
 	padding-top: 100%;
 	/*? initial ratio of 1:1*/
 }
-
 .icon_container__image {
 	width: var(--size-8);
 	height: var(--size-8);
 }
+
+[data-title] {
+	font-size: 11px;
+	letter-spacing: 1.4px;
+	text-transform: uppercase;
+	color: var(--color-7);
+	text-align: center;
+}
+[data-title]:hover:after {
+	content: attr(data-title);
+	transition: var(--transition-fast);
+	pointer-events: none;
+	opacity: 1;
+}
+[data-title]:not(:hover):after {
+	content: attr(data-title);
+	transition: var(--transition-regular);
+	pointer-events: none;
+	opacity: 0;
+}
+
+.icon_container a[data-title]:hover:after {
+	left: 0;
+	top: calc(100% + 16px);
+	width: 100%;
+	position: absolute;
+}
+.icon_container a[data-title]:not(:hover):after {
+	left: 0;
+	top: calc(100% + 16px);
+	width: 100%;
+	position: absolute;
+}
+
+
+
+
+
 
 .bg_page {
 	background-repeat: no-repeat;

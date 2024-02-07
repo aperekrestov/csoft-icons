@@ -116,9 +116,7 @@ html,
 body {
 	height: 100%;
 	background-color: var(--color-10);
-	/* background-color: var(--color-4); */
 	font-family: 'Ubuntu', sans-serif;
-	/* font-family: 'Ubuntu Condensed', sans-serif; */
 	font-size: var(--size-2);
 	font-weight: 400;
 }
@@ -133,7 +131,6 @@ h2 {
 	font-size: var(--size-4);
 	padding-bottom: var(--spacing-l);
 	box-sizing: border-box;
-	/*! -webkit-transform: translate3d(0,0,0); */
 	/* word-wrap: break-word; */
 	/* todo преренос по буквам не срабатывает */
 }
@@ -143,6 +140,7 @@ h3 {
 	font-weight: 400;
 	padding-bottom: var(--spacing-s);
 	text-transform: uppercase;
+	line-height: 160%;
 }
 
 p,

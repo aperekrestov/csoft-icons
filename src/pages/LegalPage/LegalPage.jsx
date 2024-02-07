@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
+import IconLinkBack from '@components/IconLinkBack'
 
 import cn from 'classnames'
 import styles from './LegalPage.module.css'
@@ -52,6 +53,11 @@ const LegalPage = () => {
 				</dl>
 				
 				<p>Данное Соглашение вступает в силу при любом использовании данного сайта. Администрация оставляет за собой право в одностороннем порядке изменять данное соглашение по своему усмотрению путем размещения на сайте новой версии без уведомления пользователя. Продолжение использования сайта пользователем после внесения изменений в настоящее Соглашение означает принятие и согласие пользователя с такими изменениями.</p>
+			
+				<div className="margin_bottom_xl">
+					<IconLinkBack />
+				</div>
+				
 			</div>
 
 			<Footer />
